@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。 第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归">
+<meta name="description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AbstractSky">
+<meta property="og:title" content="手势识别项目总结">
 <meta property="og:url" content="http://lefenger.com/2017/07/26/手势识别项目总结/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。 第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归">
+<meta property="og:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-07-26T09:19:24.185Z">
+<meta property="og:updated_time" content="2017-07-26T10:25:04.498Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AbstractSky">
-<meta name="twitter:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。 第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归">
+<meta name="twitter:title" content="手势识别项目总结">
+<meta name="twitter:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title> | AbstractSky</title>
+  <title>手势识别项目总结 | AbstractSky</title>
   
 
 
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">手势识别项目总结</h1>
         
 
         <div class="post-meta">
@@ -297,7 +297,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
                 2017-07-26
               </time>
             
@@ -307,6 +307,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenCV/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenCV</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -333,8 +355,7 @@
 
       
         <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>此文章只是总结，没有任何技术干货。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。<br>由于是在Unity中使用，所以我必须使用emgucv来进行识别。</p>
-<p>第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归为背景，后来我发现这个算法对于静态背景的手势识别十分不适合，因为你的手很有可能只在一小片地方活动，这样一来，它也会把你的手当做背景，所以强烈不推荐，后来我把它改成了单纯的背景差分法。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。<br>由于是在Unity中使用，所以我必须使用emgucv来进行识别。<br><a id="more"></a><br>第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归为背景，后来我发现这个算法对于静态背景的手势识别十分不适合，因为你的手很有可能只在一小片地方活动，这样一来，它也会把你的手当做背景，所以强烈不推荐，后来我把它改成了单纯的背景差分法。</p>
 <p>背景分离过后就容易了，先找出轮廓，找出轮廓最小长方形，再找出缺陷点，然后直接对这些缺陷点进行位置判断就ok了。</p>
 <p>期间有一个问题耗了我很长时间，就是opencv中的vector在emgucv中的对应类型是vectorofXX，例如vector<point> 在emgucv中就是vertorofpoint，更有意思的是还有类型叫做vectorofvectorofpoint。opencv中的vec4i的对应类型是Mat，对，你只能用mat类型代替，然后再把mat拷贝到matrix中，就能获取mat中的数据了。<br><img src="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></point></p>
 
@@ -373,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/机器学习笔记/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/07/26/本人对大脑的一些思考——思维方式图像化/" rel="next" title="本人对大脑的一些思考——思维方式图像化">
+                <i class="fa fa-chevron-left"></i> 本人对大脑的一些思考——思维方式图像化
               </a>
             
           </div>
@@ -383,8 +404,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/《编程范式》学习笔记/" rel="prev" title="《编程范式》学习笔记">
-                《编程范式》学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/循环神经网络/" rel="prev" title="循环神经网络">
+                循环神经网络 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -468,7 +489,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

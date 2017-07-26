@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+<meta name="description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AbstractSky">
+<meta property="og:title" content="Shader学习历程（二）——GPU渲染过程">
 <meta property="og:url" content="http://lefenger.com/2017/07/26/Shader学习历程（二）——GPU渲染过程/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+<meta property="og:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T09:03:20.403Z">
+<meta property="og:updated_time" content="2017-07-26T10:09:34.881Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AbstractSky">
-<meta name="twitter:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+<meta name="twitter:title" content="Shader学习历程（二）——GPU渲染过程">
+<meta name="twitter:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title> | AbstractSky</title>
+  <title>Shader学习历程（二）——GPU渲染过程 | AbstractSky</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Shader学习历程（二）——GPU渲染过程</h1>
         
 
         <div class="post-meta">
@@ -295,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
                 2017-07-26
               </time>
             
@@ -305,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Shader/" itemprop="url" rel="index">
+                    <span itemprop="name">Shader</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -332,8 +354,7 @@
       
         <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本文参考《GPU Programming And Cg Language Primer》<br>感谢作者</p>
 <h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。</p>
-<p>图形绘制管线分为三个阶段：<br><strong>应用程序阶段、几何阶段、光栅阶段</strong></p>
-<p>应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它在屏幕上显示出来，于是cpu就把所有顶点坐标、法向量、纹理坐标、纹理等信息传递给gpu。</p>
+<p>图形绘制管线分为三个阶段：<br><strong>应用程序阶段、几何阶段、光栅阶段</strong><br><a id="more"></a><br>应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它在屏幕上显示出来，于是cpu就把所有顶点坐标、法向量、纹理坐标、纹理等信息传递给gpu。</p>
 <p>几何阶段：主要负责顶点坐标变换、光照、裁剪、投影以及屏幕映射 ，该阶段基于 GPU 进行运算，它将从cpu传递过来的信息加以处理，最后得到经过 变换和投影之后的顶点坐标、颜色、以及纹理坐标。光照计算也在此阶段进行。</p>
 <p>光栅阶段：基于几何阶段的输出数据，为像素（Pixel）正确配色，以便绘制<br>完整图像，该阶段进行的都是单个像素的操作，每个像素的信息存储在颜色缓冲 器（color buffer 或者 frame buffer）中。</p>
 <h2 id="几何阶段的顶点变换"><a href="#几何阶段的顶点变换" class="headerlink" title="几何阶段的顶点变换"></a>几何阶段的顶点变换</h2><p> 上文提到，几何阶段主要进行顶点变换和光照计算，其实它的主要工作就是将获得的三维模型顶点按照我们想要的方式投影到2d的屏幕上，因为我们总是要通过屏幕来进行交互。</p>
@@ -396,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Shader 学习历程（一）——第一个shader/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/07/26/Shader学习历程（五）——Sprite Shader之简单抠图/" rel="next" title="Shader学习历程（五）——Sprite Shader之简单抠图">
+                <i class="fa fa-chevron-left"></i> Shader学习历程（五）——Sprite Shader之简单抠图
               </a>
             
           </div>
@@ -406,8 +427,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Shader 学习历程（一）——第一个shader/" rel="prev" title="Shader 学习历程（一）——第一个shader">
+                Shader 学习历程（一）——第一个shader <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +512,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

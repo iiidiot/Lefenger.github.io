@@ -93,18 +93,18 @@
 
 
 
-<meta name="description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。 渲染顺序Canvas中的元素渲染顺序是依据它们在列表中排列顺序决定的，后渲染的对象将会覆盖前面的对象。我们可以通过拖拽来改变顺序，同时我们也可以用脚本来控制，通过使用Transform里面的SetAsFirstSibling, SetAsLastSibling, 和SetSiblingIndex方法">
+<meta name="description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AbstractSky">
+<meta property="og:title" content="Unity UGUI 学习（一）——关于Canvas">
 <meta property="og:url" content="http://lefenger.com/2017/07/26/Unity UGUI 学习（一）——关于Canvas/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。 渲染顺序Canvas中的元素渲染顺序是依据它们在列表中排列顺序决定的，后渲染的对象将会覆盖前面的对象。我们可以通过拖拽来改变顺序，同时我们也可以用脚本来控制，通过使用Transform里面的SetAsFirstSibling, SetAsLastSibling, 和SetSiblingIndex方法">
+<meta property="og:description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20150919162606266">
-<meta property="og:updated_time" content="2017-07-26T09:04:01.335Z">
+<meta property="og:updated_time" content="2017-07-26T10:12:50.186Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AbstractSky">
-<meta name="twitter:description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。 渲染顺序Canvas中的元素渲染顺序是依据它们在列表中排列顺序决定的，后渲染的对象将会覆盖前面的对象。我们可以通过拖拽来改变顺序，同时我们也可以用脚本来控制，通过使用Transform里面的SetAsFirstSibling, SetAsLastSibling, 和SetSiblingIndex方法">
+<meta name="twitter:title" content="Unity UGUI 学习（一）——关于Canvas">
+<meta name="twitter:description" content="Canvas概述canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。">
 <meta name="twitter:image" content="http://img.blog.csdn.net/20150919162606266">
 
 
@@ -139,7 +139,7 @@
 
 
 
-  <title> | AbstractSky</title>
+  <title>Unity UGUI 学习（一）——关于Canvas | AbstractSky</title>
   
 
 
@@ -285,7 +285,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Unity UGUI 学习（一）——关于Canvas</h1>
         
 
         <div class="post-meta">
@@ -297,7 +297,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
                 2017-07-26
               </time>
             
@@ -307,6 +307,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/UGUI/" itemprop="url" rel="index">
+                    <span itemprop="name">UGUI</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -332,8 +354,7 @@
       
 
       
-        <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><p><strong>概述</strong><br>canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。</p>
-<p><strong>渲染顺序</strong><br>Canvas中的元素渲染顺序是依据它们在列表中排列顺序决定的，后渲染的对象将会覆盖前面的对象。我们可以通过拖拽来改变顺序，同时我们也可以用脚本来控制，通过使用Transform里面的SetAsFirstSibling, SetAsLastSibling, 和SetSiblingIndex方法 </p>
+        <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><p><strong>概述</strong><br>canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。<br><a id="more"></a><br><strong>渲染顺序</strong><br>Canvas中的元素渲染顺序是依据它们在列表中排列顺序决定的，后渲染的对象将会覆盖前面的对象。我们可以通过拖拽来改变顺序，同时我们也可以用脚本来控制，通过使用Transform里面的SetAsFirstSibling, SetAsLastSibling, 和SetSiblingIndex方法 </p>
 <p><strong>渲染模式</strong><br><em>Screen Space - Overlay</em><br>始终将元素渲染在屏幕最前面，Canvas的大小将自适应屏幕大小。</p>
 <p><em>Screen Space - Camera</em><br>与上一个差不多，区别是canvas是通过camera渲染的，这意味着camera的渲染设置将会影响canvas，比如culling mask可以决定UI是否被渲染。</p>
 <p><em>World Space</em><br>在这个渲染模式中canvas将和普通的对象一样，我们可以手动调节canvas的rect transform，canvas成为了一个3d世界中的一个对象，值得注意的是其中的event camera选项，这意味着canvas中所有元素的事件响应只有在相应的摄像机渲染出的画面中才有效。<br><img src="http://img.blog.csdn.net/20150919162606266" alt="这里写图片描述"></p>
@@ -373,8 +394,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Shader学习历程（五）——Sprite Shader之简单抠图/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/07/26/CS231n 学习笔记/" rel="next" title="卷积神经网络学习笔记">
+                <i class="fa fa-chevron-left"></i> 卷积神经网络学习笔记
               </a>
             
           </div>
@@ -382,10 +403,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/26/Unity 贝塞尔曲线/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -468,7 +485,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。    那么问题来了，我们该怎么消除刚体之间的弹">
+<meta name="description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AbstractSky">
+<meta property="og:title" content="关于如何彻底消除unity中的弹力">
 <meta property="og:url" content="http://lefenger.com/2017/07/26/关于如何彻底消除unity中的弹力/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。    那么问题来了，我们该怎么消除刚体之间的弹">
+<meta property="og:description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T09:01:49.617Z">
+<meta property="og:updated_time" content="2017-07-26T10:21:48.145Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AbstractSky">
-<meta name="twitter:description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。    那么问题来了，我们该怎么消除刚体之间的弹">
+<meta name="twitter:title" content="关于如何彻底消除unity中的弹力">
+<meta name="twitter:description" content="首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title> | AbstractSky</title>
+  <title>关于如何彻底消除unity中的弹力 | AbstractSky</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">关于如何彻底消除unity中的弹力</h1>
         
 
         <div class="post-meta">
@@ -295,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
                 2017-07-26
               </time>
             
@@ -305,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity/" itemprop="url" rel="index">
+                    <span itemprop="name">Unity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,7 +352,7 @@
       
 
       
-        <p>首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，<br>    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。<br>    那么问题来了，我们该怎么消除刚体之间的弹力呢？有一个很巧妙的方法，那就是通过改变刚体的速度，即rigidbody.velocity，你只要在物体即将弹起的时候把速度设为0就可以了。<br>    具体代码有时间再写吧，今天太累。</p>
+        <p>首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，<br><a id="more"></a><br>    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。<br>    那么问题来了，我们该怎么消除刚体之间的弹力呢？有一个很巧妙的方法，那就是通过改变刚体的速度，即rigidbody.velocity，你只要在物体即将弹起的时候把速度设为0就可以了。<br>    具体代码有时间再写吧，今天太累。</p>
 
       
     </div>
@@ -367,8 +389,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/关于记忆宫殿的一些思考/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/07/26/关于记忆宫殿的一些思考/" rel="next" title="关于记忆宫殿的一些思考">
+                <i class="fa fa-chevron-left"></i> 关于记忆宫殿的一些思考
               </a>
             
           </div>
@@ -377,8 +399,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/关于做梦/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/关于大数据的简单理解/" rel="prev" title="关于大数据的简单理解">
+                关于大数据的简单理解 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -453,7 +475,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>

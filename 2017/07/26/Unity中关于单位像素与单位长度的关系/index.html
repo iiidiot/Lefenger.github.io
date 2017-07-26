@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。 总结  在camera处于平行投影状态下时，即orthographic,其size参数的数值实际上是屏幕所对应的高度的一半，举个例子，创建一个高度为10的cube，这时你把size设为5，那么屏幕就刚好能容下这个柱子。也就是说无论你屏幕的pixelHeight怎么变化，屏幕的高度所对应的世界坐标单位长度是始终不会变的，换句">
+<meta name="description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="AbstractSky">
+<meta property="og:title" content="Unity中关于单位像素与单位长度的关系">
 <meta property="og:url" content="http://lefenger.com/2017/07/26/Unity中关于单位像素与单位长度的关系/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。 总结  在camera处于平行投影状态下时，即orthographic,其size参数的数值实际上是屏幕所对应的高度的一半，举个例子，创建一个高度为10的cube，这时你把size设为5，那么屏幕就刚好能容下这个柱子。也就是说无论你屏幕的pixelHeight怎么变化，屏幕的高度所对应的世界坐标单位长度是始终不会变的，换句">
+<meta property="og:description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T09:01:39.651Z">
+<meta property="og:updated_time" content="2017-07-26T10:16:35.450Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="AbstractSky">
-<meta name="twitter:description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。 总结  在camera处于平行投影状态下时，即orthographic,其size参数的数值实际上是屏幕所对应的高度的一半，举个例子，创建一个高度为10的cube，这时你把size设为5，那么屏幕就刚好能容下这个柱子。也就是说无论你屏幕的pixelHeight怎么变化，屏幕的高度所对应的世界坐标单位长度是始终不会变的，换句">
+<meta name="twitter:title" content="Unity中关于单位像素与单位长度的关系">
+<meta name="twitter:description" content="开头   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。">
 
 
 
@@ -137,7 +137,7 @@
 
 
 
-  <title> | AbstractSky</title>
+  <title>Unity中关于单位像素与单位长度的关系 | AbstractSky</title>
   
 
 
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline"></h1>
+          <h1 class="post-title" itemprop="name headline">Unity中关于单位像素与单位长度的关系</h1>
         
 
         <div class="post-meta">
@@ -295,7 +295,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
                 2017-07-26
               </time>
             
@@ -305,6 +305,28 @@
             
           </span>
 
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Unity/" itemprop="url" rel="index">
+                    <span itemprop="name">Unity</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -330,7 +352,7 @@
       
 
       
-        <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。</p>
+        <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。<br><a id="more"></a></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  在camera处于平行投影状态下时，即orthographic,其size参数的数值实际上是屏幕所对应的高度的一半，举个例子，创建一个高度为10的cube，这时你把size设为5，那么屏幕就刚好能容下这个柱子。<br>也就是说无论你屏幕的pixelHeight怎么变化，屏幕的高度所对应的世界坐标单位长度是始终不会变的，换句话说，无论屏幕像素如何变化，只要size为5，那个高为10的柱子始终会刚好在屏幕中。<br>    那么宽度是怎么变化的呢，我们把size改名为HeightHelfSize,那么widthHelfSize=HeightHelfSize*宽长比,这里的宽长比是屏幕像素的宽长比。</p>
 <h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>就这么多了。</p>
 
@@ -369,8 +391,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" rel="next" title="">
-                <i class="fa fa-chevron-left"></i> 
+              <a href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" rel="next" title="Unity中创建自己的mesh以及动态修改mesh">
+                <i class="fa fa-chevron-left"></i> Unity中创建自己的mesh以及动态修改mesh
               </a>
             
           </div>
@@ -379,8 +401,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/unity中关于角度的函数/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Caffe  问题记录/" rel="prev" title="Caffe问题记录">
+                Caffe问题记录 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -464,7 +486,7 @@
             
             <div class="site-state-item site-state-categories">
               
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">分类</span>
               
             </div>
