@@ -1,0 +1,682 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="(一)编程范式（1）八位能表示最大的数是多少？为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1 （2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AbstractSky">
+<meta property="og:url" content="http://lefenger.com/2017/07/26/《编程范式》学习笔记/index.html">
+<meta property="og:site_name" content="AbstractSky">
+<meta property="og:description" content="(一)编程范式（1）八位能表示最大的数是多少？为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1 （2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://img.blog.csdn.net/20170618103257690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:image" content="http://img.blog.csdn.net/20170618105724729?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta property="og:updated_time" content="2017-07-26T08:58:26.897Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AbstractSky">
+<meta name="twitter:description" content="(一)编程范式（1）八位能表示最大的数是多少？为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1 （2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20170618103257690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lefenger.com/2017/07/26/《编程范式》学习笔记/"/>
+
+
+
+
+
+  <title> | AbstractSky</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?20f853bf595da1e2982aa23897a0c23c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AbstractSky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/《编程范式》学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>(一)编程范式<br>（1）八位能表示最大的数是多少？<br>为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1</p>
+<p>（2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？<br>以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便得到00000000 00000000。-1的二进制表示是个例外，以short为例，为11111111 11111111，因为1的表示为0000 0001，相加正好为0。</p>
+<p>（3）不同数据类型之间的赋值<br>字节数小的赋值给字节数大的，例char赋值给short，00001111转化为short类型，结果为00000000 00001111。字节数大的赋值给字节数小的，例01010000 00001111转化为char类型，则舍弃多余的字节得到00001111，在这里有个误区，例A类型最大能表示的值为100，现在想要将值为123的B类型转化为A类型，不能想当然的认为转换后为100。另外由于-1的char表示为1111 1111，若要将其转化为short类型，需要进行符号扩展，从而变成11111111 11111111。</p>
+<p>（4）浮点数的二进制是如何表示的，以float为例？<br>数学公式为 （符号位）1.xxxx*2^(exp-127)         exp为八位无符号整型，范围为-255~255<br>[符号位][八位无符号整型，即exp][23位表示小数（2^-x），即.xxxx]</p>
+<p>（5）强制类型转换（简单讲讲）<br>float j=4.0；<br>int i=<em>（int </em>）&amp;j；<br>此时j的各位值都不会变，而i会照搬其各位的值，当然，获得的值不是4。<br>float j=4.0；<br>short i=<em>（short </em>）&amp;j；<br>此时short类型只有2个字节，因此只将float的前两个字节的数照搬过来。<br>（二）C语言<br>（1）struct</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">struct exm</div><div class="line">&#123;</div><div class="line">	int a;</div><div class="line">	int b;</div><div class="line">&#125;</div><div class="line">exm sa;</div><div class="line">sa.a=1;</div><div class="line">sa.b=2;</div><div class="line">print (exm *)&amp;（sa.b）-&gt;a</div></pre></td></tr></table></figure>
+<p>得出的结果为2，其中原理如图：<br><img src="http://img.blog.csdn.net/20170618103257690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>(exm *)&amp;（sa.b）-&gt;b=3;<br><img src="http://img.blog.csdn.net/20170618105724729?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>print((&amp;sa)[1].a)     输出为3，其中原因为把&amp;sa当成了数组首地址，基础单位为exm。</p>
+<p>(2)无论是string、int、float、short，他们都是线性寻址，举个Int的例子。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">int x=1；</div><div class="line">int y=2;</div><div class="line">swap(&amp;x,&amp;y)；</div><div class="line">int swap(int *xp,int *yp)           //xp，yp为x、y的地址</div><div class="line">&#123;</div><div class="line">	int temp=*xp;</div><div class="line">	*xp=*yp;</div><div class="line">	*yp=temp;                           //这里的*x就相当于int类型的x</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>对于其他类型来说，所做的操作也是一样的，就是根据一个地址逐单位寻址。</p>
+<p>(3)我们可以编写一个具有泛化能力的swap函数，它将是一个可以输入任何类型的函数。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">void swap(void *vp1,void *vp2,int size)</div><div class="line">&#123;</div><div class="line">	char buffer[size];</div><div class="line">	memcpy(buffer, vp1,size);</div><div class="line">	memcpy(vp1, vp2,size);</div><div class="line">	memcpy(vp2, buffer,size);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中memcpy函数前两个参数为指针，第三个参数为复制字节数，它会根据字节数按顺序对指针进行解引用并复制内容。<br>这个函数可以接受任何类型的输入，它不关心输入的为什么类型，只关心首地址与复制长度。s事实上任何类型的输入都不会引发编译器的报错。一下为几个特例：<br>(a)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">short a=2;</div><div class="line">int b=3;</div><div class="line">swap(&amp;a,&amp;b,sizeof(short)) //只会复制前两个字节</div></pre></td></tr></table></figure>
+<p>(b)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char *a=strdup（&quot;1234&quot;）;     //strdup() 可在堆中为一个char数组分配内存，并返回首地址。</div><div class="line">char *b=strdup(&quot;4567&quot;);</div><div class="line">swap（&amp;a,&amp;b,sizeof(char *));       //char *为指针类型，为四个字节.</div><div class="line">cout&lt;&lt; a&lt;&lt;endl;                //输出为4567</div><div class="line">cout&lt;&lt; b&lt;&lt;endl;	            //输出为1234</div></pre></td></tr></table></figure>
+<p>在这段程序中，swap的输入实际上为char**类型，以a举例，1234四个字符的值在堆中，他们相应的指针在栈中保存，而输入为&amp;a，这意味着输入为指针的地址，所以swap所交换的实际上是指针的值，由于size为4，所以只交换数组首地址的值，首地址交换，输出的值自然也就交换了。</p>
+<p>(c)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">char *a=strdup（&quot;1234&quot;）;     //strdup() 可在堆中为一个char数组分配内存，并返回首地址。</div><div class="line">char *b=strdup(&quot;4567&quot;);</div><div class="line">swap（a,b,sizeof(char);       //char *为指针类型，为四个字节.</div><div class="line">cout&lt;&lt; a&lt;&lt;endl;                //输出为4234</div><div class="line">cout&lt;&lt; b&lt;&lt;endl;	            //输出为1567</div></pre></td></tr></table></figure>
+<p>在这段程序中，swap的输入为char*类型，即将数组首地址传入，size为1，因此所改变的实际上为堆中数组的值。</p>
+<p>(4)    我们将再写一个具有泛化能力的搜索函数，就是在一个数组中搜索指定的值。<br>void <em> lsearch（void </em>key,void *base,int n,int elemSize）     //key为想要搜索的值，base为数组首地址，n为数组元素个数，elemSize为数组中元素大小。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">	for（int i=0;i&lt;n;i++）</div><div class="line">	&#123;</div><div class="line">		void *  elemAddr=(char *)base+i*elemSize*i;        //在这里是数组首地址的平移</div><div class="line">		if（memcmp（key，elemAddr，elemSize）==0）//memcmp是一个比较函数，他会根据size依次对字节的值进行比较。</div><div class="line">		&#123;</div><div class="line">			return elemAddr；    //返回结果指针</div><div class="line">			</div><div class="line">	&#125;</div><div class="line">     &#125;</div><div class="line">    return 0;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/26/循环神经网络/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/《线性代数》学习笔记/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tx.jpg"
+               alt="Lefeng" />
+          <p class="site-author-name" itemprop="name">Lefeng</p>
+           
+              <p class="site-description motion-element" itemprop="description">Today is my whole life.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lefeng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

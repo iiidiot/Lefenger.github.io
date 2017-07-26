@@ -1,0 +1,712 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AbstractSky">
+<meta property="og:url" content="http://lefenger.com/2017/07/26/Shader学习历程（二）——GPU渲染过程/index.html">
+<meta property="og:site_name" content="AbstractSky">
+<meta property="og:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-07-26T09:03:20.403Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="AbstractSky">
+<meta name="twitter:description" content="声明本文参考《GPU Programming And Cg Language Primer》感谢作者 概览这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。 图形绘制管线分为三个阶段：应用程序阶段、几何阶段、光栅阶段 应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://lefenger.com/2017/07/26/Shader学习历程（二）——GPU渲染过程/"/>
+
+
+
+
+
+  <title> | AbstractSky</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?20f853bf595da1e2982aa23897a0c23c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">AbstractSky</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Shader学习历程（二）——GPU渲染过程/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本文参考《GPU Programming And Cg Language Primer》<br>感谢作者</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。</p>
+<p>图形绘制管线分为三个阶段：<br><strong>应用程序阶段、几何阶段、光栅阶段</strong></p>
+<p>应用程序阶段：进行涉及cpu和内存的算法，按照我的理解，例如在unity里面设置场景和物体，实现游戏逻辑，这些都是cpu干的活，但cpu并不能让它在屏幕上显示出来，于是cpu就把所有顶点坐标、法向量、纹理坐标、纹理等信息传递给gpu。</p>
+<p>几何阶段：主要负责顶点坐标变换、光照、裁剪、投影以及屏幕映射 ，该阶段基于 GPU 进行运算，它将从cpu传递过来的信息加以处理，最后得到经过 变换和投影之后的顶点坐标、颜色、以及纹理坐标。光照计算也在此阶段进行。</p>
+<p>光栅阶段：基于几何阶段的输出数据，为像素（Pixel）正确配色，以便绘制<br>完整图像，该阶段进行的都是单个像素的操作，每个像素的信息存储在颜色缓冲 器（color buffer 或者 frame buffer）中。</p>
+<h2 id="几何阶段的顶点变换"><a href="#几何阶段的顶点变换" class="headerlink" title="几何阶段的顶点变换"></a>几何阶段的顶点变换</h2><p> 上文提到，几何阶段主要进行顶点变换和光照计算，其实它的主要工作就是将获得的三维模型顶点按照我们想要的方式投影到2d的屏幕上，因为我们总是要通过屏幕来进行交互。</p>
+<p>顶点变换分如下几个阶段：<br>模型坐标——世界坐标——视点坐标——投影（裁剪）坐标</p>
+<p>其中我觉得需要注意的几点如下：<br>1.从 object space coordinate 到 world space coordinate 的变换过程由一个四阶矩阵控制，通常称之为 world matrix。</p>
+<p>2.光照计算通常是在 world coordinate space（世界坐标空间）中进行的，这也 符合人类的生活常识。当然，也可以在 eye coordinate space 中得到相同的光照效果。</p>
+<p>3.从 eye space 到 project and clip space 需要将视锥之外和视锥之内的顶点进行裁剪，很多人在理解该步骤时存在一个混乱，即“不清楚裁减与投影的关系和两者 发生的先后顺序”，不少人觉得是“先裁减再投影”，不过事实并非如此。因为在 不规则的体（viewing frustum）中进行裁剪并非易事，所以经过图形学前辈们的<br>精心分析，裁剪被安排到一个单位立方体中进行，该立方体的对角顶点分别是 (-1,-1,-1)和(1,1,1)，通常称这个单位立方体为规范立方体（Canonical view volume, CVV）（实时计算机图形学第 9 页）。CVV 的近平面（梯形体较小的矩形面）的 X、Y 坐标对应屏幕像素坐标（左下角是 0、0），Z 坐标则是代表画面像素深度。</p>
+<p>4.把视锥中的顶点变换到CVV中就称为投影。而裁剪就在CVV中进行。然后再将经过前述过程得到的坐标映射到屏幕坐标系上。 </p>
+<p>5.关于裁剪，在这一步应该只是把处于视锥之外的顶点舍弃，并把视锥边界周围的顶点留下，并且<br>cpu也可参与顶点裁剪过程中，它通过检测某一物体是否在视锥之中，从而决定是否将它传递到gpu中。</p>
+<h2 id="Primitive-Assembly-amp-amp-Triangle-setup"><a href="#Primitive-Assembly-amp-amp-Triangle-setup" class="headerlink" title="Primitive Assembly &amp;&amp; Triangle setup"></a>Primitive Assembly &amp;&amp; Triangle setup</h2><p>图元装配，即将顶点根据 primitive（原始的连接关系）,还原出网格结构。<br>在这个过程中将把所有顶点再重新连接成一个个三角形。<br>在这个过程中也存在着裁剪，第一是将屏幕周边的三角形进行拆分。第二是通过法向量来判断三角形是否是背向屏幕的，从而剔除不必要的三角形。</p>
+<p>注意，到这个阶段，所有的顶点在经过裁剪、连接、转换后，都处于屏幕坐标系中。具体表现为一堆面片，接下来要进行光栅化。</p>
+<h2 id="光栅化阶段"><a href="#光栅化阶段" class="headerlink" title="光栅化阶段"></a>光栅化阶段</h2><p><strong>光栅化</strong><br>决定哪些像素被集合图元覆盖的过程<br><strong>像素操作</strong><br>1.消除遮挡面 </p>
+<p>2.Texture operation，纹理操作，也就是根据像素的纹理坐标，查询对应的 纹理值；</p>
+<p>3.Blending<br>  混色，根据目前已经画好的颜色，与正在计算的颜色的透明度（Alpha）， 混合为两种颜色，作为新的颜色输出。</p>
+<p>  4.Filtering，将正在算的颜色经过某种 Filtering（滤波或者滤镜）后输出。 可以理解为：经过一种数学运算后变成新的颜色值。 </p>
+<h2 id="着色语言与渲染流程"><a href="#着色语言与渲染流程" class="headerlink" title="着色语言与渲染流程"></a>着色语言与渲染流程</h2><ul>
+<li>坐标、向量、纹理坐标传递给顶点着色器。</li>
+<li>顶点着色器对顶点进行处理、进行光照计算。</li>
+<li>光栅化操作，用像素对图元（通常为三角形）进行填充，对顶点着色器传递给片段着色器的颜色、向量、坐标等元素进行插值。</li>
+<li>片段着色器对接收到的数据进行处理，最终计算出当前像素的颜色并输出。</li>
+<li><p>像素操作，进行上述操作，一般由固定管线功能来完成，在shaderlab中提供了相关函数。</p>
+<p><strong>注意事项</strong><br>顶点着色器每顶点执行，片段着色器每片段执行。</p>
+</li>
+</ul>
+<p>个人理解像素光照和顶点光照的区别就是延时光照对顶点各坐标数据进行插值之后再计算每像素的光照，正向光照是先计算顶点光照，然后再把光照颜色进行插值赋给各像素。<br>而延时渲染与正向渲染的区别就是对各光照类型进行分配的区别。</p>
+<p>学习总结，有错误或补充欢迎指出。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/26/Shader 学习历程（一）——第一个shader/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/tx.jpg"
+               alt="Lefeng" />
+          <p class="site-author-name" itemprop="name">Lefeng</p>
+           
+              <p class="site-description motion-element" itemprop="description">Today is my whole life.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">31</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#声明"><span class="nav-number">1.</span> <span class="nav-text">声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#概览"><span class="nav-number">2.</span> <span class="nav-text">概览</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#几何阶段的顶点变换"><span class="nav-number">3.</span> <span class="nav-text">几何阶段的顶点变换</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Primitive-Assembly-amp-amp-Triangle-setup"><span class="nav-number">4.</span> <span class="nav-text">Primitive Assembly && Triangle setup</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#光栅化阶段"><span class="nav-number">5.</span> <span class="nav-text">光栅化阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#着色语言与渲染流程"><span class="nav-number">6.</span> <span class="nav-text">着色语言与渲染流程</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Lefeng</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

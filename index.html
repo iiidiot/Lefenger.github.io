@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/24/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/机器学习笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefeng">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/24/hello-world/" itemprop="url">Hello World</a></h1>
+                <a class="post-title-link" href="/2017/07/26/机器学习笔记/" itemprop="url">未命名</a></h1>
         
 
         <div class="post-meta">
@@ -298,8 +298,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-24T12:05:35+08:00">
-                2017-07-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
               </time>
             
 
@@ -335,15 +335,1124 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+            <p>所以神经网络可以看成“线性组合-非线性激活函数-线性组合-非线性激活函数…”这样的较为复杂网络结构机器学习：为了解决一些难以用人工写逻辑来解决的问题。</p>
+<p>非监督学习与监督学习的区别：监督学习需要有正确的数据来引导，而非监督学习是单纯从数据中寻找规律。</p>
+<p>学习的目的是不断减少预测值与实际值的偏差，具体表现在参数的矫正。</p>
+<p>梯度下降算法：在n维坐标系中任意取一个点，沿着下降最快的一条路线找到最低点（不同的起点可能有不同的局部最低点），每一次下降都将对所有数据进行迭代。</p>
+<p>随机梯度下降算法：为了应对大量数据，此算法在寻找最低点的时候，每一次寻找都是在上一次基础上进行的，因此只会对数据进行一次遍历，但得到的值会在最小值的周围，不一定是最小值。</p>
+<p>直接通过求解析式来得到最小值</p>
+<p>梯度下降具体算法是：依次对代价函数中的参数求偏导，最后使每个参数减去学习率乘以那个值，直到代价函数收敛为止。</p>
+<p>多项式回归虽然能够解决非线性问题，但需要人工构造非线性的特征,但神经网络可应付样本非线性可分的情况，又同时能够自动构造非线性。</p>
+<p>所以神经网络可以看成“线性组合-非线性激活函数-线性组合-非线性激活函数…”这样的较为复杂网络结构.</p>
+<p>由于L-SVM是线性分类器，所以不能解决样本线性不可分的问题。于是后来人们引入了核函数的概念，于是得到了K-SVM（K是Kernel的意思）。从本质上讲，核函数是用于将原始特征映射到高维的特征空间中去，并认为在高为特征空间中能够实现线性可分。</p>
+<p>之所以使用sigmoid函数是因为直接使用感知机的话，由于只会输出0和1，那么神经网络中轻微的改变就可能导致结果的巨大变化，而sigmoid函数是非线性的，也是连续的。<br>另一个原因是sigmoid函数可以将结果映射到0-1区间中。其计算公式为f（wx+b）。</p>
+<p>感知机的工作原理是输入值乘以权值，然后与偏移值b进行比较，从而决定输出是1还是0，而sigmoid感知机将会在计算与b的差值之后再进行函数变换，从而体现出程度的概念。</p>
+<p>局部加权回归：是一个非参数学习算法，之所以是非参数，是因为它是基于样本数量进行回归的，在xy坐标系中，当给定一个x0，将根据周围几个点拟合出一条直线，从而得到预测的值，然后计算误差，再根据类似于高斯函数的分布（加权）对样本的坐标进行调整。注意一点，每一个样本数据的输入都会对所有的样本坐标进行加权调整（回归）。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于做梦/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/关于做梦/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>我开始怀疑一件事——每个梦境是否是超然于时间的，意思就是你可能会梦到未来的事物，我曾经也听说过梦可以预知未来，但我的感觉是梦境的存在仿佛是在第五个维度中（假如时间是第四个维度的话）。<br>最近的一系列经历让我更加确信了这一点。或许我们一直在接受着第五维度所发送的第四维度的东西，假设第五维度为一个数组，那么我想梦境中的内容和现实中的内容都以第四维度的形式存储在这个数组之中。<br>有一个可能性是，这两个第四维度都是客观存在的，我们一直处在现实世界这个第四维度之中，只能通过做梦这种方式来感受另一个第四维度，更有可能的是，也许有很多个第四维度，我们每次做梦所感受到的也许不是同一个。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>中午吃完饭瞎想，没有任何依据，典型的学的太少，想得太多，也许用来写科幻小说是个不错的想法。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于如何彻底消除unity中的弹力/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/关于如何彻底消除unity中的弹力/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，<br>    为什么这么说呢，因为可以改变的只是带有刚体的物体和不带有刚体的物体之间的碰撞(对，可以彻底消除)，然后刚体之间的弹力是无法解决的。<br>    那么问题来了，我们该怎么消除刚体之间的弹力呢？有一个很巧妙的方法，那就是通过改变刚体的速度，即rigidbody.velocity，你只要在物体即将弹起的时候把速度设为0就可以了。<br>    具体代码有时间再写吧，今天太累。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于记忆宫殿的一些思考/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/关于记忆宫殿的一些思考/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p> 最近在学德语，由于德语单词不是一般难背，就想到记忆宫殿了，一下是我自己的一些想法。<br> 1，记忆宫殿不只是为了记忆</p>
+<ol>
+<li>如果把记忆宫殿当成一种方法，那就太低级了。</li>
+<li>记忆宫殿如果存在顺序，那就说明还处于很基础的阶段。</li>
+<li>记忆宫殿可以是每个人的修养，最重要的是每个人记忆宫殿的差别不只是内容上的，可能是维度上的。</li>
+<li>记忆宫殿是一个世界。</li>
+</ol>
+<p>有一些想做的事：<br>1.如果借用记忆宫殿的思想，我觉得需要一款软件作为记忆宫殿的辅助，至少作为学习语言的辅助。<br>2.如果有一个最全的公用模型接口就好了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于大数据的简单理解/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/关于大数据的简单理解/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>几天前看了清华关于大数据的系列讲座，对其中一位的演讲挺有感触，现在想想还是得记录下来，具体内容我已经忘了差不多了，一下就把比较深刻的写下来：</p>
+<h2 id="什么是大数据"><a href="#什么是大数据" class="headerlink" title="什么是大数据"></a>什么是大数据</h2><ul>
+<li>大量数据</li>
+<li>完备性</li>
+<li>非结构性</li>
+<li>样本丰富</li>
+</ul>
+<p>我记得完备性是指大数据所覆盖的面，是应用，而样本丰富是指数据来源地一定要是多样的，演讲中用一个人的所有细胞来举例，虽然数量大，但不是大数据。</p>
+<h2 id="大数据是一种思维方式"><a href="#大数据是一种思维方式" class="headerlink" title="大数据是一种思维方式"></a>大数据是一种思维方式</h2><p>这一段我比较深刻，大数据是一种思维方式，讲座中用几个企业过去与现在的对比表现了大数据对产业的冲击和颠覆，依赖大数据来进行决策是一种高效率，高精确度的方式，更重要的是大数据让我感到它对时代是<strong>质</strong>的飞跃，这也是讲座中多个演讲人反复提到的指数效应。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><p>以上只是我自己的一些理解，可能会有错的地方，随便看看就好</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/本人对大脑的一些思考——思维方式图像化/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/本人对大脑的一些思考——思维方式图像化/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>本文是本人对大脑（或称思维方式）的一些思考，其中观点完全来源于平时不由自主的遐想，本人不曾涉及过文中涉及的相关领域（我只是一个入门程序员orz）。</p>
+<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p> 首先我要举一个例子，作为一名程序员，我总是喜欢将我学过的知识分类（Unity、C#、图形学等等），而用来分类的工具就是像csdn这样的博客，然后把每天收获的知识放入相应的分类中。然而大脑是否也能完成相应的事情呢？注意，在这里我的意思不是让大脑记住每天的知识，而是将这种分类在大脑中图像化。<br>    举个例子，我们在大脑中图像化出一个GUI界面，其中包含着自身所有的社交、性格、知识、背景等等，当我们需要搜索某一项的时候，有两种方式可以选择，第一是直接提取信息（记忆深刻），第二就是通过框架一层层寻找，这有点类似与关联记忆，再举个例子，人们通常很难掌握自己的性格，即使知道自己大概存在着哪两种性格，但仍然不容易在某一时刻醒悟自己在哪一个性格之中，但是通过框架的话，我们可以在性格那一项根据自己的经验产生相应性格选项，然后在日后不断通过生活来完善它，这样能够更好的掌控自己的性格。人们可以定义一个每个人都适用的基本框架，然后每个人可以根据自身进行补充，最重要的是将它在大脑中图像化。以上只是举一个例子，利用框架来更好的管理自己的人生，这也就是所谓的思维方式图像化最基础的一种。<br>    其实读者看到这可能要吐槽了，“这有什么用啊，我们平时学习某一项知识不也是按一个框架来的嘛？而且很多事物都有它的框架啊，人们就是通过框架来学习的啊。”但我的意思是练习一种思维方式，对，上面所说的框架本质就是一种思维方式，我最想表达的就是<strong>创造一种属于自己的思维方式</strong>，从小到大，我们的想法与观点不断通过阅历来改变和完善，然而这终究是零碎的，有一个完备的思维体系很重要，这套体系可以决定你的行为和想法，但它又是多变的，每个人都可以根据自己的理解和抽象能力来改造或升级它，然而图像化也是非常重要的，因为图像便于记忆、管理、理解。<br>    唉，以我现在的文笔，不足以表达我心中的想法，下面我将举例来说明，希望有用。<br>    下面是我自主研发的思维系统（开启脑洞模式）：</p>
+<ul>
+<li>快速处理器：   就是所谓的习惯，当特定的场景或情节发生时，大脑将通过此机制快速做出反应，当然，还需要有处理器索引。</li>
+<li>场景重建：利用视觉图像记忆，并根据周围人的性格库，从而重建或者新建一个存在过或者尚未存在的场景，用户可以以第一人称或第三人称来分析过去或预知未来。</li>
+<li>时光倒流： 其实我们每个人都拥有时光倒流的能力，想象一下，你是一个长相很逊的屌丝，现在你面前有一位你特别特别喜欢的美女，然而事实上她本来就是你的老婆，其实你是知道的，两年后，你们俩将要结婚~啊喂，我还没说完呢，你怎么都已经去勾搭她了？–||    别问我你为什么知道他是你老婆，这就像我现在告诉你，你会成功的。有时候，从前往后思考，不如从后往前思考。</li>
+<li><p>多线程处理： 这个功能实现较为困难，因为我不知道大脑能不能同时思考两个东西，但是有时候做梦的时候，梦里的其它角色不是自己控制的，而且他们的行为举止和他们真实性格是很匹配的，在梦里自己是一个独立的存在，嘿嘿，挺有意思的。这个功能是场景重建（加强版）的基础。</p>
+<p> 暂时想不到其它东西了，但是还少了一项，这也是最重要且最有意思的一项，那就是整体系统的构成方式，构成方式之间的最明显区别就是图像化方式不同，下面我将列举几种：</p>
+</li>
+</ul>
+<ul>
+<li>GUI框架式： 对，这就是最无聊，最基本，类似于机器人的构成方式，很多地球人都不会选择它。</li>
+<li>待开发： 这绝不是我能够想出来的，但我认为这将类似于从2d到3d转变，也是人类思维的突破，或许很多设计模式不能适用于电脑，但它说不定适用于人脑，我觉得大脑的开发不只是科学家的事，应该和软件开发一样，由研究人员给出类似于sdk的东西，我们每个人都可以参与到开发之中，然后再点一下题，图像化将使人类生活更美好。</li>
+</ul>
+<h1 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h1><p> 写到这里，才发现本文没有什么重心，考虑得也很幼稚，写得很烂，不过，这是我写的最长的一篇文章，我开心就好。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/unity中关于角度的函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/unity中关于角度的函数/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>欧拉角和四元数一直不是太懂，所以最近补一补，先搞清楚应用方面吧</p>
+<p>public void ToAngleAxis(out float angle, out Vector3 axis);</p>
+<p>其中参数angle为旋转角；参数axis为轴向量。</p>
+<p>将对象现在的角度转换成轴向与旋转角。</p>
+<p>void AngleAxis（float angle，Vector3 axis）</p>
+<p>通过旋转角与轴向量来确定对象的角度</p>
+<p>void SetFromToRotation（Vector3 fromDirection,Vector3 toDirection）</p>
+<p>var a:Vector3;</p>
+<p>var b:Vector3;</p>
+<p>var q:Quaternion;</p>
+<p>var headUpDir:Vector3;</p>
+<p>q.SetFromToRotation(a,b);</p>
+<p>transform.rotation=q;</p>
+<p>headUpDir=transform.TransformDirection(Vector3.Forward);</p>
+<p>输入：a=Vector3(0,0,1); b=Vector3(0,1,0)//把z轴朝向y轴</p>
+<p>输出： q=(-0.7,0,0,0.7); headUpDir=(0,1,0)</p>
+<p>意思是如果定义一个四元数，那么通过调用这个函数则可返回这个旋转过程。</p>
+<p>void SetLookRotation (Vector3 view ,Vector3 up  = Vector3.up)</p>
+<p>这个函数建立一个旋转使z轴朝向view y轴朝向up。</p>
+<p>同样是Quaternion类里面的</p>
+<p>四元数运算符也被重载了</p>
+<p>Dot为点乘</p>
+<ul>
+<li><p>为组合旋转</p>
+<p>旋转一个点，首先用lhs，然后用rhs旋转，与使用组合旋转相同。注意旋转不可交换： lhs<em>rhs不等于rhs</em>lhs.</p>
+</li>
+</ul>
+<p>Quaternion.eulerAngles 欧拉角</p>
+<p>返回表示旋转的欧拉角度。</p>
+<p>表示旋转的角度，绕z轴旋转euler.z度，绕x轴旋转euler.x度，绕y轴旋转euler.y度（这样的顺序）。</p>
+<p>//创建一个旋转<br>var rotation = Quaternion.identity;<br>//绕y轴，指定一个30度旋转角<br>rotation.eulerAngles = Vector3(0, 30, 0);<br>//打印绕y轴的旋转角度<br>print(rotation.eulerAngles.y);</p>
+<p>Quaternion.Lerp </p>
+<p>这个就不讲了， 插值。</p>
+<p>值得注意的是，Lerp与SLerp的区别在于Slerp是匀角速度，而Lerp是线性。</p>
+<p>Quaternion.RotateTowards</p>
+<p>static function RotateTowards (from : Quaternion, to : Quaternion, maxDegreesDelta : float) : Quaternion</p>
+<p>这基本上和Quaternion.Slerp相同，但是这个函数的角速度永远不会超过maxDegreesDelta。负的maxDegreesDelta值将使旋转远离to</p>
+<p>Quaternion.Inverse 求反</p>
+<p>static function Inverse (rotation : Quaternion) : Quaternion</p>
+<p>就是返回反向旋转过程</p>
+<p>Quaternion.Angle 角</p>
+<p>static function Angle (a : Quaternion, b : Quaternion) : float</p>
+<p>返回a和b两者之间的角度。</p>
+<p> Quaternion.Euler 欧拉角</p>
+<p>返回一个旋转角度，绕z轴旋转z度，绕x轴旋转x度，绕y轴旋转y度（像这样的顺序）。</p>
+<p>static function Euler (x : float, y : float, z : float) : Quaternion</p>
+<p>var rotation = Quaternion.Euler(0, 30, 0);</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity中关于单位像素与单位长度的关系/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/Unity中关于单位像素与单位长度的关系/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>  在camera处于平行投影状态下时，即orthographic,其size参数的数值实际上是屏幕所对应的高度的一半，举个例子，创建一个高度为10的cube，这时你把size设为5，那么屏幕就刚好能容下这个柱子。<br>也就是说无论你屏幕的pixelHeight怎么变化，屏幕的高度所对应的世界坐标单位长度是始终不会变的，换句话说，无论屏幕像素如何变化，只要size为5，那个高为10的柱子始终会刚好在屏幕中。<br>    那么宽度是怎么变化的呢，我们把size改名为HeightHelfSize,那么widthHelfSize=HeightHelfSize*宽长比,这里的宽长比是屏幕像素的宽长比。</p>
+<h2 id="结尾"><a href="#结尾" class="headerlink" title="结尾"></a>结尾</h2><p>就这么多了。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><pre><code>最近发现有很多人不知道在unity中可以创建和修改mesh，以为mesh只能从3dmax等软件中导入，所以这篇就相当于科普了。
+</code></pre><h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><pre><code>首先介绍如何创建mesh。
+</code></pre><p>   <img src="http://img.blog.csdn.net/20160127155327011" alt="这里写图片描述"><br>    先创建一个空物体，名为test。<br>    <img src="http://img.blog.csdn.net/20160127150028163" alt=" "><br>    然后为这个物体增加 meshrender 和 meshfilter 两个组件</p>
+<pre><code>下面就要写将要赋给它的脚本了，先贴上代码，解释在下面。
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line">using UnityEngine;</div><div class="line">using System.Collections;</div><div class="line"></div><div class="line">public class Test: MonoBehaviour</div><div class="line">&#123;</div><div class="line">     </div><div class="line">    void Start()</div><div class="line">    &#123;</div><div class="line">        Vector3[] newVertices = &#123; new Vector3(0, 0, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0), new Vector3(1, 0, 0) &#125;;</div><div class="line">        Vector2[] newUV = &#123; new Vector2(0, 0), new Vector2(0, 1), new Vector2(1, 1), new Vector2(1, 0) &#125;;</div><div class="line">        int[] newTriangles = &#123;0,2,1,0,3,2&#125;;</div><div class="line"></div><div class="line">        Mesh mesh = new Mesh();</div><div class="line">        GetComponent&lt;MeshFilter&gt;().mesh = mesh;</div><div class="line"></div><div class="line">        mesh.vertices = newVertices;</div><div class="line">        mesh.uv = newUV;</div><div class="line">        mesh.triangles = newTriangles;</div><div class="line">         </div><div class="line">      </div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>要创建一个mesh必须要准备好三个数组分别是顶点数组，三角形数组，uv数组。</p>
+<ul>
+<li>顶点数组    包括这个mesh中所有的顶点，如  Vector3[] newVertices = { new Vector3(0, 0, 0), new Vector3(0, 1, 0), new Vector3(1, 1, 0), new Vector3(1, 0, 0) };   其中有四个顶点，分别为正方形四个角。</li>
+<li>三角形数组    指定如何构成每个三角形，同时也确定了三角形的个数，如   int[] newTriangles = {0,2,1,0,3,2};     这行代码表示0，2，1（对应着newVertices[0],newVertices [2],newVertices [1]）,构成第一个三角形的三个角，数字的顺序表示顺逆时针，同时确定了三角形的正反面，后面的0，3，2同理，这就代表此mesh有两个三角形。</li>
+<li>uv数组     这是一个vector2数组，用来确定顶点数组中每个顶点的uv坐标，这在下面将演示给大家看。</li>
+</ul>
+<p>代码写好之后，把脚本贴到Test物体上，然后设置一个material，如下图：<br><img src="http://img.blog.csdn.net/20160127155232511" alt="这里写图片描述"></p>
+<p>下面是运行后的图片：<br><img src="http://img.blog.csdn.net/20160127155804513" alt="这里写图片描述"></p>
+<p>至于为什么uv数组是什么，你可以认为这张图片的四个角的uv坐标分别为（0，0），（1，0），（1，1），（1，0），如果我把上面代码中的uv数组改成           Vector2[] newUV = { new Vector2(0, 0), new Vector2(0, 1), new Vector2(0.5f, 1), new Vector2(0.5f, 0) };   那就会变成下面这个样子：<br><img src="http://img.blog.csdn.net/20160127160421593" alt="这里写图片描述"></p>
+<p>有一点要注意的是，顶点数组中的顶点坐标都是在模型坐标系中的，就是以刚开始创建的Test空物体的坐标为原点。</p>
+<p>以上只是简单创建了一个平面mesh，至于如何创建3d mesh和修改mesh，相信聪明的你一定会啦。</p>
+<h2 id="最后"><a href="#最后" class="headerlink" title="最后"></a>最后</h2><pre><code>就这样了  如果有错误或疑问，请评论，如果觉得还不错或有帮助，请关注或顶一下，谢谢啦~~~ (´・ω・`) 
+</code></pre>
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/unity与android交互/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefeng">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/unity与android交互/" itemprop="url">未命名</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:09:54+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>unity与android交互：eclipse中安卓版本最低要求4.0，具体原因如下：</p>
+<p><a href="http://www.cnblogs.com/123ing/p/3840712.html" target="_blank" rel="external">Error building Player: CommandInvokationFailure: Failed to re-package resources. See the Console for details. ShareSDK 也有这种错误 - ing… - 博客园</a></p>
+<p>unity中结构目录如下，值得注意的是，libs中只能放第三方jar，并且不能放unity的class，因为unity本身已经包括了。<br><img src="http://img.blog.csdn.net/20151008102045160" alt="目录结构"></p>
 
           
         
@@ -381,6 +1490,10 @@
   </section>
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+  </nav>
+
 
 
           </div>
@@ -423,7 +1536,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-count">31</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
