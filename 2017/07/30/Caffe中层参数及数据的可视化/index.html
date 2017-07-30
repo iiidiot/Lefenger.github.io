@@ -221,22 +221,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -333,6 +333,17 @@
           
 
           
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/30/Caffe中层参数及数据的可视化/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/30/Caffe中层参数及数据的可视化/" itemprop="commentCount"></span>
+                </a>
+              </span>
             
           
 
@@ -458,6 +469,13 @@ vis_square(filters.transpose(0, 2, 3, 1))`
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -605,6 +623,8 @@ vis_square(filters.transpose(0, 2, 3, 1))`
   
 
 
+  
+
 
 
 
@@ -632,6 +652,9 @@ vis_square(filters.transpose(0, 2, 3, 1))`
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -671,6 +694,26 @@ vis_square(filters.transpose(0, 2, 3, 1))`
 
   
 
+    
+      <script id="dsq-count-scr" src="https://Lefenger.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lefenger.com/2017/07/30/Caffe中层参数及数据的可视化/';
+          this.page.identifier = '2017/07/30/Caffe中层参数及数据的可视化/';
+          this.page.title = 'Caffe中层参数及数据的可视化';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Lefenger.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -689,10 +732,6 @@ vis_square(filters.transpose(0, 2, 3, 1))`
   
 
 
-
-
-
-  
 
 
 

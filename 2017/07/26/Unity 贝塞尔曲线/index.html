@@ -218,22 +218,22 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
             归档
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
-            
-            标签
           </a>
         </li>
       
@@ -331,6 +331,17 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/26/Unity 贝塞尔曲线/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/26/Unity 贝塞尔曲线/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -393,14 +404,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" rel="next" title="Unity中创建自己的mesh以及动态修改mesh">
+                <i class="fa fa-chevron-left"></i> Unity中创建自己的mesh以及动态修改mesh
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/CS231n 学习笔记/" rel="prev" title="卷积神经网络学习笔记">
-                卷积神经网络学习笔记 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Shader学习历程（五）——Sprite Shader之简单抠图/" rel="prev" title="Shader学习历程（五）——Sprite Shader之简单抠图">
+                Shader学习历程（五）——Sprite Shader之简单抠图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -426,6 +441,13 @@
 
           
   <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
     
   </div>
 
@@ -573,6 +595,8 @@
   
 
 
+  
+
 
 
 
@@ -600,6 +624,9 @@
 
   
   <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
 
 
   
@@ -639,6 +666,26 @@
 
   
 
+    
+      <script id="dsq-count-scr" src="https://Lefenger.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://lefenger.com/2017/07/26/Unity 贝塞尔曲线/';
+          this.page.identifier = '2017/07/26/Unity 贝塞尔曲线/';
+          this.page.title = 'Unity 贝塞尔曲线';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://Lefenger.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
 
 
 
@@ -657,10 +704,6 @@
   
 
 
-
-
-
-  
 
 
 
