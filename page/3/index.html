@@ -267,7 +267,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/MFC与stdafx/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -286,7 +286,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/MFC与stdafx/" itemprop="url">MFC与stdafx</a></h1>
+                <a class="post-title-link" href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" itemprop="url">Unity中创建自己的mesh以及动态修改mesh</a></h1>
         
 
         <div class="post-meta">
@@ -321,8 +321,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/Unity/" itemprop="url" rel="index">
+                    <span itemprop="name">Unity</span>
                   </a>
                 </span>
 
@@ -356,10 +356,289 @@
 
       
         
-          <h2 id="MFC"><a href="#MFC" class="headerlink" title="MFC"></a>MFC</h2><p>   MFC即微软基础类库（英语：Microsoft Foundation Classes，简称MFC）。它以C++类的形式封装了windows api，它实际上是windows api的高层实现，各种windows句柄会被包含在MFC的相应的类中，若要进行操作只需调用相关的成员函数即可。<br>
+          <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><pre><code>最近发现有很多人不知道在unity中可以创建和修改mesh，以为mesh只能从3dmax等软件中导入，所以这篇就相当于科普了。
+</code></pre>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/MFC与stdafx/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/CS231n 学习笔记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/CS231n 学习笔记/" itemprop="url">卷积神经网络学习笔记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>人大脑处理图像的第一步是对边界和形状的识别，图像分类到图像识别。</p>
+<h1 id="二、K-近邻算法"><a href="#二、K-近邻算法" class="headerlink" title="二、K-近邻算法"></a>二、K-近邻算法</h1><p>1 .监督学习，是一种即时分类非参数算法，对测试集中的每一张图片，遍历训练集，计算两张图片的相似度，相似度的计算方法为计算每个对应像素之间的距离（所谓的距离可能使用欧氏距离或曼哈顿距离），然后相加，最终得到相似度最小的K张图片，从而根据标签占比得到最终标签（即分类）。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/CS231n 学习笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Caffe中的Net/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/Caffe中的Net/" itemprop="url">Caffe中的Net</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Caffe/" itemprop="url" rel="index">
+                    <span itemprop="name">Caffe</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>Net这个类代表着一个神经网络。</p>
+<h2 id="一个Net的创建"><a href="#一个Net的创建" class="headerlink" title="一个Net的创建"></a>一个Net的创建</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">cafferoot=&apos;/home/abstractsky/caffe&apos;   </div><div class="line">caffe.set_mode_gpu                 #在GPU上运行</div><div class="line">deployfile=&apos;/home/abstractsky/公共的/style-transfer-master/models/vgg16/VGG_ILSVRC_16_layers_deploy.prototxt&apos;  #deploy文件</div><div class="line">modelfile=&apos;/home/abstractsky/公共的/style-transfer-master/models/vgg16/VGG_ILSVRC_16_layers.caffemodel&apos;   #caffemodel文件</div><div class="line">net=caffe.Net(deployfile,modelfile,caffe.TEST)</div></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/Caffe中的Net/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -543,7 +822,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/unity中关于角度的函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -562,7 +841,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/" itemprop="url">Unity中创建自己的mesh以及动态修改mesh</a></h1>
+                <a class="post-title-link" href="/2017/07/26/unity中关于角度的函数/" itemprop="url">unity中关于角度的函数</a></h1>
         
 
         <div class="post-meta">
@@ -632,426 +911,13 @@
 
       
         
-          <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><pre><code>最近发现有很多人不知道在unity中可以创建和修改mesh，以为mesh只能从3dmax等软件中导入，所以这篇就相当于科普了。
-</code></pre>
+          <p>欧拉角和四元数一直不是太懂，所以最近补一补，先搞清楚应用方面吧</p>
+<p>public void ToAngleAxis(out float angle, out Vector3 axis);</p>
+<p>其中参数angle为旋转角；参数axis为轴向量。</p>
+<p>将对象现在的角度转换成轴向与旋转角。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/Unity中创建自己的mesh以及动态修改mesh/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity中关于单位像素与单位长度的关系/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/Unity中关于单位像素与单位长度的关系/" itemprop="url">Unity中关于单位像素与单位长度的关系</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity/" itemprop="url" rel="index">
-                    <span itemprop="name">Unity</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="开头"><a href="#开头" class="headerlink" title="开头"></a>开头</h2><p>   以下是对unity中关于屏幕像素与世界坐标单位长度的关系的总结。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/Unity中关于单位像素与单位长度的关系/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/" itemprop="url">Shader学习历程（三）——shaderlab中边缘光的不同实现</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shader/" itemprop="url" rel="index">
-                    <span itemprop="name">Shader</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>学习，由易到难。<br><img src="http://img.blog.csdn.net/20151013233128640" alt="这里写图片描述"></p>
-<p>Surface Shaders实现：<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于做梦/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/关于做梦/" itemprop="url">关于梦</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/思考/" itemprop="url" rel="index">
-                    <span itemprop="name">思考</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>我开始怀疑一件事——每个梦境是否是超然于时间的，意思就是你可能会梦到未来的事物，我曾经也听说过梦可以预知未来，但我的感觉是梦境的存在仿佛是在第五个维度中（假如时间是第四个维度的话）。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/关于做梦/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/unity中关于角度的函数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1235,7 +1101,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于如何彻底消除unity中的弹力/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Unity UGUI 学习（一）——关于Canvas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -1254,7 +1120,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/关于如何彻底消除unity中的弹力/" itemprop="url">关于如何彻底消除unity中的弹力</a></h1>
+                <a class="post-title-link" href="/2017/07/26/Unity UGUI 学习（一）——关于Canvas/" itemprop="url">Unity UGUI 学习（一）——关于Canvas</a></h1>
         
 
         <div class="post-meta">
@@ -1289,8 +1155,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Unity/" itemprop="url" rel="index">
-                    <span itemprop="name">Unity</span>
+                  <a href="/categories/UGUI/" itemprop="url" rel="index">
+                    <span itemprop="name">UGUI</span>
                   </a>
                 </span>
 
@@ -1324,10 +1190,10 @@
 
       
         
-          <p>首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，<br>
+          <h2 id="Canvas"><a href="#Canvas" class="headerlink" title="Canvas"></a>Canvas</h2><p><strong>概述</strong><br>canvas包含所有元素，它有一个Canvas组件，所有的元素都必须是它的子物体。<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/关于如何彻底消除unity中的弹力/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/Unity UGUI 学习（一）——关于Canvas/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1512,7 +1378,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/unity中关于角度的函数/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于做梦/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -1531,7 +1397,145 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/unity中关于角度的函数/" itemprop="url">unity中关于角度的函数</a></h1>
+                <a class="post-title-link" href="/2017/07/26/关于做梦/" itemprop="url">关于梦</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/思考/" itemprop="url" rel="index">
+                    <span itemprop="name">思考</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>我开始怀疑一件事——每个梦境是否是超然于时间的，意思就是你可能会梦到未来的事物，我曾经也听说过梦可以预知未来，但我的感觉是梦境的存在仿佛是在第五个维度中（假如时间是第四个维度的话）。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/关于做梦/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/关于如何彻底消除unity中的弹力/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/关于如何彻底消除unity中的弹力/" itemprop="url">关于如何彻底消除unity中的弹力</a></h1>
         
 
         <div class="post-meta">
@@ -1601,13 +1605,10 @@
 
       
         
-          <p>欧拉角和四元数一直不是太懂，所以最近补一补，先搞清楚应用方面吧</p>
-<p>public void ToAngleAxis(out float angle, out Vector3 axis);</p>
-<p>其中参数angle为旋转角；参数axis为轴向量。</p>
-<p>将对象现在的角度转换成轴向与旋转角。<br>
+          <p>首先，在unity中应该是无法彻底消除弹力的，即使你把physics中的弹力设为0，即使你给collider添加物理材质，都是没法消除弹力的，具体表现为：改和没改一个样。。。。呵呵，我想这可能物理引擎的一个bug，<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/unity中关于角度的函数/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/关于如何彻底消除unity中的弹力/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
