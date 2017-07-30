@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="Caffe使用所遇到的问题。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-27T13:45:36.319Z">
+<meta property="og:updated_time" content="2017-07-30T04:19:04.849Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Caffe问题记录">
 <meta name="twitter:description" content="Caffe使用所遇到的问题。">
@@ -364,7 +364,7 @@
 
       
         <p>Caffe使用所遇到的问题。<br><a id="more"></a></p>
-<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p> 当    caffe为训练模式时，dropout不执行。</p>
+<h1 id="一"><a href="#一" class="headerlink" title="一"></a>一</h1><p> 当    caffe为训练模式时，dropout不执行。<br> drop层只存在于全链接层的后面，即只对全链接层进行drop。</p>
 <h1 id="二"><a href="#二" class="headerlink" title="二"></a>二</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">layer</div><div class="line">&#123;    </div><div class="line">    bottom: &quot;a&quot;</div><div class="line">    bottom: &quot;b&quot;</div><div class="line">    name: &quot;conv1_1&quot;</div><div class="line">    param</div><div class="line">    &#123;</div><div class="line">	 propagate_down : 0  //a不会得到梯度传播</div><div class="line">	 propagate_down : 0  //b不会得到梯度传播</div><div class="line">	 lr_mult: 0 # 学习率为0   //此层参数不会改变，可用于finetune</div><div class="line">    &#125;</div><div class="line">    # set loss weight so Caffe knows this is a loss layer  </div><div class="line">    loss_weight: 1  //告诉caffe这是一个loss层</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h1 id="三"><a href="#三" class="headerlink" title="三"></a>三</h1><p>transformer=caffe.io.Transformer({‘data’:[1,3,256,256]})<br>Transformer是一个图像预处理类，在io.py中可看到具体实现，这个类用于图像数据的预处理，最多只能为三维，这个类本身不存储数据，它存储的是预处理的方式，即处理的过程，它以键值对的形式存储预处理模板，一般先将所需要的预处理过程写好，再使用此类对数据进行预处理。这里需要注意的是[1,3,256,256]并不是处理之前的维度，而是处理之后的维度，即你想要得到的维度。</p>
 <p>transformer.set_transpose(“data”,(2,0,1))<br>对维度进行变换 ，例如输入的维度为[422,412,3],则得出的结果为[3,256,256],其中操作分为两步，一是[422,412,3]-&gt;[3,422,412],二是根据[1,3,256,256]对维度进行缩放。</p>
@@ -405,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/MFC与stdafx/" rel="next" title="MFC与stdafx">
-                <i class="fa fa-chevron-left"></i> MFC与stdafx
+              <a href="/2017/07/26/Numpy中的transpose函数/" rel="next" title="Numpy中的transpose函数">
+                <i class="fa fa-chevron-left"></i> Numpy中的transpose函数
               </a>
             
           </div>
@@ -415,8 +415,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/Unity 贝塞尔曲线/" rel="prev" title="Unity 贝塞尔曲线">
-                Unity 贝塞尔曲线 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/unity与android交互/" rel="prev" title="unity与android交互">
+                unity与android交互 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -489,7 +489,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">33</span>
+                <span class="site-state-item-count">37</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
