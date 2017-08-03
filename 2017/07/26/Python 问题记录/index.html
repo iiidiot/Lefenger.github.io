@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="1.Tshape=(1,2,3,4)   net.blobs[‘data’].reshape(Tshape)   这里的的作用是将Tshape的所有元素都展开作为参数，其效果为 net.blobs[‘data’].reshape(1，2，3，4)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T10:07:36.048Z">
+<meta property="og:updated_time" content="2017-08-03T08:22:52.949Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python 问题记录">
 <meta name="twitter:description" content="1.Tshape=(1,2,3,4)   net.blobs[‘data’].reshape(Tshape)   这里的的作用是将Tshape的所有元素都展开作为参数，其效果为 net.blobs[‘data’].reshape(1，2，3，4)">
@@ -375,7 +375,22 @@
 
       
         <p>1.Tshape=(1,2,3,4)<br>   net.blobs[‘data’].reshape(<em>Tshape)<br>   这里的</em>的作用是将Tshape的所有元素都展开作为参数，其效果为 net.blobs[‘data’].reshape(1，2，3，4)<br><a id="more"></a></p>
-
+<p>2.range()函数经常和 len()函数一起用于字符串索引。 在这里我们要显示每一个元素及其<br>索引值：</p>
+<pre><code>&gt;&gt;&gt; foo = &apos;abc&apos;
+&gt;&gt;&gt; for i in range(len(foo)):
+... print foo[i], &apos;(%d)&apos; % i
+...
+a (0)
+b (1)
+c (2)
+</code></pre><p>不过， 这些循环有一个约束， 你要么循环索引， 要么循环元素。这导致了 enumerate()<br>函数的推出（Python2.3 新增）。 它同时做到了这两点：</p>
+<pre><code>&gt;&gt;&gt; for i, ch in enumerate(foo):
+... print ch, &apos;(%d)&apos; % i
+...
+a (0)    
+b (1)
+c (2)
+</code></pre>
       
     </div>
 
@@ -411,8 +426,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Opencv3.2的安装及创建一个Opencv工程的要点/" rel="next" title="Opencv3.2的安装及创建一个Opencv工程的要点">
-                <i class="fa fa-chevron-left"></i> Opencv3.2的安装及创建一个Opencv工程的要点
+              <a href="/2017/07/26/Caffe中的Net/" rel="next" title="Caffe中的Net">
+                <i class="fa fa-chevron-left"></i> Caffe中的Net
               </a>
             
           </div>
@@ -421,8 +436,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/Numpy中的transpose函数/" rel="prev" title="Numpy中的transpose函数">
-                Numpy中的transpose函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Opengl（二）——准备好窗口/" rel="prev" title="Opengl（二）——准备好窗口">
+                Opengl（二）——准备好窗口 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -493,7 +508,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">38</span>
+                <span class="site-state-item-count">41</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -504,7 +519,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
