@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="学习，由易到难。 Surface Shaders实现：">
+<meta name="description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Shader学习历程（三）——shaderlab中边缘光的不同实现">
-<meta property="og:url" content="http://lefenger.com/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/index.html">
+<meta property="og:title" content="在Keras中将cpu切换为gpu">
+<meta property="og:url" content="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="学习，由易到难。 Surface Shaders实现：">
+<meta property="og:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20151013233128640">
-<meta property="og:updated_time" content="2017-07-26T10:10:28.753Z">
+<meta property="og:updated_time" content="2017-08-06T02:11:30.328Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Shader学习历程（三）——shaderlab中边缘光的不同实现">
-<meta name="twitter:description" content="学习，由易到难。 Surface Shaders实现：">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20151013233128640">
+<meta name="twitter:title" content="在Keras中将cpu切换为gpu">
+<meta name="twitter:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/"/>
 
 
 
 
 
-  <title>Shader学习历程（三）——shaderlab中边缘光的不同实现 | AbstractSky</title>
+  <title>在Keras中将cpu切换为gpu | AbstractSky</title>
   
 
 
@@ -268,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -285,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Shader学习历程（三）——shaderlab中边缘光的不同实现</h1>
+          <h1 class="post-title" itemprop="name headline">在Keras中将cpu切换为gpu</h1>
         
 
         <div class="post-meta">
@@ -297,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T10:04:26+08:00">
+                2017-08-06
               </time>
             
 
@@ -320,8 +318,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Shader/" itemprop="url" rel="index">
-                    <span itemprop="name">Shader</span>
+                  <a href="/categories/Deeplearning框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Deeplearning框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deeplearning框架/Keras/" itemprop="url" rel="index">
+                    <span itemprop="name">Keras</span>
                   </a>
                 </span>
 
@@ -338,9 +347,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/06/在Keras中将cpu切换为gpu/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/06/在Keras中将cpu切换为gpu/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,10 +374,25 @@
       
 
       
-        <p>学习，由易到难。<br><img src="http://img.blog.csdn.net/20151013233128640" alt="这里写图片描述"></p>
-<p>Surface Shaders实现：<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">Shader &quot;Custom/sahder1.1&quot; &#123;</div><div class="line">	Properties &#123;</div><div class="line">		_Color (&quot;Color&quot;, Color) = (1,1,1,1)</div><div class="line">		_MainTex (&quot;Albedo (RGB)&quot;, 2D) = &quot;white&quot; &#123;&#125;</div><div class="line">		_Glossiness (&quot;Smoothness&quot;, Range(0,1)) = 0.5</div><div class="line">		_Metallic (&quot;Metallic&quot;, Range(0,1)) = 0.0</div><div class="line">	&#125;</div><div class="line">	SubShader &#123;</div><div class="line">		Tags &#123; &quot;RenderType&quot;=&quot;Opaque&quot; &#125;</div><div class="line">		LOD 200</div><div class="line">		</div><div class="line">		CGPROGRAM</div><div class="line">		// Physically based Standard lighting model, and enable shadows on all light types</div><div class="line">		#pragma surface surf Standard fullforwardshadows</div><div class="line"></div><div class="line">		// Use shader model 3.0 target, to get nicer looking lighting</div><div class="line">		#pragma target 3.0</div><div class="line"></div><div class="line">		sampler2D _MainTex;</div><div class="line"></div><div class="line">		struct Input &#123;</div><div class="line">			float2 uv_MainTex;</div><div class="line">			float3 worldNormal;</div><div class="line">			float3 viewDir;</div><div class="line">		&#125;;</div><div class="line"></div><div class="line">		half _Glossiness;</div><div class="line">		half _Metallic;</div><div class="line">		fixed4 _Color;</div><div class="line"></div><div class="line">		void surf (Input IN, inout SurfaceOutputStandard o) &#123;</div><div class="line">			// Albedo comes from a texture tinted by color</div><div class="line">			fixed4 c = tex2D (_MainTex, IN.uv_MainTex);</div><div class="line">			o.Albedo = c.rgb;</div><div class="line">			// Metallic and smoothness come from slider variables</div><div class="line">			o.Metallic = _Metallic;</div><div class="line">			o.Smoothness = _Glossiness;</div><div class="line">			o.Alpha = c.a;</div><div class="line">			fixed3 c1=_Color*(1.0 - saturate(dot (normalize(IN.viewDir), normalize(IN.worldNormal))));</div><div class="line">			o.Emission =c1 ;</div><div class="line">		&#125;</div><div class="line">		ENDCG</div><div class="line">	&#125; </div><div class="line">	FallBack &quot;Diffuse&quot;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>Vertex and Fragment Shaders实现</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line">Shader &quot;Custom/shader1.2&quot; &#123;</div><div class="line">	 properties</div><div class="line">	 &#123;</div><div class="line">	 	_mainTex(&quot;mainTex&quot;,2D)=&quot;white&quot;&#123;&#125;</div><div class="line">	 	_Color(&quot;Color&quot;,Color)=(1,1,0,0.5)</div><div class="line">	 &#125;</div><div class="line">	 subshader</div><div class="line">	 &#123;</div><div class="line">	 	pass&#123;</div><div class="line">	 		CGPROGRAM</div><div class="line">	 		#pragma vertex vert</div><div class="line">	 		#pragma fragment frag</div><div class="line">	 	</div><div class="line">	 		#include &quot;UnityCG.cginc&quot;</div><div class="line">	 		</div><div class="line">	 		float4 _Color;</div><div class="line">	 		sampler2D _mainTex;</div><div class="line">	 		struct v2f</div><div class="line">	 		&#123;</div><div class="line">	 			float4 pos: SV_POSITION;</div><div class="line">	 			float2 uv:TEXCOOD0;</div><div class="line">	 			float4 p1:TEXCOOD1;</div><div class="line">	 			float4 p2:TEXCOOD2;</div><div class="line">	 		&#125;;</div><div class="line">	 		v2f vert(appdata_base v)</div><div class="line">	 		&#123;</div><div class="line">	 			v2f o;</div><div class="line">	 			o.pos=mul(UNITY_MATRIX_MVP,v.vertex);</div><div class="line">	 			o.p1=mul(_Object2World,v.vertex);</div><div class="line">	 			o.p2=mul( _World2Object,v.normal );</div><div class="line">	 			o.uv=v.texcoord;</div><div class="line">	 			return o;</div><div class="line">	 		&#125;</div><div class="line">	 		half4 frag(v2f i):COLOR&#123;</div><div class="line">	 			half4 c=tex2D(_mainTex,i.uv);</div><div class="line">	 			float3 viewDir=_WorldSpaceCameraPos-i.p1;</div><div class="line">	 			fixed3 c1=_Color*(1-saturate(dot (normalize(viewDir), normalize(i.p2))));</div><div class="line">	 			half4 c2=half4(c1,0.5);</div><div class="line">	 			c+=c2;</div><div class="line">	 			return c;</div><div class="line">	 		&#125;</div><div class="line">	 		ENDCG</div><div class="line">	 	&#125;</div><div class="line">	 </div><div class="line">	 &#125;</div><div class="line">	 &#125;</div></pre></td></tr></table></figure>
+        <p>在终端中输入gedit ~/.theanorc<br>这时文档应是空白的，在文档中写入：</p>
+<pre><code>[global]  
+device=gpu  
+floatX=float32 
+
+[dnn.conv]
+algo_bwd_filter = deterministic
+algo_bwd_data = deterministic
+
+[cuda]
+root=/usr/local/cuda-8.0
+
+[lib]
+cnmem=0.3
+
+[nvcc]
+fastmath = True
+optimizer_including=cudnn
+</code></pre><p>参考：<a href="http://blog.csdn.net/sinat_31824577/article/details/53140406" target="_blank" rel="external">http://blog.csdn.net/sinat_31824577/article/details/53140406</a></p>
 
       
     </div>
@@ -405,8 +429,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Caffe中的Net/" rel="next" title="Caffe中的Net">
-                <i class="fa fa-chevron-left"></i> Caffe中的Net
+              <a href="/2017/08/03/Keras的入门/" rel="next" title="Keras的入门">
+                <i class="fa fa-chevron-left"></i> Keras的入门
               </a>
             
           </div>
@@ -414,10 +438,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/26/MFC与stdafx/" rel="prev" title="MFC与stdafx">
-                MFC与stdafx <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -674,9 +694,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/';
-          this.page.identifier = '2017/07/26/Shader学习历程（三）——shaderlab中边缘光的不同实现/';
-          this.page.title = 'Shader学习历程（三）——shaderlab中边缘光的不同实现';
+          this.page.url = 'http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/';
+          this.page.identifier = '2017/08/06/在Keras中将cpu切换为gpu/';
+          this.page.title = '在Keras中将cpu切换为gpu';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';

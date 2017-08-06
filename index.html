@@ -267,6 +267,180 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/06/在Keras中将cpu切换为gpu/" itemprop="url">在Keras中将cpu切换为gpu</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T10:04:26+08:00">
+                2017-08-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deeplearning框架/" itemprop="url" rel="index">
+                    <span itemprop="name">Deeplearning框架</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Deeplearning框架/Keras/" itemprop="url" rel="index">
+                    <span itemprop="name">Keras</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/06/在Keras中将cpu切换为gpu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/06/在Keras中将cpu切换为gpu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>在终端中输入gedit ~/.theanorc<br>这时文档应是空白的，在文档中写入：</p>
+<pre><code>[global]  
+device=gpu  
+floatX=float32 
+
+[dnn.conv]
+algo_bwd_filter = deterministic
+algo_bwd_data = deterministic
+
+[cuda]
+root=/usr/local/cuda-8.0
+
+[lib]
+cnmem=0.3
+
+[nvcc]
+fastmath = True
+optimizer_including=cudnn
+</code></pre><p>参考：<a href="http://blog.csdn.net/sinat_31824577/article/details/53140406" target="_blank" rel="external">http://blog.csdn.net/sinat_31824577/article/details/53140406</a></p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/03/Keras的入门/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -544,35 +718,17 @@ model.fit(data, one_hot_labels, epochs=10, batch_size=32)
 
       
         
-          
-            <p>下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，<br>下划线变量会包含字符串：</p>
+          <p>下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，<br>下划线变量会包含字符串：</p>
 <pre><code>&gt;&gt;&gt; _
 Hello World!
-</code></pre><p>Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这<br>一点和 C 语言中的 printf()函数非常相似：</p>
-<pre><code>&gt;&gt;&gt; print &quot;%s is number %d!&quot; % (&quot;Python&quot;, 1)
-Python is number 1!
-</code></pre><p>%s 表示由一个字符串来替换， 而%d 表示由一个整数来替换， 另外一个很常用的就是%f， 它<br>表示由一个浮点数来替换。</p>
-<hr>
-<p>range()函数经常和 len()函数一起用于字符串索引。 在这里我们要显示每一个元素及其<br>索引值：</p>
-<pre><code>&gt;&gt;&gt; foo = &apos;abc&apos;
-&gt;&gt;&gt; for i in range(len(foo)):
-... print foo[i], &apos;(%d)&apos; % i
-...
-a (0)
-b (1)
-c (2)
-</code></pre><p>不过， 这些循环有一个约束， 你要么循环索引， 要么循环元素。这导致了 enumerate()<br>函数的推出（Python2.3 新增）。 它同时做到了这两点：</p>
-<pre><code>&gt;&gt;&gt; for i, ch in enumerate(foo):
-... print ch, &apos;(%d)&apos; % i
-...
-a (0)    
-b (1)
-c (2)
-</code></pre><hr>
-<p>Python 也提供了逻辑运算符：<br>and or not</p>
-<hr>
-
-          
+</code></pre><p>Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这<br>一点和 C 语言中的 printf()函数非常相似：<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/03/Python语法/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1672,156 +1828,6 @@ c (2)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/CS231n 学习笔记/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/26/CS231n 学习笔记/" itemprop="url">卷积神经网络学习笔记</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/26/CS231n 学习笔记/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/CS231n 学习笔记/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="一、引言"><a href="#一、引言" class="headerlink" title="一、引言"></a>一、引言</h1><p>人大脑处理图像的第一步是对边界和形状的识别，图像分类到图像识别。</p>
-<h1 id="二、K-近邻算法"><a href="#二、K-近邻算法" class="headerlink" title="二、K-近邻算法"></a>二、K-近邻算法</h1><p>1 .监督学习，是一种即时分类非参数算法，对测试集中的每一张图片，遍历训练集，计算两张图片的相似度，相似度的计算方法为计算每个对应像素之间的距离（所谓的距离可能使用欧氏距离或曼哈顿距离），然后相加，最终得到相似度最小的K张图片，从而根据标签占比得到最终标签（即分类）。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/CS231n 学习笔记/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1871,7 +1877,7 @@ c (2)
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">41</span>
+                <span class="site-state-item-count">42</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
