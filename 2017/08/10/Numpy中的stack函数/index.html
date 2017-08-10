@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta name="description" content="stack(x,axis=0) 这个函数用于将多个数组合并，其中每个数组的shape都相同，其中axis表示在第几个空间开始进行结合，这样说很难理解，举例说明： [0,1,2,3] 的shape可看做（1,4） a =  np.arange(4) b =  np.arange(4) c=np.stack((a,b),axis=0) print(c) print(c.shape)  输出： [[0">
 <meta property="og:type" content="article">
-<meta property="og:title" content="faster-rcnn demo">
-<meta property="og:url" content="http://lefenger.com/2017/07/28/faster-rcnn-demo/index.html">
+<meta property="og:title" content="Numpy中的stack函数">
+<meta property="og:url" content="http://lefenger.com/2017/08/10/Numpy中的stack函数/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta property="og:description" content="stack(x,axis=0) 这个函数用于将多个数组合并，其中每个数组的shape都相同，其中axis表示在第几个空间开始进行结合，这样说很难理解，举例说明： [0,1,2,3] 的shape可看做（1,4） a =  np.arange(4) b =  np.arange(4) c=np.stack((a,b),axis=0) print(c) print(c.shape)  输出： [[0">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-30T04:16:01.993Z">
+<meta property="og:updated_time" content="2017-08-10T12:16:05.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="faster-rcnn demo">
-<meta name="twitter:description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta name="twitter:title" content="Numpy中的stack函数">
+<meta name="twitter:description" content="stack(x,axis=0) 这个函数用于将多个数组合并，其中每个数组的shape都相同，其中axis表示在第几个空间开始进行结合，这样说很难理解，举例说明： [0,1,2,3] 的shape可看做（1,4） a =  np.arange(4) b =  np.arange(4) c=np.stack((a,b),axis=0) print(c) print(c.shape)  输出： [[0">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/07/28/faster-rcnn-demo/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/10/Numpy中的stack函数/"/>
 
 
 
 
 
-  <title>faster-rcnn demo | AbstractSky</title>
+  <title>Numpy中的stack函数 | AbstractSky</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/28/faster-rcnn-demo/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/10/Numpy中的stack函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">faster-rcnn demo</h1>
+          <h1 class="post-title" itemprop="name headline">Numpy中的stack函数</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T22:39:27+08:00">
-                2017-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T19:21:44+08:00">
+                2017-08-10
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
+                  <a href="/categories/Numpy/" itemprop="url" rel="index">
+                    <span itemprop="name">Numpy</span>
                   </a>
                 </span>
 
@@ -336,9 +336,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/28/faster-rcnn-demo/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/10/Numpy中的stack函数/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/28/faster-rcnn-demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/10/Numpy中的stack函数/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,29 +363,72 @@
       
 
       
-        <p>运行github上的python版本的faster-rcnn demo的过程为：<br><a id="more"></a></p>
-<ol>
-<li>克隆github的项目到本地 <code>git clone --recursive https://github.com/rbgirshick/py-faster-rcnn.git</code></li>
-<li>在caffe-fast-rcnn文件夹中执行<br><code>cp Makefile.config.example Makefile.config</code></li>
-<li><p>将makefile.config中的</p>
-<p> INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include</p>
-<p> LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib</p>
-</li>
-</ol>
-<p>替换为</p>
-<pre><code>INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+        <p>stack(x,axis=0)</p>
+<p>这个函数用于将多个数组合并，其中每个数组的shape都相同，其中axis表示在第几个空间开始进行结合，这样说很难理解，举例说明：</p>
+<p>[0,1,2,3] 的shape可看做（1,4）</p>
+<pre><code>a =  np.arange(4)
+b =  np.arange(4)
+c=np.stack((a,b),axis=0)
+print(c)
+print(c.shape)
+
+输出：
+[[0 1 2 3]
+ [0 1 2 3]]
+(2, 4)    
+
+c=np.stack((a,b),axis=1)
+
+输出：
+[[0 0]
+ [1 1]
+ [2 2]
+ [3 3]]
+(4, 2)
+</code></pre><p>当axis等于0时，在0这个维度每个元素包含的内容是[0 1 2 3]，所以匹配的内容也就是[0 1 2 3]，并且元素只有这一个。<br>当axis等于1时，则匹配第二个维度，两个数组的第二个维度的元素都分别为1，2,3,4,每次匹配都会产生相应的结果，在这里分别为[0 0]，[1 1]，[2 2]，[3 3]。</p>
+<p>再举个例子：</p>
+<pre><code>a =  np.arange(4).reshape(2,2)
+b=  np.arange(4).reshape(2,2)
+c=np.stack((a,b),axis=0)
+
+print(c)
+print(c.shape)
+
+输出：                                #匹配的元素为数组本身
+[[[0 1]
+  [2 3]]
+
+ [[0 1]
+  [2 3]]]
+(2, 2, 2)    
 
 
-LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
-</code></pre><ol>
-<li>将makefile.config中的WITH_PYTHON_LAYER :=1前面的注释去掉。</li>
-<li>如果你的opencv版本为3.x，将OPENCV_VERSION：=3前面的注释去掉。</li>
-<li>在lib文件夹中执行 make。</li>
-<li>在caffe-fast-rcnn文件夹中执行  make -j32 &amp;&amp; make pycaffe。</li>
-<li>在py-faster-rcnn中执行  ./data/scripts/fetch_faster_rcnn_models.sh 下载模型，若下载失败则打开此文件找到链接自行下载。</li>
-<li>在py-faster-rcnn中执行 ./tools/demo.py 运行demo。如果出现Check failed：error==cudaSuccess（2 vs.0）out of memory的错误，很遗憾，显存不够，有如下两种办法：（1）执行./tools/demo.py –net zf 改用zf模型测试，因为这个模型层数很少。（2）打开lib/fast_rcnn/config.py , 修改其中的 TRAIN.BATCH_SIZE。</li>
-</ol>
-<p>参考： <a href="http://blog.csdn.net/u014380165/article/details/72704604?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="external">http://blog.csdn.net/u014380165/article/details/72704604?utm_source=itdadao&amp;utm_medium=referral</a></p>
+c=np.stack((a,b),axis=1)
+
+print(c)
+print(c.shape)
+
+输出：                                #匹配的元素为[0 1],[2 3]
+[[[0 1]
+  [0 1]]
+
+ [[2 3]
+  [2 3]]]
+(2, 2, 2)
+
+c=np.stack((a,b),axis=2)
+
+print(c)
+print(c.shape)    
+
+输出：                                #匹配的元素为0,1,2,3
+[[[0 0]
+ [1 1]]
+
+ [[2 2]
+  [3 3]]]
+(2, 2, 2)
+</code></pre><p>这里的数组的shape为（2,2），但在这个函数中一定要看成（1,2,2）</p>
 
       
     </div>
@@ -422,8 +465,8 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Opencv3.2的安装及创建一个Opencv工程的要点/" rel="next" title="Opencv3.2的安装及创建一个Opencv工程的要点">
-                <i class="fa fa-chevron-left"></i> Opencv3.2的安装及创建一个Opencv工程的要点
+              <a href="/2017/08/10/Keras中的类与函数/" rel="next" title="Keras中的类与函数">
+                <i class="fa fa-chevron-left"></i> Keras中的类与函数
               </a>
             
           </div>
@@ -431,10 +474,6 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/30/Numpy简单函数/" rel="prev" title="Numpy简单函数">
-                Numpy简单函数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -691,9 +730,9 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/07/28/faster-rcnn-demo/';
-          this.page.identifier = '2017/07/28/faster-rcnn-demo/';
-          this.page.title = 'faster-rcnn demo';
+          this.page.url = 'http://lefenger.com/2017/08/10/Numpy中的stack函数/';
+          this.page.identifier = '2017/08/10/Numpy中的stack函数/';
+          this.page.title = 'Numpy中的stack函数';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';

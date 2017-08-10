@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta name="description" content="glob模块：是一个文件搜索模块，查找文件只用到三个匹配符：””, “?”, “[]”。””匹配0个或多个字符；”?”匹配单个字符；”[]”匹配指定范围内的字符，如：[0-9]匹配数字。 glob（pathname）函数，返回所有匹配的文件路径列表。它只有一个参数pathname，定义了文件路径匹配规则，这里可以是绝对路径，也可以是相对路径。下面是使用glob.glob的例子： import gl">
 <meta property="og:type" content="article">
-<meta property="og:title" content="faster-rcnn demo">
-<meta property="og:url" content="http://lefenger.com/2017/07/28/faster-rcnn-demo/index.html">
+<meta property="og:title" content="Python简单函数">
+<meta property="og:url" content="http://lefenger.com/2017/08/10/Python简单函数/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta property="og:description" content="glob模块：是一个文件搜索模块，查找文件只用到三个匹配符：””, “?”, “[]”。””匹配0个或多个字符；”?”匹配单个字符；”[]”匹配指定范围内的字符，如：[0-9]匹配数字。 glob（pathname）函数，返回所有匹配的文件路径列表。它只有一个参数pathname，定义了文件路径匹配规则，这里可以是绝对路径，也可以是相对路径。下面是使用glob.glob的例子： import gl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-30T04:16:01.993Z">
+<meta property="og:updated_time" content="2017-08-10T05:56:45.132Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="faster-rcnn demo">
-<meta name="twitter:description" content="运行github上的python版本的faster-rcnn demo的过程为：">
+<meta name="twitter:title" content="Python简单函数">
+<meta name="twitter:description" content="glob模块：是一个文件搜索模块，查找文件只用到三个匹配符：””, “?”, “[]”。””匹配0个或多个字符；”?”匹配单个字符；”[]”匹配指定范围内的字符，如：[0-9]匹配数字。 glob（pathname）函数，返回所有匹配的文件路径列表。它只有一个参数pathname，定义了文件路径匹配规则，这里可以是绝对路径，也可以是相对路径。下面是使用glob.glob的例子： import gl">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/07/28/faster-rcnn-demo/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/10/Python简单函数/"/>
 
 
 
 
 
-  <title>faster-rcnn demo | AbstractSky</title>
+  <title>Python简单函数 | AbstractSky</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/28/faster-rcnn-demo/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/10/Python简单函数/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">faster-rcnn demo</h1>
+          <h1 class="post-title" itemprop="name headline">Python简单函数</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-28T22:39:27+08:00">
-                2017-07-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T13:22:32+08:00">
+                2017-08-10
               </time>
             
 
@@ -318,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
+                  <a href="/categories/Python/" itemprop="url" rel="index">
+                    <span itemprop="name">Python</span>
                   </a>
                 </span>
 
@@ -336,9 +336,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/28/faster-rcnn-demo/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/10/Python简单函数/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/28/faster-rcnn-demo/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/10/Python简单函数/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -363,29 +363,29 @@
       
 
       
-        <p>运行github上的python版本的faster-rcnn demo的过程为：<br><a id="more"></a></p>
-<ol>
-<li>克隆github的项目到本地 <code>git clone --recursive https://github.com/rbgirshick/py-faster-rcnn.git</code></li>
-<li>在caffe-fast-rcnn文件夹中执行<br><code>cp Makefile.config.example Makefile.config</code></li>
-<li><p>将makefile.config中的</p>
-<p> INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include</p>
-<p> LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib</p>
-</li>
-</ol>
-<p>替换为</p>
-<pre><code>INCLUDE_DIRS := $(PYTHON_INCLUDE) /usr/local/include /usr/include/hdf5/serial/
+        <p>glob模块：是一个文件搜索模块，查找文件只用到三个匹配符：”<em>”, “?”, “[]”。”</em>”匹配0个或多个字符；”?”匹配单个字符；”[]”匹配指定范围内的字符，如：[0-9]匹配数字。</p>
+<p>glob（pathname）函数，返回所有匹配的文件路径列表。它只有一个参数pathname，定义了文件路径匹配规则，这里可以是绝对路径，也可以是相对路径。下面是使用glob.glob的例子：</p>
+<pre><code>import glob
 
+#获取指定目录下的所有图片
+print glob.glob(r&quot;E:/Picture/*/*.jpg&quot;)
 
-LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/hdf5/serial/
-</code></pre><ol>
-<li>将makefile.config中的WITH_PYTHON_LAYER :=1前面的注释去掉。</li>
-<li>如果你的opencv版本为3.x，将OPENCV_VERSION：=3前面的注释去掉。</li>
-<li>在lib文件夹中执行 make。</li>
-<li>在caffe-fast-rcnn文件夹中执行  make -j32 &amp;&amp; make pycaffe。</li>
-<li>在py-faster-rcnn中执行  ./data/scripts/fetch_faster_rcnn_models.sh 下载模型，若下载失败则打开此文件找到链接自行下载。</li>
-<li>在py-faster-rcnn中执行 ./tools/demo.py 运行demo。如果出现Check failed：error==cudaSuccess（2 vs.0）out of memory的错误，很遗憾，显存不够，有如下两种办法：（1）执行./tools/demo.py –net zf 改用zf模型测试，因为这个模型层数很少。（2）打开lib/fast_rcnn/config.py , 修改其中的 TRAIN.BATCH_SIZE。</li>
-</ol>
-<p>参考： <a href="http://blog.csdn.net/u014380165/article/details/72704604?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="external">http://blog.csdn.net/u014380165/article/details/72704604?utm_source=itdadao&amp;utm_medium=referral</a></p>
+#获取上级目录的所有.py文件
+print glob.glob(r&apos;../*.py&apos;) #相对路径
+</code></pre><p>glob.iglob（pathname）函数,获取一个可编历对象，使用它可以逐个获取匹配的文件路径名。与glob.glob()的区别是：glob.glob同时获取所有的匹配路径，而glob.iglob一次只获取一个匹配路径。这有点类似于.NET中操作数据库用到的DataSet与DataReader。下面是一个简单的例子：</p>
+<pre><code>import glob
+
+#父目录中的.py文件
+f = glob.iglob(r&apos;../*.py&apos;)
+
+print f #&lt;generator object iglob at 0x00B9FF80&gt;
+
+for py in f:
+    print py
+</code></pre><hr>
+<p>shutil.copyfile(src, dst),shutil模块中的函数，对文件进行复制。</p>
+<hr>
+<p>os.rename(src, dst)，os模块中的函数，类似于命令mv，即可对文件进行重命名，也可以对文件进行移动。</p>
 
       
     </div>
@@ -422,8 +422,8 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Opencv3.2的安装及创建一个Opencv工程的要点/" rel="next" title="Opencv3.2的安装及创建一个Opencv工程的要点">
-                <i class="fa fa-chevron-left"></i> Opencv3.2的安装及创建一个Opencv工程的要点
+              <a href="/2017/08/06/Numpy中的Broadcasting/" rel="next" title="Numpy中的Broadcasting">
+                <i class="fa fa-chevron-left"></i> Numpy中的Broadcasting
               </a>
             
           </div>
@@ -432,8 +432,8 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/30/Numpy简单函数/" rel="prev" title="Numpy简单函数">
-                Numpy简单函数 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/10/Keras中的类与函数/" rel="prev" title="Keras中的类与函数">
+                Keras中的类与函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -691,9 +691,9 @@ LIBRARY_DIRS := $(PYTHON_LIB) /usr/local/lib /usr/lib /usr/lib/x86_64-linux-gnu/
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/07/28/faster-rcnn-demo/';
-          this.page.identifier = '2017/07/28/faster-rcnn-demo/';
-          this.page.title = 'faster-rcnn demo';
+          this.page.url = 'http://lefenger.com/2017/08/10/Python简单函数/';
+          this.page.identifier = '2017/08/10/Python简单函数/';
+          this.page.title = 'Python简单函数';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';
