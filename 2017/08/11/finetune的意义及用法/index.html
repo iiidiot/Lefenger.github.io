@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta name="description" content="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。 一个正确的训练好的神经网络应该是什么样的呢？如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Keras中将cpu切换为gpu">
-<meta property="og:url" content="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/index.html">
+<meta property="og:title" content="finetune的意义及用法">
+<meta property="og:url" content="http://lefenger.com/2017/08/11/finetune的意义及用法/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta property="og:description" content="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。 一个正确的训练好的神经网络应该是什么样的呢？如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-06T02:11:30.328Z">
+<meta property="og:updated_time" content="2017-08-11T03:47:19.589Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Keras中将cpu切换为gpu">
-<meta name="twitter:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta name="twitter:title" content="finetune的意义及用法">
+<meta name="twitter:description" content="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。 一个正确的训练好的神经网络应该是什么样的呢？如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/11/finetune的意义及用法/"/>
 
 
 
 
 
-  <title>在Keras中将cpu切换为gpu | AbstractSky</title>
+  <title>finetune的意义及用法 | AbstractSky</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/11/finetune的意义及用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在Keras中将cpu切换为gpu</h1>
+          <h1 class="post-title" itemprop="name headline">finetune的意义及用法</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T10:04:26+08:00">
-                2017-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T10:42:05+08:00">
+                2017-08-11
               </time>
             
 
@@ -318,19 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Deeplearning框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/Keras/" itemprop="url" rel="index">
-                    <span itemprop="name">Keras</span>
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
                   </a>
                 </span>
 
@@ -347,9 +336,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/06/在Keras中将cpu切换为gpu/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/11/finetune的意义及用法/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/06/在Keras中将cpu切换为gpu/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/11/finetune的意义及用法/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,25 +363,10 @@
       
 
       
-        <p>在终端中输入gedit ~/.theanorc<br>这时文档应是空白的，在文档中写入：</p>
-<pre><code>[global]  
-device=gpu  
-floatX=float32 
-
-[dnn.conv]
-algo_bwd_filter = deterministic
-algo_bwd_data = deterministic
-
-[cuda]
-root=/usr/local/cuda-8.0
-
-[lib]
-cnmem=0.3
-
-[nvcc]
-fastmath = True
-optimizer_including=cudnn
-</code></pre><p>参考：<a href="http://blog.csdn.net/sinat_31824577/article/details/53140406" target="_blank" rel="external">http://blog.csdn.net/sinat_31824577/article/details/53140406</a></p>
+        <h2 id="finetune-就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？"><a href="#finetune-就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？" class="headerlink" title="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？"></a>finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？</h2><p>因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。</p>
+<p>一个正确的训练好的神经网络应该是什么样的呢？<br>如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色与颜色的分界，这里包含了颜色的种类和分界线的位置与方向。再后来便会出现一些简单的形状，可能是一些拐角或是几条线段。再后来可能就是一些完整的形状了。最后你可能光凭过滤器的图像就能看出来这个过滤器是用来识别哪一种物体的。之所以会出现图形的不断组合，是因为每一个过滤器都会将前一层的所有过滤器在过滤之后加起来，而这一层的不同过滤器都有不同的权重，这也导致了最终组合起来的形状不同。</p>
+<h2 id="一张图片输入之后是怎样被识别的呢？"><a href="#一张图片输入之后是怎样被识别的呢？" class="headerlink" title="一张图片输入之后是怎样被识别的呢？"></a>一张图片输入之后是怎样被识别的呢？</h2><p>每一个过滤器都会在输入的图片上进行卷积操作，若找到和这个过滤器形状相似的部分，则在这个位置会得到较高的数值，也就是将这个位置激活。被各个过滤器所激活的结果会进行相加，实际上就是对前一层所激活的部分进行组合，组合之后作为下一层的输入，然后下一层的过滤层再进行卷积，如此类推。<br>总而言之，假设特征的层次有a，b，c三个。先在图片上找到a层次的特征并组合起来，再在b层次中寻找有没有匹配的特征并组合，再在c层次中寻找并组合，最后将组合之后的结果送入loss层。</p>
+<h2 id="我们该如何选择微调的层呢？"><a href="#我们该如何选择微调的层呢？" class="headerlink" title="我们该如何选择微调的层呢？"></a>我们该如何选择微调的层呢？</h2><p>原则上说我们应该将每个层都试一下，最终找到最合适的。</p>
 
       
     </div>
@@ -429,8 +403,8 @@ optimizer_including=cudnn
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/03/Keras的入门/" rel="next" title="Keras的入门">
-                <i class="fa fa-chevron-left"></i> Keras的入门
+              <a href="/2017/08/10/Numpy中的stack函数/" rel="next" title="Numpy中的stack函数">
+                <i class="fa fa-chevron-left"></i> Numpy中的stack函数
               </a>
             
           </div>
@@ -439,8 +413,8 @@ optimizer_including=cudnn
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/06/Numpy中的Broadcasting/" rel="prev" title="Numpy中的Broadcasting">
-                Numpy中的Broadcasting <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/11/权值的初始化—-xavier/" rel="prev" title="权值的初始化—-xavier">
+                权值的初始化—-xavier <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -495,8 +469,17 @@ optimizer_including=cudnn
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -549,6 +532,22 @@ optimizer_including=cudnn
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#finetune-就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？"><span class="nav-number">1.</span> <span class="nav-text">finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一张图片输入之后是怎样被识别的呢？"><span class="nav-number">2.</span> <span class="nav-text">一张图片输入之后是怎样被识别的呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们该如何选择微调的层呢？"><span class="nav-number">3.</span> <span class="nav-text">我们该如何选择微调的层呢？</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -698,9 +697,9 @@ optimizer_including=cudnn
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/';
-          this.page.identifier = '2017/08/06/在Keras中将cpu切换为gpu/';
-          this.page.title = '在Keras中将cpu切换为gpu';
+          this.page.url = 'http://lefenger.com/2017/08/11/finetune的意义及用法/';
+          this.page.identifier = '2017/08/11/finetune的意义及用法/';
+          this.page.title = 'finetune的意义及用法';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';

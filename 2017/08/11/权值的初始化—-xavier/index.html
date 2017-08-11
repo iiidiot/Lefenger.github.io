@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta name="description" content="对网络中的权值进行合理的初始化是为了保证在训练之前使网络的输出值与目标值的差距不是太大，比如输入（2,3）目标值为4，但网络的输出值为500，那么loss就太大了，训练也就很难进行。因此为了使得网络中信息更好的流动，每一层输出的方差应该尽量相等（在一篇博客上看到的，下面有链接）。 因此就采用xavier来对权重进行初始化，本文只讨论如何使用，不讨论其中原理。caffe中xavier初始化有三种方式">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在Keras中将cpu切换为gpu">
-<meta property="og:url" content="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/index.html">
+<meta property="og:title" content="权值的初始化—-xavier">
+<meta property="og:url" content="http://lefenger.com/2017/08/11/权值的初始化—-xavier/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta property="og:description" content="对网络中的权值进行合理的初始化是为了保证在训练之前使网络的输出值与目标值的差距不是太大，比如输入（2,3）目标值为4，但网络的输出值为500，那么loss就太大了，训练也就很难进行。因此为了使得网络中信息更好的流动，每一层输出的方差应该尽量相等（在一篇博客上看到的，下面有链接）。 因此就采用xavier来对权重进行初始化，本文只讨论如何使用，不讨论其中原理。caffe中xavier初始化有三种方式">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-06T02:11:30.328Z">
+<meta property="og:updated_time" content="2017-08-11T04:38:57.792Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在Keras中将cpu切换为gpu">
-<meta name="twitter:description" content="在终端中输入gedit ~/.theanorc这时文档应是空白的，在文档中写入： [global]   device=gpu   floatX=float32   [dnn.conv] algo_bwd_filter = deterministic algo_bwd_data = deterministic  [cuda] root=/usr/local/cuda-8.0  [lib] cnmem">
+<meta name="twitter:title" content="权值的初始化—-xavier">
+<meta name="twitter:description" content="对网络中的权值进行合理的初始化是为了保证在训练之前使网络的输出值与目标值的差距不是太大，比如输入（2,3）目标值为4，但网络的输出值为500，那么loss就太大了，训练也就很难进行。因此为了使得网络中信息更好的流动，每一层输出的方差应该尽量相等（在一篇博客上看到的，下面有链接）。 因此就采用xavier来对权重进行初始化，本文只讨论如何使用，不讨论其中原理。caffe中xavier初始化有三种方式">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/11/权值的初始化—-xavier/"/>
 
 
 
 
 
-  <title>在Keras中将cpu切换为gpu | AbstractSky</title>
+  <title>权值的初始化—-xavier | AbstractSky</title>
   
 
 
@@ -266,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/11/权值的初始化—-xavier/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -283,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">在Keras中将cpu切换为gpu</h1>
+          <h1 class="post-title" itemprop="name headline">权值的初始化—-xavier</h1>
         
 
         <div class="post-meta">
@@ -295,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-06T10:04:26+08:00">
-                2017-08-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-11T12:14:31+08:00">
+                2017-08-11
               </time>
             
 
@@ -318,19 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Deeplearning框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/Keras/" itemprop="url" rel="index">
-                    <span itemprop="name">Keras</span>
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
                   </a>
                 </span>
 
@@ -347,9 +336,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/08/06/在Keras中将cpu切换为gpu/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/11/权值的初始化—-xavier/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/06/在Keras中将cpu切换为gpu/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/11/权值的初始化—-xavier/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -374,25 +363,10 @@
       
 
       
-        <p>在终端中输入gedit ~/.theanorc<br>这时文档应是空白的，在文档中写入：</p>
-<pre><code>[global]  
-device=gpu  
-floatX=float32 
-
-[dnn.conv]
-algo_bwd_filter = deterministic
-algo_bwd_data = deterministic
-
-[cuda]
-root=/usr/local/cuda-8.0
-
-[lib]
-cnmem=0.3
-
-[nvcc]
-fastmath = True
-optimizer_including=cudnn
-</code></pre><p>参考：<a href="http://blog.csdn.net/sinat_31824577/article/details/53140406" target="_blank" rel="external">http://blog.csdn.net/sinat_31824577/article/details/53140406</a></p>
+        <p>对网络中的权值进行合理的初始化是为了保证在训练之前使网络的输出值与目标值的差距不是太大，比如输入（2,3）目标值为4，但网络的输出值为500，那么loss就太大了，训练也就很难进行。因此为了使得网络中信息更好的流动，每一层输出的方差应该尽量相等（在一篇博客上看到的，下面有链接）。</p>
+<p>因此就采用xavier来对权重进行初始化，本文只讨论如何使用，不讨论其中原理。<br>caffe中xavier初始化有三种方式：<br>方差=1/输入维数<br>方差=1/（输入维数+1）<br>方差=2/（输入维数+输出维数+1）  </p>
+<p>解释：<br>若输入图像为三个通道，下一层的卷积层有64个过滤器，那么使用xavier对这个卷积层使用高斯分布进行初始化，均值为0，根据输入维数为3，输出维数为64计算出方差。由此可见，不同的层的初始化可能是不一样的。</p>
+<p>参考：<a href="http://blog.csdn.net/shuzfan/article/details/51338178" target="_blank" rel="external">http://blog.csdn.net/shuzfan/article/details/51338178</a></p>
 
       
     </div>
@@ -429,8 +403,8 @@ optimizer_including=cudnn
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/03/Keras的入门/" rel="next" title="Keras的入门">
-                <i class="fa fa-chevron-left"></i> Keras的入门
+              <a href="/2017/08/11/finetune的意义及用法/" rel="next" title="finetune的意义及用法">
+                <i class="fa fa-chevron-left"></i> finetune的意义及用法
               </a>
             
           </div>
@@ -438,10 +412,6 @@ optimizer_including=cudnn
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/06/Numpy中的Broadcasting/" rel="prev" title="Numpy中的Broadcasting">
-                Numpy中的Broadcasting <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -698,9 +668,9 @@ optimizer_including=cudnn
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/08/06/在Keras中将cpu切换为gpu/';
-          this.page.identifier = '2017/08/06/在Keras中将cpu切换为gpu/';
-          this.page.title = '在Keras中将cpu切换为gpu';
+          this.page.url = 'http://lefenger.com/2017/08/11/权值的初始化—-xavier/';
+          this.page.identifier = '2017/08/11/权值的初始化—-xavier/';
+          this.page.title = '权值的初始化—-xavier';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';
