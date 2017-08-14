@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。  flow_from_directory(d">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T09:29:35.215Z">
+<meta property="og:updated_time" content="2017-08-14T14:45:23.851Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Keras中的类与函数">
 <meta name="twitter:description" content="models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。  flow_from_directory(d">
@@ -382,8 +382,12 @@
 <h1 id="image-py"><a href="#image-py" class="headerlink" title="image.py"></a>image.py</h1><h3 id="ImageDataGenerator"><a href="#ImageDataGenerator" class="headerlink" title="ImageDataGenerator"></a>ImageDataGenerator</h3><p>ImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。</p>
 <hr>
 <pre><code>flow_from_directory(directory,target_size=(256,256),color_mode=&apos;rgb&apos;,classes=None,class_mode=&apos;categories&apos;,batch_size=32,shuffle=True,seed=None,save_to_dir=None,save_prefix=&apos;&apos;,save_format=&apos;png&apos;,follow_links=False)
-</code></pre><p>其中directory是路径，这个函数会将路径下的没一个文件夹视为一个分类，并对每个文件夹中的所有图片进行预处理，target_size便是预处理后的图片大小，class_mode默认为‘categories’，这样在将图片输入到网络中时会同时将对应的lable输入，而如果设置class_mode为None的话，则将只会输入图片。<br>要注意的是，这里的batch_size应该只是预处理时的batch_size，而与网络的batch_size无关。<br>shuffle是表示是否将图片打乱，</p>
-<h2 id="save-to-dir表示是否将处理后的图片保存。"><a href="#save-to-dir表示是否将处理后的图片保存。" class="headerlink" title="save_to_dir表示是否将处理后的图片保存。"></a>save_to_dir表示是否将处理后的图片保存。</h2><h1 id="training-py"><a href="#training-py" class="headerlink" title="training.py"></a>training.py</h1><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>Model类，继承于Container类。  </p>
+</code></pre><p>其中directory是路径，这个函数会将路径下的没一个文件夹视为一个分类，并对每个文件夹中的所有图片进行预处理，target_size便是预处理后的图片大小，class_mode默认为‘categories’，这样在将图片输入到网络中时会同时将对应的lable输入，而如果设置class_mode为None的话，则将只会输入图片。<br>要注意的是，这里的batch_size应该只是预处理时的batch_size，而与网络的batch_size无关。<br>shuffle是表示是否将图片打乱，<br>save_to_dir表示是否将处理后的图片保存。</p>
+<hr>
+<pre><code>flow（x,y=None,batch_size=32,shuffle=True,seed=None,save_to_dir=None,save_prefix=&apos;&apos;,save_format=&apos;png&apos;）
+</code></pre><p>此函数也是用于对图片进行预处理并读取样本集。x为样本图片，y为lable，其余都和flow_from_directory一样，与flow_from_directory的区别是，flow_from_directory是从本地路径中读取样本，而flow是从内存中读取。</p>
+<hr>
+<h1 id="training-py"><a href="#training-py" class="headerlink" title="training.py"></a>training.py</h1><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>Model类，继承于Container类。  </p>
 <hr>
 <pre><code>predict_generator(generator,steps,max_queue_size=10,workers=1,use_multiprocessing=False,verbose=0)   
 </code></pre><p>该函数对输入的样本直接进行预测，即将generator输入到网络中并得出结果。<br>generator是经过预处理过后的样本集。<br>step为分为几个batch来完成预测。</p>
@@ -562,7 +566,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#models-py"><span class="nav-number">1.</span> <span class="nav-text">models.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">1.0.1.</span> <span class="nav-text">Sequential</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-py"><span class="nav-number">2.</span> <span class="nav-text">image.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageDataGenerator"><span class="nav-number">2.0.1.</span> <span class="nav-text">ImageDataGenerator</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#save-to-dir表示是否将处理后的图片保存。"><span class="nav-number">2.1.</span> <span class="nav-text">save_to_dir表示是否将处理后的图片保存。</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#training-py"><span class="nav-number">3.</span> <span class="nav-text">training.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">3.0.1.</span> <span class="nav-text">Model</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#models-py"><span class="nav-number">1.</span> <span class="nav-text">models.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">1.0.1.</span> <span class="nav-text">Sequential</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-py"><span class="nav-number">2.</span> <span class="nav-text">image.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageDataGenerator"><span class="nav-number">2.0.1.</span> <span class="nav-text">ImageDataGenerator</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#training-py"><span class="nav-number">3.</span> <span class="nav-text">training.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">3.0.1.</span> <span class="nav-text">Model</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
