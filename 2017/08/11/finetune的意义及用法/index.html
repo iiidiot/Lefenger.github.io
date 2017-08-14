@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。 一个正确的训练好的神经网络应该是什么样的呢？如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-11T03:47:19.589Z">
+<meta property="og:updated_time" content="2017-08-14T05:38:12.138Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="finetune的意义及用法">
 <meta name="twitter:description" content="finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？因为我们没呢么多样本，没那么高超的技术使神经网络合理且有用，因此我在训练好的模型的基础上只训练其中一个或几个层，而把其他层的参数都冻结起来。 一个正确的训练好的神经网络应该是什么样的呢？如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色">
@@ -367,6 +367,8 @@
 <p>一个正确的训练好的神经网络应该是什么样的呢？<br>如果将神经网络中的所有过滤器都可视化的话，可以发现，由低到高实际上是不断组合，不断得到更高层次抽象的过程，例如一开始只是一些颜色与颜色的分界，这里包含了颜色的种类和分界线的位置与方向。再后来便会出现一些简单的形状，可能是一些拐角或是几条线段。再后来可能就是一些完整的形状了。最后你可能光凭过滤器的图像就能看出来这个过滤器是用来识别哪一种物体的。之所以会出现图形的不断组合，是因为每一个过滤器都会将前一层的所有过滤器在过滤之后加起来，而这一层的不同过滤器都有不同的权重，这也导致了最终组合起来的形状不同。</p>
 <h2 id="一张图片输入之后是怎样被识别的呢？"><a href="#一张图片输入之后是怎样被识别的呢？" class="headerlink" title="一张图片输入之后是怎样被识别的呢？"></a>一张图片输入之后是怎样被识别的呢？</h2><p>每一个过滤器都会在输入的图片上进行卷积操作，若找到和这个过滤器形状相似的部分，则在这个位置会得到较高的数值，也就是将这个位置激活。被各个过滤器所激活的结果会进行相加，实际上就是对前一层所激活的部分进行组合，组合之后作为下一层的输入，然后下一层的过滤层再进行卷积，如此类推。<br>总而言之，假设特征的层次有a，b，c三个。先在图片上找到a层次的特征并组合起来，再在b层次中寻找有没有匹配的特征并组合，再在c层次中寻找并组合，最后将组合之后的结果送入loss层。</p>
 <h2 id="我们该如何选择微调的层呢？"><a href="#我们该如何选择微调的层呢？" class="headerlink" title="我们该如何选择微调的层呢？"></a>我们该如何选择微调的层呢？</h2><p>原则上说我们应该将每个层都试一下，最终找到最合适的。</p>
+<h2 id="如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？"><a href="#如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？" class="headerlink" title="如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？"></a>如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？</h2><p>答：删除网络中最后几层，原因是越是深的层，其抽象程度越高，越和任务目标有关联性，而越是浅的层，其适用范围就越广。</p>
+<h2 id="dropout为0-5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？"><a href="#dropout为0-5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？" class="headerlink" title="dropout为0.5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？"></a>dropout为0.5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？</h2><p>我们需要将卷积层后面的层都删掉，并且当dropout为0.5时，每次只有一半的全连接层参与其中，因此我们取消dropout，势必会得到二倍的输出，因此我们必须将曾经拥有dropout的全连接层（假设为0.5）的权值全部除以2，并非只有全连接层能拥有dropout层，卷积层也可以。之所以弃用dropout可能会得到更好的结果，是因为只有十分严重的过拟合才会引起严重的后果。</p>
 
       
     </div>
@@ -494,7 +496,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -542,7 +544,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#finetune-就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？"><span class="nav-number">1.</span> <span class="nav-text">finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一张图片输入之后是怎样被识别的呢？"><span class="nav-number">2.</span> <span class="nav-text">一张图片输入之后是怎样被识别的呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们该如何选择微调的层呢？"><span class="nav-number">3.</span> <span class="nav-text">我们该如何选择微调的层呢？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#finetune-就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？"><span class="nav-number">1.</span> <span class="nav-text">finetune 就是微调的意思，那为什么要微调呢，为什么不能自己重新训练一个网络呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一张图片输入之后是怎样被识别的呢？"><span class="nav-number">2.</span> <span class="nav-text">一张图片输入之后是怎样被识别的呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#我们该如何选择微调的层呢？"><span class="nav-number">3.</span> <span class="nav-text">我们该如何选择微调的层呢？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？"><span class="nav-number">4.</span> <span class="nav-text">如果我们要做的事与分类无关，是一些其他任务，如司机是否专心驾驶，该如何对网络进行微调？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#dropout为0-5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？"><span class="nav-number">5.</span> <span class="nav-text">dropout为0.5时，我们如何将其改为0，并且为何在训练好的基础上弃用dropout，可能会得到更加好的结果？</span></a></li></ol></div>
             
 
           </div>

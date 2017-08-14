@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="ceil()函数    输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1.3）,结果为2。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-10T15:05:42.187Z">
+<meta property="og:updated_time" content="2017-08-14T13:31:02.520Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Numpy简单函数">
 <meta name="twitter:description" content="ceil()函数    输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1.3）,结果为2。">
@@ -410,6 +410,44 @@ array([[False, False, False],
        [False,  True, False]], dtype=bool)
 &gt;&gt;&gt; np.where(ix)
 (array([1, 1, 2]), array([0, 1, 1]))
+</code></pre><hr>
+<p>expand_dims(a,aixs)<br>指定在哪个维度后增加一维，新增维的元素为1.</p>
+<pre><code>&gt;&gt;&gt; x = np.array([1,2])
+&gt;&gt;&gt; x.shape
+(2,)
+
+The following is equivalent to x[np.newaxis,:] or x[np.newaxis]:
+
+&gt;&gt;&gt; y = np.expand_dims(x, axis=0)
+&gt;&gt;&gt; y
+array([[1, 2]])
+&gt;&gt;&gt; y.shape
+(1, 2)
+
+&gt;&gt;&gt; y = np.expand_dims(x, axis=1)  # Equivalent to x[:,newaxis]
+&gt;&gt;&gt; y
+array([[1],
+       [2]])
+&gt;&gt;&gt; y.shape
+(2, 1)
+</code></pre><hr>
+<p>std（x，axis=none）<br>求标准差，默认求全局标准差。</p>
+<pre><code>&gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
+&gt;&gt;&gt; np.std(a)
+1.1180339887498949
+&gt;&gt;&gt; np.std(a, axis=0)
+array([ 1.,  1.])
+&gt;&gt;&gt; np.std(a, axis=1)
+array([ 0.5,  0.5])
+</code></pre><hr>
+<p>mean(x,axis=none)<br>求平均值，默认求全局平均值。</p>
+<pre><code>&gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
+&gt;&gt;&gt; np.mean(a)
+2.5
+&gt;&gt;&gt; np.mean(a, axis=0)
+array([ 2.,  3.])
+&gt;&gt;&gt; np.mean(a, axis=1)
+array([ 1.5,  3.5])
 </code></pre>
       
     </div>
@@ -537,7 +575,7 @@ array([[False, False, False],
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

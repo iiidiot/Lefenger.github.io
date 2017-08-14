@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="一、引言人大脑处理图像的第一步是对边界和形状的识别，图像分类到图像识别。 二、K-近邻算法1 .监督学习，是一种即时分类非参数算法，对测试集中的每一张图片，遍历训练集，计算两张图片的相似度，相似度的计算方法为计算每个对应像素之间的距离（所谓的距离可能使用欧氏距离或曼哈顿距离），然后相加，最终得到相似度最小的K张图片，从而根据标签占比得到最终标签（即分类）。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-26T11:14:07.245Z">
+<meta property="og:updated_time" content="2017-08-11T10:21:46.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="卷积神经网络学习笔记">
 <meta name="twitter:description" content="一、引言人大脑处理图像的第一步是对边界和形状的识别，图像分类到图像识别。 二、K-近邻算法1 .监督学习，是一种即时分类非参数算法，对测试集中的每一张图片，遍历训练集，计算两张图片的相似度，相似度的计算方法为计算每个对应像素之间的距离（所谓的距离可能使用欧氏距离或曼哈顿距离），然后相加，最终得到相似度最小的K张图片，从而根据标签占比得到最终标签（即分类）。">
@@ -376,7 +376,7 @@
 <h1 id="五、线性分类器的损失函数（Softmax-Classifier，即一般性的逻辑斯特回归）"><a href="#五、线性分类器的损失函数（Softmax-Classifier，即一般性的逻辑斯特回归）" class="headerlink" title="五、线性分类器的损失函数（Softmax Classifier，即一般性的逻辑斯特回归）"></a>五、线性分类器的损失函数（Softmax Classifier，即一般性的逻辑斯特回归）</h1><p>1、得到各个标签的score之后，使scores分别作为e的指数，得到scoresN，再分别计算scoresN中各自的占比得到scoresNN，最后再对scoresNN中的数进行log运算（10为底）最终得到scoresNNN，取出其中的正确分类的数值就是SoftmaxClassifier的loss值。</p>
 <p>2.进行log操作是因为scoresNN中的正确分类的比例如果很小的话，那么log的结果就会很大，即loss值很大。</p>
 <h1 id="六、Softmax与SVM的区别"><a href="#六、Softmax与SVM的区别" class="headerlink" title="六、Softmax与SVM的区别"></a>六、Softmax与SVM的区别</h1><p> 1.SVM具有附加的稳定性，因为当错误score减去正确score的值小于安全系数的话，就会置为0，从而忽略错误概率，而Softmax中，即使错误score的评分远小于正确score，它也会将错误概率计算到loss中，因此SVM对于接近分类边界的样本更加敏感。</p>
-<h1 id="七、优化方法（SGD，即随机梯度下降）"><a href="#七、优化方法（SGD，即随机梯度下降）" class="headerlink" title="七、优化方法（SGD，即随机梯度下降）"></a>七、优化方法（SGD，即随机梯度下降）</h1><p> 1.所谓优化就是通过改变W来降低Loss的过程。 2.SGD过程就是选择一个batch-size（一般为32,64,256等等），不能太大，这样是为了gpu内存着想，然后计算梯度值，再使每个w减去（-步长*梯度值），直到收敛。 3.步长就是下降速率，是一个超参数，一般随着训练过程不断减小，如果一直很小的话，迭代次数会增加，耗时长，并且会误入局部最小值的坑中无法自拔。</p>
+<h1 id="七、优化方法（SGD，即随机梯度下降）"><a href="#七、优化方法（SGD，即随机梯度下降）" class="headerlink" title="七、优化方法（SGD，即随机梯度下降）"></a>七、优化方法（SGD，即随机梯度下降）</h1><p> 1.所谓优化就是通过改变W来降低Loss的过程。 2.SGD过程就是选择一个batch-size（一般为32,64,256等等），不能太大，这样是为了gpu内存着想，然后计算梯度值，再使每个w减去（-步长*梯度值），直到收敛。 3.步长就是下降速率，是一个超参数，一般随着训练过程不断减小，如果一直很小的话，迭代次数会增加，耗时长，并且会误入局部最小值的坑中无法自拔。但在神经网络中是不会出现局部最小值的，因为神经网络的参数数量实在是太多了，因此有上亿个方向可以进行下降，所以不存在陷在局部最小值的状况。</p>
 <h1 id="八、线性分类器总结"><a href="#八、线性分类器总结" class="headerlink" title="八、线性分类器总结"></a>八、线性分类器总结</h1><p> 1.无法直接对像素进行操作，因此需要对输入数据进行特征提取和预处理。（Weka中可以自己试试，只需要特征提取就行了） 2.神经网络不需要特征提取了，能直接输入像素。</p>
 <h1 id="九、正向传播与反向传播算法"><a href="#九、正向传播与反向传播算法" class="headerlink" title="九、正向传播与反向传播算法"></a>九、正向传播与反向传播算法</h1><p>1.正向传播就是根据输入经过一系列运算门得出结果。</p>
 <p>2.整个神经网络可以看成由许多有序的数据层组成，层与层之前是各种门运算，反向传播就是为了计算每一个数据层的梯度，所谓的梯度就是当前数据层对最终结果产生影响的速率大小，如果梯度为3，那么表明如果当前数据层数值加一，最终结果就会加3.</p>
@@ -437,8 +437,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Opencv3.2的安装及创建一个Opencv工程的要点/" rel="next" title="Opencv3.2的安装及创建一个Opencv工程的要点">
-                <i class="fa fa-chevron-left"></i> Opencv3.2的安装及创建一个Opencv工程的要点
+              <a href="/2017/07/26/Caffe中的Net/" rel="next" title="Caffe中的Net">
+                <i class="fa fa-chevron-left"></i> Caffe中的Net
               </a>
             
           </div>
@@ -447,8 +447,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/MFC与stdafx/" rel="prev" title="MFC与stdafx">
-                MFC与stdafx <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Shader学习历程（五）——Sprite Shader之简单抠图/" rel="prev" title="Shader学习历程（五）——Sprite Shader之简单抠图">
+                Shader学习历程（五）——Sprite Shader之简单抠图 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -528,7 +528,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">48</span>
+                <span class="site-state-item-count">52</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
