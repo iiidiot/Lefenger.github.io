@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
+<meta name="description" content="摘抄自《Python核心编程》下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Python语法">
 <meta property="og:url" content="http://lefenger.com/2017/08/03/Python语法/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
+<meta property="og:description" content="摘抄自《Python核心编程》下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-13T04:31:44.319Z">
+<meta property="og:updated_time" content="2017-08-20T06:06:36.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语法">
-<meta name="twitter:description" content="下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
+<meta name="twitter:description" content="摘抄自《Python核心编程》下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
 
 
 
@@ -363,7 +363,7 @@
       
 
       
-        <p>下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，<br>下划线变量会包含字符串：</p>
+        <h2 id="摘抄自《Python核心编程》"><a href="#摘抄自《Python核心编程》" class="headerlink" title="摘抄自《Python核心编程》"></a>摘抄自《Python核心编程》</h2><p>下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，<br>下划线变量会包含字符串：</p>
 <pre><code>&gt;&gt;&gt; _
 Hello World!
 </code></pre><p>Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这<br>一点和 C 语言中的 printf()函数非常相似：<br><a id="more"></a></p>
@@ -456,7 +456,232 @@ print &apos;file open error:&apos;, e
 <p>del 语句<br>Del 语句会删除对象的一个引用，它的语法是：<br>del obj1[, obj2[,… objN]]<br>例如，在上例中执行 del y 会产生两个结果：<br>z 从现在的名字空间中删除 y<br>z x 的引用计数减一<br>引申一步， 执行 del x 会删除该对象的最后一个引用， 也就是该对象的引用计数会减为<br>0， 这会导致该对象从此“无法访问”或“无法抵达”。 从此刻起， 该对象就成为垃圾回收<br>机制的回收对象。 注意任何追踪或调试程序会给一个对象增加一个额外的引用， 这会推迟该<br>对象被回收的时间</p>
 <hr>
 <p>类似 os.linesep 这样的名字需要解释器做两次查询：（1）查找 os 以确认它是一个模块，<br>（2）在这个模块中查找 linesep 变量。因为模块也是全局变量， 我们多消耗了系统资源。如<br>果你在一个函数中类似这样频繁使用一个属性，我们建议你为该属性取一个本地变量别名。 变<br>量查找速度将会快很多－－在查找全局变量之前， 总是先查找本地变量。 这也是一个让你的<br>程序跑的更快的技巧： 将经常用到的模块属性替换为一个本地引用。代码跑得更快，而也不用<br>老是敲那么长的变量名了。</p>
+<hr>
+<p>核心笔记：布尔值<br>所有标准对象均可用于布尔测试，同类型的对象之间可以比较大小。每个对象天生具有布<br>尔 True 或 False 值。空对象、 值为零的任何数字或者 Null 对象 None 的布尔值都是 False。<br>下列对象的布尔值是 False。<br> None<br> False (布尔类型)<br> 所有的值为零的数：<br> 0 (整型)<br> (浮点型)<br> 0L (长整型)<br> 0.0+0.0j (复数)<br> “” (空字符串)<br> [] (空列表)<br> () (空元组)<br> {} (空字典)</p>
+<hr>
+<p>不同于很多其它语言，多个比较操作可以在同一行上进行，求值顺序为从左到右。</p>
+<pre><code>&gt;&gt;&gt; 3 &lt; 4 &lt; 7 # same as ( 3 &lt; 4 ) and ( 4 &lt; 7 )
+True
+&gt;&gt;&gt; 4 &gt; 3 == 3 # same as ( 4 &gt; 3 ) and ( 3 == 3 )
+True
+&gt;&gt;&gt; 4 &lt; 3 &lt; 5 != 2 &lt; 7
+False
+</code></pre><hr>
+<p>Python 提供了 is 和 is not<br>运算符来测试两个变量是否指向同一个对象。象下面这样执行一个测试<br>a is b<br>这个表达式等价于下面的表达式<br>id(a) == id(b)</p>
+<hr>
+<pre><code>a=1
+b=1
+print(id(a))
+print(id(b))
+a=1.0
+b=1.0
+print(id(a))
+print(id(b))
+a=&apos;123&apos;
+b=&apos;123&apos;
+print(id(a))
+print(id(b))
 
+out:
+1395087088
+1395087088
+46350672
+46350672
+41148640
+41148640
+</code></pre><p>无论值是什么，只要有整型、浮点型、字符串出现，就会被python缓存起来，上面的a和b，实际上都是对同一个对象的引用。</p>
+<hr>
+<p>内建函数 str() 和 repr() 或反引号运算符(``) 可以方便的以字符串的方式获取对象的<br>内容、类型、数值属性等信息。str()函数得到的字符串可读性好， 而 repr()函数得到的字符<br>串通常可以用来重新获得该对象, 通常情况下 obj == eval(repr(obj)) 这个等式是成立的。<br>这两个函数接受一个对象做为其参数， 返回适当的字符串。在下面的例子里， 我们会随机取<br>一些 Python 对象来查看他们的字符串表示。</p>
+<pre><code>&gt;&gt;&gt; str(4.53-2j)
+&apos;(4.53-2j)&apos;
+&gt;&gt;&gt;
+&gt;&gt;&gt; str(1)
+&apos;1&apos;
+&gt;&gt;&gt;
+&gt;&gt;&gt; str(2e10)
+&apos;20000000000.0&apos;
+&gt;&gt;&gt;
+&gt;&gt;&gt; str([0, 5, 9, 9])
+&apos;[0, 5, 9, 9]&apos;
+&gt;&gt;&gt;
+&gt;&gt;&gt; repr([0, 5, 9, 9])
+&apos;[0, 5, 9, 9]&apos; 
+&gt;&gt;&gt; `[0, 5, 9, 9]`
+&apos;[0, 5, 9, 9]&apos;
+</code></pre><p>尽管 str(),repr()和<code>运算在特性和功能方面都非常相似， 事实上 repr() 和</code> 做的<br>是完全一样的事情，它们返回的是一个对象的“官方”字符串表示， 也就是说绝大多数情况下<br>可以通过求值运算(使用 eval()内建函数)重新得到该对象，但 str()则有所不同。str() 致力<br>于生成一个对象的可读性好的字符串表示，它的返回结果通常无法用于 eval()求值， 但很适<br>合用于 print 语句输出。需要再次提醒一下的是， 并不是所有 repr()返回的字符串都能够用<br>eval()内建函数得到原来的对象：</p>
+<pre><code>&gt;&gt;&gt; eval(`type(type))`)
+File &quot;&lt;stdin&gt;&quot;, line 1
+eval(`type(type))`)
+^
+SyntaxError: invalid syntaxEdit By Vheavens
+Edit By Vheavens
+也就是说 repr() 输出对 Python 比较友好， 而 str()的输出对人比较友好。虽然如此，
+</code></pre><p>很多情况下这三者的输出仍然都是完全一样的。</p>
+<hr>
+<p><strong>对象包含三个部分：id、值、类型</strong></p>
+<hr>
+<p>存储模型<br>分类 Python 类型<br>标量/原子类型 数值（所有的数值类型），字符串（全部是文字）<br>容器类型 列表、元组、字典<br>（一个能保存单个字面对象的类型<br>我们称它为原子或标量存储，那些可容纳多个对象的类型，我们称之为容器存储。（容器对象有<br>时会在文档中被称为复合对象， 不过这些对象并不仅仅指类型， 还包括类似类实例这样的对象）<br>容器类型又带来一个新问题，那就是它是否可以容纳不同类型的对象。所有的 Python 容器对<br>象都能够容纳不同类型的对象。字符串看上去像一个容器类型，因为它“包含”字符（并且经常多于一个字符），不过由<br>于 Python 并没有字符类型（参见章节 4.8），所以字符串是一个自我包含的文字类型。）</p>
+<p>分类 Python 类型<br>可变类型 列表， 字典<br>不可变类型 数字、字符串、元组<br>（不可变意味着一旦对象被建立，其中的值就再也不能被更改）</p>
+<pre><code>&gt;&gt;&gt; x = &apos;Python numbers and strings&apos;
+&gt;&gt;&gt; print id(x)
+16191392
+&gt;&gt;&gt; x = &apos;are immutable?!? What gives?&apos;
+&gt;&gt;&gt; print id(x)
+16191232
+&gt;&gt;&gt; i = 0
+&gt;&gt;&gt; print id(i)
+7749552
+&gt;&gt;&gt; i = i + 1
+&gt;&gt;&gt; print id(i)Edit By Vheavens
+7749600
+</code></pre><p>访问模型<br>分类 Python 类型<br>直接访问 数字<br>顺序访问 字符串、列表、元组<br>映射访问 字典    </p>
+<p>（对非容器类型可以直接访问。所有的数值类型都归到这一类。<br>序列类型是指容器内的元素按从 0 开始的索引顺序访问。一次可以访问一个元素或多个元<br>素， 也就是大家所了解的切片(slice)。 字符串， 列表和元组都归到这一类。 我们前面提到过，<br>Python 不支持字符类型，因此，虽然字符串是简单文字类型，因为它有能力按照顺序访问子字<br>符串，所以也将它归到序列类型。<br>映射类型类似序列的索引属性，不过它的索引并不使用顺序的数字偏移量取值， 它的元素<br>无序存放， 通过一个唯一的 key 来访问， 这就是映射类型， 它容纳的是哈希键-值对的集合。     ）</p>
+<hr>
+<p><strong>在 Python 中， 一切都是指针。因为是无法通过任何方式直接访问内存中的值，只能间接访问。</strong></p>
+<hr>
+<p>python中没有如下类型：<br>byte<br>char<br>指针<br>int vs short vs long<br>Python 的普通整数相当于标准整数类型，不需要类似 C 语言中的 int, short, long 这三<br>种整数类型。事实上 Python 的整数实现等同于 C 语言的长整数。 由于 Python 的整型与长整型<br>密切融合， 用户几乎不需要担心什么。 你仅需要使用一种类型， 就是 Python 的整型。即便<br>数值超出整型的表达范围， 比如两个很大的数相乘， Python 会自动的返回一个长整数给你而<br>不会报错<br>float VS double<br>C 语言有单精度和双精度两种浮点类型。 Python 的浮点类型实际上是 C 语言的双精度浮<br>点类型。 Python 认为同时支持两种浮点类型的好处与支持两种浮点类型带来的开销不成比例，<br>所以 Python 决定不支持单精度浮点数。对那些宁愿放弃更大的取值范围而需要更高精确度的<br>用户来说， Python 还有一种十进制浮点数类型 Decimal， 不过你必须导入 decimal 模块才可<br>以使用它。浮点数总是不精确的。Decimals 则拥有任意的精度。在处理金钱这类确定的值时，<br>Decimal 类型就很有用。 在处理重量，长度或其它度量单位的场合， float 足够用了。</p>
+<hr>
+<p>幂运算操作符和一元操作符之间的优先级关系比较特别: 幂运算操作符比其左侧操作数<br>的一元操作符优先级低,比<br>起右侧操作数的一元操作符的优先级高</p>
+<hr>
+<p>divmod()内建函数把除法和取余运算结合起来, 返回一个包含商和余数的元组。对整数来<br>说 ， 它 的 返 回 值 就 是 地 板 除 和 取 余 操 作 的 结 果 。 对 浮 点 数 来 说 ， 返 回 的 商 部 分 是<br>math.floor(num1/num2)，对复数来说， 商部分是 ath.floor((num1/num2).real)。</p>
+<pre><code>&gt;&gt;&gt; divmod(10,3)
+(3, 1)
+&gt;&gt;&gt; divmod(3,10)Edit By Vheavens
+Edit By Vheavens
+(0, 3)
+&gt;&gt;&gt; divmod(10,2.5)
+(4.0, 0.0)
+&gt;&gt;&gt; divmod(2.5,10)
+(0.0, 2.5)
+&gt;&gt;&gt; divmod(2+1j, 0.5-1j)
+(0j, (2+1j))
+</code></pre><p>内建函数 round()用于对浮点数进行四舍五入运算。它有一个可选的小数位数参数。如果<br>不提供小数位参数， 它返回与第一个参数最接近的整数（但仍然是浮点类型）。第二个参数告<br>诉 round 函数将结果精确到小数点后指定位数。</p>
+<pre><code>&gt;&gt;&gt; round(3)
+3.0
+&gt;&gt;&gt; round(3.45)
+3.0
+&gt;&gt;&gt; round(3.4999999)
+3.0
+&gt;&gt;&gt; round(3.4999999, 1)
+3.5
+</code></pre><p>函数 coerce()，尽管从技术上讲它是一个数据类型转换函数，不过它的行为更像一个运算<br>符，因此我将它放到了这一小节。在 5.5.1 小节，我们讨论了 Python 如何执行数值类型转换。<br>函数 coerce（）为程序员提供了不依赖 Python 解释器， 而是自定义两个数值类型转换的方法。<br>对一种新创建的数值类型来说， 这个特性非常有用。函数 coerce()仅回一个包含类型转换完<br>毕的两个数值元素的元组。下面是几个例子：</p>
+<pre><code>&gt;&gt;&gt; coerce(1, 2)
+(1, 2)
+&gt;&gt;&gt;
+&gt;&gt;&gt; coerce(1.3, 134L)
+(1.3, 134.0)
+&gt;&gt;&gt;
+&gt;&gt;&gt; coerce(1, 134L)
+(1L, 134L)
+&gt;&gt;&gt;
+&gt;&gt;&gt; coerce(1j, 134L)
+(1j, (134+0j))
+&gt;&gt;&gt;
+&gt;&gt;&gt; coerce(1.23-41j, 134L)
+((1.23-41j), (134+0j))
+</code></pre><p>除此之<br>外， Python还提供了两个内建函数来返回字符串表示的 8进制和 16进制整数。它们分别是 oct()<br>和 hex()。它们都接受一个整数（任意进制的）对象，并返回一个对应值的字符串对象。下面<br>是几个示例：</p>
+<pre><code>&gt;&gt;&gt; hex(255)
+&apos;0xff&apos;Edit By Vheavens
+Edit By Vheavens
+&gt;&gt;&gt; hex(23094823l)
+&apos;0x1606627L&apos;
+&gt;&gt;&gt; hex(65535*2)
+&apos;0x1fffe&apos;
+&gt;&gt;&gt;
+&gt;&gt;&gt; oct(255)
+&apos;0377&apos;
+&gt;&gt;&gt; oct(23094823l)
+&apos;0130063047L&apos;
+&gt;&gt;&gt; oct(65535*2)
+&apos;0377776&apos;
+</code></pre><p>Python 也提供了 ASCII（美国标准信息交换码）码与其序列值之间的转换函数。每个字符<br>对应一个唯一的整数（0－255）。对所有使用 ASCII 表的计算机来说， 这个数值是不变的。这<br>保证了不同系统之间程序行为的一致性。 函数 chr()接受一个单字节整数值， 返回一个字符串，<br>其值为对应的字符。函数 ord()则相反，它接受一个字符，返回其对应的整数值。</p>
+<pre><code>&gt;&gt;&gt; ord(&apos;a&apos;)
+97
+&gt;&gt;&gt; ord(&apos;A&apos;)
+65
+&gt;&gt;&gt; ord(&apos;0&apos;)
+48
+&gt;&gt;&gt; chr(97)
+&apos;a&apos;
+&gt;&gt;&gt; chr(65L)
+&apos;A&apos;
+&gt;&gt;&gt; chr(48)
+&apos;0
+</code></pre><hr>
+<p>没有<strong>nonzero</strong>()方法的对象的默认值是 True。<br>对于值为零的任何数字或空集（空列表、空元组和空字典等）在 Python 中的布尔值都<br>是 False。<br>无 <strong>nonzero</strong>()</p>
+<pre><code>&gt;&gt;&gt; class C: pass
+&gt;&gt;&gt; c = C()
+&gt;&gt;&gt;
+&gt;&gt;&gt; bool(c) True
+&gt;&gt;&gt; bool(C) True
+</code></pre><p>重载 <strong>nonzero</strong>() 使它返回 False</p>
+<pre><code>&gt;&gt;&gt; class C:
+... def __nonzero__(self):
+... return False
+...
+&gt;&gt;&gt; c = C()
+&gt;&gt;&gt; bool(c) False
+&gt;&gt;&gt; bool(C) True
+</code></pre><hr>
+<p>序列操作符 作用<br>seq[ind] 获得下标为 ind 的元素<br>seq[ind1:ind2] 获得下标从 ind1 到 ind2 间的元素集合<br>seq * expr 序列重复 expr 次<br>seq1 + seq2 连接序列 seq1 和 seq2<br>obj in seq 判断 obj 元素是否包含在 seq 中<br>obj not in seq 判断 obj 元素是否不包含在 seq 中</p>
+<p>对列表来说，我们推荐读者用列表类型的extend()方法来把两个或者多个列表对象合并，因为它对原来的列表进行修改，不产生新的列表，因此也没有返回值。</p>
+<p>当你需要需要一个序列的多份拷贝时，重复操作符非常有用，它的语法如下：<br>sequence * copies_int</p>
+<hr>
+<p>切片时，::-1表示翻转，::2表示隔一个数取一个，::-2则表示翻转并隔一个取一个。</p>
+<pre><code>a=[1,2,3,4,5,6]
+a[::-2]
+
+[6, 4, 2]
+</code></pre><p>a[-1]表示从后面数第一个数，以此类推。</p>
+<pre><code>&gt;&gt;&gt; s = &apos;abcde&apos;
+&gt;&gt;&gt; i = -1
+&gt;&gt;&gt; for i in range(-1, -len(s), -1):
+... print s[:i]
+... abcd
+abc
+ab
+a
+</code></pre><hr>
+<p>[:None]表示取全部<br>    a[:None]</p>
+<pre><code>[1, 2, 3, 4, 5, 6]
+</code></pre><hr>
+<p>list(iter) 把可迭代对象转换为列表<br>str(obj) 把 obj 对象转换成字符串(对象的字符串表示法)<br>unicode(obj) 把对象转换成 Unicode 字符串(使用默认编码)<br>basestring() 抽象工厂函数,其作用仅仅是为 str 和 unicode 函数提供父类，所以不能被<br>实例化，也不能被调用(详见第 6.2 节)<br>tuple(iter) 把一个可迭代对象转换成一个元组对象</p>
+<hr>
+<pre><code>a=[6,5,4,3,2,1]
+b=enumerate(a)            #输入为任何可迭代对象，返回一个迭代器
+tuple(b)
+
+((0, 6), (1, 5), (2, 4), (3, 3), (4, 2), (5, 1))
+</code></pre><hr>
+<p>len(seq) 返回 seq 的长度</p>
+<hr>
+<p>max(arg0,arg1…,key=None)b 返回 iter 或(arg0,arg1,…)中的最大值，如果指定了 key,<br>这个 key 必须是一个可以传给 sort()方法的,用于比较的回<br>调函数.</p>
+<hr>
+<p>min(iter, key=None) or<br>min(arg0, arg1…. key=None)</p>
+<pre><code>a=[6,5,4,3,2,1]
+b=reversed(a)        #返回逆序的a的迭代器，注意输入只能为序列
+tuple(b)
+
+(1, 2, 3, 4, 5, 6)
+</code></pre><hr>
+<p>sorted(iter,<br>func=None,<br>key=None,<br>reverse=False)c 接受一个可迭代对象作为参数，返回一个有序的列表;可选参数<br>func,key 和 reverse 的含义跟 list.sort()内建函数的参数含义一<br>样.</p>
+<pre><code>def s(x):
+    return x*-1
+c=range(10)
+list(c)
+v=sorted(c,reverse=False)
+print(v)
+sorted(c,reverse=False,key=s)
+
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+</code></pre><hr>
+<p>zip（）  返回一个列表，其第一个元素是 it0,it1,…这些元素的第<br>一个元素组成的一个元组，第二个…,类推.</p>
+<pre><code>a=zip([1,2,3],[4,5,6],[7,8,9])
+print(list(a))
+
+[(1, 4, 7), (2, 5, 8), (3, 6, 9)]
+</code></pre>
       
     </div>
 
@@ -558,8 +783,17 @@ print &apos;file open error:&apos;, e
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -574,7 +808,7 @@ print &apos;file open error:&apos;, e
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -612,6 +846,22 @@ print &apos;file open error:&apos;, e
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#摘抄自《Python核心编程》"><span class="nav-number">1.</span> <span class="nav-text">摘抄自《Python核心编程》</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

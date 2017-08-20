@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。  flow_from_directory(d">
+<meta name="description" content="注意点1.data_mode的默认值是”channel last“，在构建网络时一定要注意。  models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Keras中的类与函数">
 <meta property="og:url" content="http://lefenger.com/2017/08/10/Keras中的类与函数/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。  flow_from_directory(d">
+<meta property="og:description" content="注意点1.data_mode的默认值是”channel last“，在构建网络时一定要注意。  models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-14T14:45:23.851Z">
+<meta property="og:updated_time" content="2017-08-15T06:41:23.528Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Keras中的类与函数">
-<meta name="twitter:description" content="models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。  flow_from_directory(d">
+<meta name="twitter:description" content="注意点1.data_mode的默认值是”channel last“，在构建网络时一定要注意。  models.pySequential该类用于表示一个网络模型,并继承于Model类  save_weights(filepath)   该函数用于将模型的权重保存为一个h5文件。  image.pyImageDataGeneratorImageDataGenerator类继承于object，可随着图片">
 
 
 
@@ -374,7 +374,9 @@
       
 
       
-        <h1 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h1><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>该类用于表示一个网络模型,并继承于Model类</p>
+        <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><p>1.data_mode的默认值是”channel last“，在构建网络时一定要注意。</p>
+<hr>
+<h1 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h1><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>该类用于表示一个网络模型,并继承于Model类</p>
 <hr>
 <pre><code>save_weights(filepath)  
 </code></pre><p>该函数用于将模型的权重保存为一个h5文件。</p>
@@ -518,7 +520,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -566,7 +568,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#models-py"><span class="nav-number">1.</span> <span class="nav-text">models.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">1.0.1.</span> <span class="nav-text">Sequential</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-py"><span class="nav-number">2.</span> <span class="nav-text">image.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageDataGenerator"><span class="nav-number">2.0.1.</span> <span class="nav-text">ImageDataGenerator</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#training-py"><span class="nav-number">3.</span> <span class="nav-text">training.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">3.0.1.</span> <span class="nav-text">Model</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#注意点"><span class="nav-number">1.</span> <span class="nav-text">注意点</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#models-py"><span class="nav-number">2.</span> <span class="nav-text">models.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sequential"><span class="nav-number">2.0.1.</span> <span class="nav-text">Sequential</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#image-py"><span class="nav-number">3.</span> <span class="nav-text">image.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#ImageDataGenerator"><span class="nav-number">3.0.1.</span> <span class="nav-text">ImageDataGenerator</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#training-py"><span class="nav-number">4.</span> <span class="nav-text">training.py</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Model"><span class="nav-number">4.0.1.</span> <span class="nav-text">Model</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

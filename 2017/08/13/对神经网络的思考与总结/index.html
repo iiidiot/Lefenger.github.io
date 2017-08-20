@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？答：在神经网络中，数值的高低代表了激活程度的高低，而在卷积操作中，卷积核的数值分布决定了图像像素应该具有怎样的数值分布才能得到高的卷积结果，因此，不同的卷积核都代表着对不同的特征的识别。有个有意思的地方是，以前的传统图像识别是人工选择卷积核来对图片进行特征提取，而现在是神经网络通过训练来决定卷积核。并且随着网络的深入，卷积层的输出的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-13T13:25:20.981Z">
+<meta property="og:updated_time" content="2017-08-17T06:11:54.214Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="对神经网络的思考与总结">
 <meta name="twitter:description" content="1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？答：在神经网络中，数值的高低代表了激活程度的高低，而在卷积操作中，卷积核的数值分布决定了图像像素应该具有怎样的数值分布才能得到高的卷积结果，因此，不同的卷积核都代表着对不同的特征的识别。有个有意思的地方是，以前的传统图像识别是人工选择卷积核来对图片进行特征提取，而现在是神经网络通过训练来决定卷积核。并且随着网络的深入，卷积层的输出的">
@@ -364,6 +364,9 @@
 
       
         <h3 id="1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"><a href="#1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？" class="headerlink" title="1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"></a>1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？</h3><p>答：在神经网络中，数值的高低代表了激活程度的高低，而在卷积操作中，卷积核的数值分布决定了图像像素应该具有怎样的数值分布才能得到高的卷积结果，因此，不同的卷积核都代表着对不同的特征的识别。<br>有个有意思的地方是，以前的传统图像识别是人工选择卷积核来对图片进行特征提取，而现在是神经网络通过训练来决定卷积核。<br>并且随着网络的深入，卷积层的输出的图片规格会越来越小，这样卷积核所覆盖的比例就越来越大，因此更有利于识别复杂的特征。并且在卷积的过程中，特征的相对位置也会被保存下来。<br>有个很好的经验是：在每个池化层过后使过滤器数目增加一倍。</p>
+<h3 id="2-偏置项的作用是什么？"><a href="#2-偏置项的作用是什么？" class="headerlink" title="2.偏置项的作用是什么？"></a>2.偏置项的作用是什么？</h3><p>为了使每个数据项都有独特的数值特征。</p>
+<hr>
+<p>1.过滤器的规格应与上一层的数据规格相同，所谓规格相同，意思是，上一层有16个通道，shape为16<em>30</em>30，那么下一层的卷积层的过滤器的规格就得为16<em>3</em>3（假设卷积核长宽均为3），这意味着每一个通道都会有一个不同的卷积核。点积运算时要把所有的通道的点乘过后的数据加起来作为结果，这一点很关键，意思是每一个过滤器都把前一层的所有的通道结合成一张图，如32×32×3通过5×5×3得到28×28，三个通道合并成了一个通道。当使用1×1作为过滤器时，相当于对纵深进行点积。</p>
 
       
     </div>
@@ -410,8 +413,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/14/Tricks/" rel="prev" title="Tricks">
-                Tricks <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/14/Batch Normalization层/" rel="prev" title="Batch Normalization层">
+                Batch Normalization层 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +494,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -539,7 +542,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"><span class="nav-number">1.</span> <span class="nav-text">1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"><span class="nav-number">1.</span> <span class="nav-text">1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-偏置项的作用是什么？"><span class="nav-number">2.</span> <span class="nav-text">2.偏置项的作用是什么？</span></a></li></ol></div>
             
 
           </div>

@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这">
+<meta name="description" content="1.避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 2.提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Tricks">
 <meta property="og:url" content="http://lefenger.com/2017/08/14/Tricks/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这">
+<meta property="og:description" content="1.避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 2.提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-14T07:34:01.624Z">
+<meta property="og:updated_time" content="2017-08-17T05:23:50.952Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Tricks">
-<meta name="twitter:description" content="避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这">
+<meta name="twitter:description" content="1.避免过拟合的方法使用dropout。增大训练数据集在损失函数中添加正则项数据增广即对图片进行旋转、拉伸等操作来倍增样本数量。 Batch Normalization层在每个卷积层或全连接层后面加入Batch Normalization层。 2.提升最终准确率的普遍方法将多个模型的结果求平均值，作为最后的结果我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的">
 
 
 
@@ -363,9 +363,12 @@
       
 
       
-        <h1 id="避免过拟合的方法"><a href="#避免过拟合的方法" class="headerlink" title="避免过拟合的方法"></a>避免过拟合的方法</h1><h2 id="使用dropout。"><a href="#使用dropout。" class="headerlink" title="使用dropout。"></a>使用dropout。</h2><h2 id="增大训练数据集"><a href="#增大训练数据集" class="headerlink" title="增大训练数据集"></a>增大训练数据集</h2><h2 id="在损失函数中添加正则项"><a href="#在损失函数中添加正则项" class="headerlink" title="在损失函数中添加正则项"></a>在损失函数中添加正则项</h2><h2 id="数据增广"><a href="#数据增广" class="headerlink" title="数据增广"></a>数据增广</h2><p>即对图片进行旋转、拉伸等操作来倍增样本数量。</p>
+        <h1 id="1-避免过拟合的方法"><a href="#1-避免过拟合的方法" class="headerlink" title="1.避免过拟合的方法"></a>1.避免过拟合的方法</h1><h2 id="使用dropout。"><a href="#使用dropout。" class="headerlink" title="使用dropout。"></a>使用dropout。</h2><h2 id="增大训练数据集"><a href="#增大训练数据集" class="headerlink" title="增大训练数据集"></a>增大训练数据集</h2><h2 id="在损失函数中添加正则项"><a href="#在损失函数中添加正则项" class="headerlink" title="在损失函数中添加正则项"></a>在损失函数中添加正则项</h2><h2 id="数据增广"><a href="#数据增广" class="headerlink" title="数据增广"></a>数据增广</h2><p>即对图片进行旋转、拉伸等操作来倍增样本数量。</p>
 <h2 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h2><p>在每个卷积层或全连接层后面加入Batch Normalization层。</p>
-<h1 id="提升最终准确率的普遍方法"><a href="#提升最终准确率的普遍方法" class="headerlink" title="提升最终准确率的普遍方法"></a>提升最终准确率的普遍方法</h1><h2 id="将多个模型的结果求平均值，作为最后的结果"><a href="#将多个模型的结果求平均值，作为最后的结果" class="headerlink" title="将多个模型的结果求平均值，作为最后的结果"></a>将多个模型的结果求平均值，作为最后的结果</h2><p>我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这是因为每个模型都各有千秋，都有自己的长处和不足。</p>
+<h1 id="2-提升最终准确率的普遍方法"><a href="#2-提升最终准确率的普遍方法" class="headerlink" title="2.提升最终准确率的普遍方法"></a>2.提升最终准确率的普遍方法</h1><h2 id="将多个模型的结果求平均值，作为最后的结果"><a href="#将多个模型的结果求平均值，作为最后的结果" class="headerlink" title="将多个模型的结果求平均值，作为最后的结果"></a>将多个模型的结果求平均值，作为最后的结果</h2><p>我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这是因为每个模型都各有千秋，都有自己的长处和不足。</p>
+<h2 id="使用pseudo-lable"><a href="#使用pseudo-lable" class="headerlink" title="使用pseudo lable"></a>使用pseudo lable</h2><p>具体方法是：只将测试集或验证集的数据部分输入到网络之中进行预测，在把得到的lable和测试集或验证集的数据部分结合起来作为训练样本，并在训练时每个batch中只加入20%或30%pseudo训练样本。这个方法整个过程中测试集或验证集都作为未标记的数据，为什么能够有效呢，据说是学习了测试集的数据分布。</p>
+<h1 id="3-在样本集中我们可以得到哪些信息？"><a href="#3-在样本集中我们可以得到哪些信息？" class="headerlink" title="3.在样本集中我们可以得到哪些信息？"></a>3.在样本集中我们可以得到哪些信息？</h1><p>在进行一个任务之前，我们需要建立一个小的样本集来快速构建模型，那么我们可以从这个小的样本集中获得哪些信息呢？<br>1.我们可以得到合适的学习率<br>2.我们可以得到合适的数据增广方法。</p>
+<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><p>1.将Batch Normalization层放在网络的第一层就可以不用自己对输入数据进行预处理（减均值，除标准差），它会帮我们弄好。<br>2.在训练时，我们可以先将学习率设的很小，再慢慢增大，再慢慢减小。<br>3.由于卷积层的计算需要大量的时间，因此如果我们不需要关注卷积层的话，可以将卷积层的输出保存起来，这被称为预计算。    </p>
 
       
     </div>
@@ -402,8 +405,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/13/对神经网络的思考与总结/" rel="next" title="对神经网络的思考与总结">
-                <i class="fa fa-chevron-left"></i> 对神经网络的思考与总结
+              <a href="/2017/08/14/Batch Normalization层/" rel="next" title="Batch Normalization层">
+                <i class="fa fa-chevron-left"></i> Batch Normalization层
               </a>
             
           </div>
@@ -411,10 +414,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/08/14/Batch Normalization层/" rel="prev" title="Batch Normalization层">
-                Batch Normalization层 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -493,7 +492,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -541,7 +540,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#避免过拟合的方法"><span class="nav-number">1.</span> <span class="nav-text">避免过拟合的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用dropout。"><span class="nav-number">1.1.</span> <span class="nav-text">使用dropout。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增大训练数据集"><span class="nav-number">1.2.</span> <span class="nav-text">增大训练数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在损失函数中添加正则项"><span class="nav-number">1.3.</span> <span class="nav-text">在损失函数中添加正则项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据增广"><span class="nav-number">1.4.</span> <span class="nav-text">数据增广</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-Normalization层"><span class="nav-number">1.5.</span> <span class="nav-text">Batch Normalization层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#提升最终准确率的普遍方法"><span class="nav-number">2.</span> <span class="nav-text">提升最终准确率的普遍方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将多个模型的结果求平均值，作为最后的结果"><span class="nav-number">2.1.</span> <span class="nav-text">将多个模型的结果求平均值，作为最后的结果</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-避免过拟合的方法"><span class="nav-number">1.</span> <span class="nav-text">1.避免过拟合的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用dropout。"><span class="nav-number">1.1.</span> <span class="nav-text">使用dropout。</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#增大训练数据集"><span class="nav-number">1.2.</span> <span class="nav-text">增大训练数据集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在损失函数中添加正则项"><span class="nav-number">1.3.</span> <span class="nav-text">在损失函数中添加正则项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据增广"><span class="nav-number">1.4.</span> <span class="nav-text">数据增广</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-Normalization层"><span class="nav-number">1.5.</span> <span class="nav-text">Batch Normalization层</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2-提升最终准确率的普遍方法"><span class="nav-number">2.</span> <span class="nav-text">2.提升最终准确率的普遍方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#将多个模型的结果求平均值，作为最后的结果"><span class="nav-number">2.1.</span> <span class="nav-text">将多个模型的结果求平均值，作为最后的结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用pseudo-lable"><span class="nav-number">2.2.</span> <span class="nav-text">使用pseudo lable</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3-在样本集中我们可以得到哪些信息？"><span class="nav-number">3.</span> <span class="nav-text">3.在样本集中我们可以得到哪些信息？</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#技巧："><span class="nav-number">4.</span> <span class="nav-text">技巧：</span></a></li></ol></div>
             
 
           </div>

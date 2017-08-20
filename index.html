@@ -267,6 +267,156 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Tricks/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/14/Tricks/" itemprop="url">Tricks</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T13:42:05+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/14/Tricks/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/14/Tricks/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="1-避免过拟合的方法"><a href="#1-避免过拟合的方法" class="headerlink" title="1.避免过拟合的方法"></a>1.避免过拟合的方法</h1><h2 id="使用dropout。"><a href="#使用dropout。" class="headerlink" title="使用dropout。"></a>使用dropout。</h2><h2 id="增大训练数据集"><a href="#增大训练数据集" class="headerlink" title="增大训练数据集"></a>增大训练数据集</h2><h2 id="在损失函数中添加正则项"><a href="#在损失函数中添加正则项" class="headerlink" title="在损失函数中添加正则项"></a>在损失函数中添加正则项</h2><h2 id="数据增广"><a href="#数据增广" class="headerlink" title="数据增广"></a>数据增广</h2><p>即对图片进行旋转、拉伸等操作来倍增样本数量。</p>
+<h2 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h2><p>在每个卷积层或全连接层后面加入Batch Normalization层。</p>
+<h1 id="2-提升最终准确率的普遍方法"><a href="#2-提升最终准确率的普遍方法" class="headerlink" title="2.提升最终准确率的普遍方法"></a>2.提升最终准确率的普遍方法</h1><h2 id="将多个模型的结果求平均值，作为最后的结果"><a href="#将多个模型的结果求平均值，作为最后的结果" class="headerlink" title="将多个模型的结果求平均值，作为最后的结果"></a>将多个模型的结果求平均值，作为最后的结果</h2><p>我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这是因为每个模型都各有千秋，都有自己的长处和不足。</p>
+<h2 id="使用pseudo-lable"><a href="#使用pseudo-lable" class="headerlink" title="使用pseudo lable"></a>使用pseudo lable</h2><p>具体方法是：只将测试集或验证集的数据部分输入到网络之中进行预测，在把得到的lable和测试集或验证集的数据部分结合起来作为训练样本，并在训练时每个batch中只加入20%或30%pseudo训练样本。这个方法整个过程中测试集或验证集都作为未标记的数据，为什么能够有效呢，据说是学习了测试集的数据分布。</p>
+<h1 id="3-在样本集中我们可以得到哪些信息？"><a href="#3-在样本集中我们可以得到哪些信息？" class="headerlink" title="3.在样本集中我们可以得到哪些信息？"></a>3.在样本集中我们可以得到哪些信息？</h1><p>在进行一个任务之前，我们需要建立一个小的样本集来快速构建模型，那么我们可以从这个小的样本集中获得哪些信息呢？<br>1.我们可以得到合适的学习率<br>2.我们可以得到合适的数据增广方法。</p>
+<h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><p>1.将Batch Normalization层放在网络的第一层就可以不用自己对输入数据进行预处理（减均值，除标准差），它会帮我们弄好。<br>2.在训练时，我们可以先将学习率设的很小，再慢慢增大，再慢慢减小。<br>3.由于卷积层的计算需要大量的时间，因此如果我们不需要关注卷积层的话，可以将卷积层的输出保存起来，这被称为预计算。    </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Batch Normalization层/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -412,153 +562,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Tricks/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/14/Tricks/" itemprop="url">Tricks</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T13:42:05+08:00">
-                2017-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/14/Tricks/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/14/Tricks/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="避免过拟合的方法"><a href="#避免过拟合的方法" class="headerlink" title="避免过拟合的方法"></a>避免过拟合的方法</h1><h2 id="使用dropout。"><a href="#使用dropout。" class="headerlink" title="使用dropout。"></a>使用dropout。</h2><h2 id="增大训练数据集"><a href="#增大训练数据集" class="headerlink" title="增大训练数据集"></a>增大训练数据集</h2><h2 id="在损失函数中添加正则项"><a href="#在损失函数中添加正则项" class="headerlink" title="在损失函数中添加正则项"></a>在损失函数中添加正则项</h2><h2 id="数据增广"><a href="#数据增广" class="headerlink" title="数据增广"></a>数据增广</h2><p>即对图片进行旋转、拉伸等操作来倍增样本数量。</p>
-<h2 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h2><p>在每个卷积层或全连接层后面加入Batch Normalization层。</p>
-<h1 id="提升最终准确率的普遍方法"><a href="#提升最终准确率的普遍方法" class="headerlink" title="提升最终准确率的普遍方法"></a>提升最终准确率的普遍方法</h1><h2 id="将多个模型的结果求平均值，作为最后的结果"><a href="#将多个模型的结果求平均值，作为最后的结果" class="headerlink" title="将多个模型的结果求平均值，作为最后的结果"></a>将多个模型的结果求平均值，作为最后的结果</h2><p>我们可能为了更好的结果不断更改模型，但我们可以对这些模型的结果求平均值，便可以得到更好的结果，这是因为每个模型都各有千秋，都有自己的长处和不足。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/13/对神经网络的思考与总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -661,6 +664,9 @@
         
           
             <h3 id="1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"><a href="#1-为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？" class="headerlink" title="1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？"></a>1.为什么通过使用过滤器对图像进行卷积操作能够达到识别特征的功能？</h3><p>答：在神经网络中，数值的高低代表了激活程度的高低，而在卷积操作中，卷积核的数值分布决定了图像像素应该具有怎样的数值分布才能得到高的卷积结果，因此，不同的卷积核都代表着对不同的特征的识别。<br>有个有意思的地方是，以前的传统图像识别是人工选择卷积核来对图片进行特征提取，而现在是神经网络通过训练来决定卷积核。<br>并且随着网络的深入，卷积层的输出的图片规格会越来越小，这样卷积核所覆盖的比例就越来越大，因此更有利于识别复杂的特征。并且在卷积的过程中，特征的相对位置也会被保存下来。<br>有个很好的经验是：在每个池化层过后使过滤器数目增加一倍。</p>
+<h3 id="2-偏置项的作用是什么？"><a href="#2-偏置项的作用是什么？" class="headerlink" title="2.偏置项的作用是什么？"></a>2.偏置项的作用是什么？</h3><p>为了使每个数据项都有独特的数值特征。</p>
+<hr>
+<p>1.过滤器的规格应与上一层的数据规格相同，所谓规格相同，意思是，上一层有16个通道，shape为16<em>30</em>30，那么下一层的卷积层的过滤器的规格就得为16<em>3</em>3（假设卷积核长宽均为3），这意味着每一个通道都会有一个不同的卷积核。点积运算时要把所有的通道的点乘过后的数据加起来作为结果，这一点很关键，意思是每一个过滤器都把前一层的所有的通道结合成一张图，如32×32×3通过5×5×3得到28×28，三个通道合并成了一个通道。当使用1×1作为过滤器时，相当于对纵深进行点积。</p>
 
           
         
@@ -1509,7 +1515,9 @@ print(c.shape)
       
         
           
-            <h1 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h1><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>该类用于表示一个网络模型,并继承于Model类</p>
+            <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><p>1.data_mode的默认值是”channel last“，在构建网络时一定要注意。</p>
+<hr>
+<h1 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h1><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>该类用于表示一个网络模型,并继承于Model类</p>
 <hr>
 <pre><code>save_weights(filepath)  
 </code></pre><p>该函数用于将模型的权重保存为一个h5文件。</p>
@@ -1933,7 +1941,7 @@ for py in f:
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">52</span>
+                <span class="site-state-item-count">54</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
