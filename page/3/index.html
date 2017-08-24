@@ -568,234 +568,6 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/30/Numpy简单函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/30/Numpy简单函数/" itemprop="url">Numpy简单函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-30T14:20:19+08:00">
-                2017-07-30
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Numpy/" itemprop="url" rel="index">
-                    <span itemprop="name">Numpy</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/07/30/Numpy简单函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/30/Numpy简单函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="ceil-函数-输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1-3）-结果为2。"><a href="#ceil-函数-输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1-3）-结果为2。" class="headerlink" title="ceil()函数    输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1.3）,结果为2。"></a>ceil()函数    输入可为数组或单个浮点数，作用是对小数求整，求整方式为向上求整，例如ceil（1.3）,结果为2。</h2><p>random.permutation(x) 把一个数组打乱，即重新随机排列，输入的x可为一个整型也可为一个数组，若为整型的话，其效果等同于对arange（x）进行打乱，若是数组，则对元数组进行复制，然后再打乱，返回值为打乱后的ndarray，值得注意的是，如果输入的数组为多个维度，则只会对第一个维度进行随机，例子如下:</p>
-<pre><code>&gt;&gt;&gt; np.random.permutation(10)
-array([1, 7, 4, 3, 0, 9, 2, 5, 8, 6])
-
-&gt;&gt;&gt; np.random.permutation([1, 4, 9, 12, 15])
-array([15,  1,  9,  4, 12])
-
-&gt;&gt;&gt; arr = np.arange(9).reshape((3, 3))
-&gt;&gt;&gt; np.random.permutation(arr)
-array([[6, 7, 8],
-       [0, 1, 2],
-       [3, 4, 5]])
-</code></pre><hr>
-<p>nonzero(x)<br>x为一个数组，返回其中非0或Ture的元素的坐标。</p>
-<pre><code>&gt;&gt;&gt; x = np.array([[1,0,0], [0,2,0], [1,1,0]])
-&gt;&gt;&gt; x
-array([[1, 0, 0],
-       [0, 2, 0],
-       [1, 1, 0]])
-&gt;&gt;&gt; np.nonzero(x)
-(array([0, 1, 2, 2], dtype=int64), array([0, 1, 0, 1], dtype=int64))   #只要将这两个数组组合起来就是坐标了。
-</code></pre><hr>
-<p>where（condition，x,y）<br>condition为条件，x，y为数组 ，condition的结果的shape、x的shape和y的shape都应该相同，或者能够扩展成相同的shape，condition的结果中为True的位置返回x，否则返回y。若没有x和y输入，则返回nonzero（condition）。</p>
-<pre><code>&gt;&gt;&gt; np.where([[True, False], [True, True]],
-...          [[1, 2], [3, 4]],
-...          [[9, 8], [7, 6]])
-array([[1, 8],
-       [3, 4]])
-
-&gt;&gt;&gt; np.where([[0, 1], [1, 0]])
-(array([0, 1]), array([1, 0]))
-&gt;&gt;&gt; x = np.arange(9.).reshape(3, 3)
-&gt;&gt;&gt; np.where( x &gt; 5 )
-(array([2, 2, 2]), array([0, 1, 2]))
-&gt;&gt;&gt; x[np.where( x &gt; 3.0 )]               # Note: result is 1D.
-array([ 4.,  5.,  6.,  7.,  8.])
-&gt;&gt;&gt; np.where(x &lt; 5, x, -1)               # Note: broadcasting.
-array([[ 0.,  1.,  2.],
-       [ 3.,  4., -1.],
-       [-1., -1., -1.]])
-
-array([[False, False, False],
-       [ True,  True, False],
-       [False,  True, False]], dtype=bool)
-&gt;&gt;&gt; np.where(ix)
-(array([1, 1, 2]), array([0, 1, 1]))
-</code></pre><hr>
-<p>expand_dims(a,aixs)<br>指定在哪个维度后增加一维，新增维的元素为1.</p>
-<pre><code>&gt;&gt;&gt; x = np.array([1,2])
-&gt;&gt;&gt; x.shape
-(2,)
-
-The following is equivalent to x[np.newaxis,:] or x[np.newaxis]:
-
-&gt;&gt;&gt; y = np.expand_dims(x, axis=0)
-&gt;&gt;&gt; y
-array([[1, 2]])
-&gt;&gt;&gt; y.shape
-(1, 2)
-
-&gt;&gt;&gt; y = np.expand_dims(x, axis=1)  # Equivalent to x[:,newaxis]
-&gt;&gt;&gt; y
-array([[1],
-       [2]])
-&gt;&gt;&gt; y.shape
-(2, 1)
-</code></pre><hr>
-<p>std（x，axis=none）<br>求标准差，默认求全局标准差。</p>
-<pre><code>&gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
-&gt;&gt;&gt; np.std(a)
-1.1180339887498949
-&gt;&gt;&gt; np.std(a, axis=0)
-array([ 1.,  1.])
-&gt;&gt;&gt; np.std(a, axis=1)
-array([ 0.5,  0.5])
-</code></pre><hr>
-<p>mean(x,axis=none)<br>求平均值，默认求全局平均值。</p>
-<pre><code>&gt;&gt;&gt; a = np.array([[1, 2], [3, 4]])
-&gt;&gt;&gt; np.mean(a)
-2.5
-&gt;&gt;&gt; np.mean(a, axis=0)
-array([ 2.,  3.])
-&gt;&gt;&gt; np.mean(a, axis=1)
-array([ 1.5,  3.5])
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/28/faster-rcnn-demo/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -945,7 +717,7 @@ array([ 1.5,  3.5])
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Numpy中的transpose函数/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/unity与android交互/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -964,7 +736,7 @@ array([ 1.5,  3.5])
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/Numpy中的transpose函数/" itemprop="url">Numpy中的transpose函数</a></h1>
+                <a class="post-title-link" href="/2017/07/26/unity与android交互/" itemprop="url">unity与android交互</a></h1>
         
 
         <div class="post-meta">
@@ -999,8 +771,8 @@ array([ 1.5,  3.5])
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Numpy/" itemprop="url" rel="index">
-                    <span itemprop="name">Numpy</span>
+                  <a href="/categories/Unity/" itemprop="url" rel="index">
+                    <span itemprop="name">Unity</span>
                   </a>
                 </span>
 
@@ -1017,9 +789,9 @@ array([ 1.5,  3.5])
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/26/Numpy中的transpose函数/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/26/unity与android交互/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/Numpy中的transpose函数/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/26/unity与android交互/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1045,12 +817,163 @@ array([ 1.5,  3.5])
 
       
         
-          <p>transpose()的操作对象是矩阵。</p>
-<p>我们用一个例子来说明这个函数：<br>[[[0 1]<br>  [2 3]]</p>
-<p> [[4 5]<br>  [6 7]]]<br>
+          <p>unity与android交互：eclipse中安卓版本最低要求4.0，具体原因如下：<br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/Numpy中的transpose函数/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/unity与android交互/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Opengl（三）——渲染出一个三角形/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/07/26/Opengl（三）——渲染出一个三角形/" itemprop="url">Opengl（三）——渲染出一个三角形</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
+                2017-07-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenGL/" itemprop="url" rel="index">
+                    <span itemprop="name">OpenGL</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/07/26/Opengl（三）——渲染出一个三角形/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/07/26/Opengl（三）——渲染出一个三角形/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>`</p>
+<p>#define GLEW_STATIC</p>
+<p>#include <gl glew.h=""></gl></p>
+<p>#include <glfw3.h></glfw3.h></p>
+<p>#include <iostream><br>using namespace std;<br>//顶点着色器GLSL代码的字符串<br>const GLchar<em> vertexshader = “#version 330 core\n”<br>    “layout (location = 0) in vec3 position;\n”<br>    “void main()\n”<br>    “{\n”<br>    “gl_Position = vec4(position.x, position.y, position.z, 1.0);\n”<br>    “}\0”;<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/07/26/Opengl（三）——渲染出一个三角形/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1395,7 +1318,7 @@ array([ 1.5,  3.5])
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/MFC与stdafx/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Shader学习历程（二）——GPU渲染过程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -1414,7 +1337,7 @@ array([ 1.5,  3.5])
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/MFC与stdafx/" itemprop="url">MFC与stdafx</a></h1>
+                <a class="post-title-link" href="/2017/07/26/Shader学习历程（二）——GPU渲染过程/" itemprop="url">Shader学习历程（二）——GPU渲染过程</a></h1>
         
 
         <div class="post-meta">
@@ -1449,8 +1372,8 @@ array([ 1.5,  3.5])
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
+                  <a href="/categories/Shader/" itemprop="url" rel="index">
+                    <span itemprop="name">Shader</span>
                   </a>
                 </span>
 
@@ -1467,9 +1390,9 @@ array([ 1.5,  3.5])
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/26/MFC与stdafx/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/26/Shader学习历程（二）——GPU渲染过程/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/MFC与stdafx/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/26/Shader学习历程（二）——GPU渲染过程/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1495,10 +1418,12 @@ array([ 1.5,  3.5])
 
       
         
-          <h2 id="MFC"><a href="#MFC" class="headerlink" title="MFC"></a>MFC</h2><p>   MFC即微软基础类库（英语：Microsoft Foundation Classes，简称MFC）。它以C++类的形式封装了windows api，它实际上是windows api的高层实现，各种windows句柄会被包含在MFC的相应的类中，若要进行操作只需调用相关的成员函数即可。<br>
+          <h2 id="声明"><a href="#声明" class="headerlink" title="声明"></a>声明</h2><p>本文参考《GPU Programming And Cg Language Primer》<br>感谢作者</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>这一篇主要讲述了GPU的渲染过程，这一篇可谓最为基础的重点，所以我们必须将其牢记于心。</p>
+<p>图形绘制管线分为三个阶段：<br><strong>应用程序阶段、几何阶段、光栅阶段</strong><br>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/MFC与stdafx/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/Shader学习历程（二）——GPU渲染过程/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1694,7 +1619,7 @@ array([ 1.5,  3.5])
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/OpenGL（一）——环境配置/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/Shader学习历程（四）——Unity官方Image effect__Fisheye/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -1713,7 +1638,7 @@ array([ 1.5,  3.5])
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/07/26/OpenGL（一）——环境配置/" itemprop="url">OpenGL（一）——环境配置</a></h1>
+                <a class="post-title-link" href="/2017/07/26/Shader学习历程（四）——Unity官方Image effect__Fisheye/" itemprop="url">Shader学习历程（四）——Unity官方Image effect__Fisheye</a></h1>
         
 
         <div class="post-meta">
@@ -1748,8 +1673,8 @@ array([ 1.5,  3.5])
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenGL/" itemprop="url" rel="index">
-                    <span itemprop="name">OpenGL</span>
+                  <a href="/categories/Shader/" itemprop="url" rel="index">
+                    <span itemprop="name">Shader</span>
                   </a>
                 </span>
 
@@ -1766,9 +1691,9 @@ array([ 1.5,  3.5])
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/26/OpenGL（一）——环境配置/#comments" itemprop="discussionUrl">
+                <a href="/2017/07/26/Shader学习历程（四）——Unity官方Image effect__Fisheye/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/OpenGL（一）——环境配置/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/07/26/Shader学习历程（四）——Unity官方Image effect__Fisheye/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -1794,10 +1719,10 @@ array([ 1.5,  3.5])
 
       
         
-          <p>关于Opengl的环境配置，真的是。。。醉醉的。。。<br>我已经快爆炸了。。。所以我不准备自己写详细步骤了，以下是我参考过的一些资料，他们已经写得很好了：<br><a href="http://blog.csdn.net/augusdi/article/details/20469561" target="_blank" rel="external">http://blog.csdn.net/augusdi/article/details/20469561</a><br><a href="http://www.cnblogs.com/wangguchangqing/p/4425745.html" target="_blank" rel="external">http://www.cnblogs.com/wangguchangqing/p/4425745.html</a><br><a href="http://blog.csdn.net/sunny_unix/article/details/8056807" target="_blank" rel="external">http://blog.csdn.net/sunny_unix/article/details/8056807</a><br>
+          <h2 id="前面"><a href="#前面" class="headerlink" title="前面"></a>前面</h2><p>有时很想自己做一些很酷炫的image effect，但又不知道要从何开始，不妨先学习学习官方的Image effect是怎么实现的。这一篇主要探究鱼眼效果是如何实现的。下附两幅图看看效果是啥样的：<br><img src="http://img.blog.csdn.net/20151123232756869" alt="这里写图片描述"><img src="http://img.blog.csdn.net/20151123232737473" alt="这里写图片描述"></p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/07/26/OpenGL（一）——环境配置/#more" rel="contents">
+            <a class="btn" href="/2017/07/26/Shader学习历程（四）——Unity官方Image effect__Fisheye/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1883,7 +1808,7 @@ array([ 1.5,  3.5])
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">57</span>
+                <span class="site-state-item-count">56</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
