@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
+<meta name="description" content="一. list的元素可以是不同的类型，而ndarray只能包含同一种类型的元素。 二. 切片的返回值所表示的意义不同。 import numpy as np  a=np.array([1,2,3,4,5,6]) b=[1,2,3,4,5,6]  c=a[:3] d= b[:3] c[0]=0 d[0]=0 id(a),id(b),id(c),id(d),a,b,c,d  (82813000,  8">
 <meta property="og:type" content="article">
-<meta property="og:title" content="手势识别项目总结">
-<meta property="og:url" content="http://lefenger.com/2017/07/26/手势识别项目总结/index.html">
+<meta property="og:title" content="Pyhon与Numpy的不同">
+<meta property="og:url" content="http://lefenger.com/2017/08/23/Pyhon与-Numpy的不同/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
+<meta property="og:description" content="一. list的元素可以是不同的类型，而ndarray只能包含同一种类型的元素。 二. 切片的返回值所表示的意义不同。 import numpy as np  a=np.array([1,2,3,4,5,6]) b=[1,2,3,4,5,6]  c=a[:3] d= b[:3] c[0]=0 d[0]=0 id(a),id(b),id(c),id(d),a,b,c,d  (82813000,  8">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-07-26T10:25:04.498Z">
+<meta property="og:updated_time" content="2017-08-24T02:12:00.614Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="手势识别项目总结">
-<meta name="twitter:description" content="序言此文章只是总结，没有任何技术干货。 正文这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。由于是在Unity中使用，所以我必须使用emgucv来进行识别。">
-<meta name="twitter:image" content="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
+<meta name="twitter:title" content="Pyhon与Numpy的不同">
+<meta name="twitter:description" content="一. list的元素可以是不同的类型，而ndarray只能包含同一种类型的元素。 二. 切片的返回值所表示的意义不同。 import numpy as np  a=np.array([1,2,3,4,5,6]) b=[1,2,3,4,5,6]  c=a[:3] d= b[:3] c[0]=0 d[0]=0 id(a),id(b),id(c),id(d),a,b,c,d  (82813000,  8">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://lefenger.com/2017/07/26/手势识别项目总结/"/>
+  <link rel="canonical" href="http://lefenger.com/2017/08/23/Pyhon与-Numpy的不同/"/>
 
 
 
 
 
-  <title>手势识别项目总结 | AbstractSky</title>
+  <title>Pyhon与Numpy的不同 | AbstractSky</title>
   
 
 
@@ -268,7 +266,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/07/26/手势识别项目总结/">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/23/Pyhon与-Numpy的不同/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Lefenger">
@@ -285,7 +283,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">手势识别项目总结</h1>
+          <h1 class="post-title" itemprop="name headline">Pyhon与Numpy的不同</h1>
         
 
         <div class="post-meta">
@@ -297,8 +295,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-26T17:22:06+08:00">
-                2017-07-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T17:02:50+08:00">
+                2017-08-23
               </time>
             
 
@@ -320,8 +318,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/OpenCV/" itemprop="url" rel="index">
-                    <span itemprop="name">OpenCV</span>
+                  <a href="/categories/Numpy/" itemprop="url" rel="index">
+                    <span itemprop="name">Numpy</span>
                   </a>
                 </span>
 
@@ -338,9 +336,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/07/26/手势识别项目总结/#comments" itemprop="discussionUrl">
+                <a href="/2017/08/23/Pyhon与-Numpy的不同/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/07/26/手势识别项目总结/" itemprop="commentCount"></span>
+                        data-disqus-identifier="2017/08/23/Pyhon与-Numpy的不同/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,10 +363,43 @@
       
 
       
-        <h2 id="序言"><a href="#序言" class="headerlink" title="序言"></a>序言</h2><p>此文章只是总结，没有任何技术干货。</p>
-<h2 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h2><p>这个项目是要在unity中使用opencv识别各种手势，一路过来也算是坎坷。<br>由于是在Unity中使用，所以我必须使用emgucv来进行识别。<br><a id="more"></a><br>第一步要做的就是如何将手与背景分隔开，一开始我使用的是一个实时构建背景的算法，所谓实时构建背景，就是在基于背景差分法的基础上检测图片中有哪些像素的颜色总是不变，如果某个像素的颜色长时间不变化的话，就把这个像素自动归为背景，后来我发现这个算法对于静态背景的手势识别十分不适合，因为你的手很有可能只在一小片地方活动，这样一来，它也会把你的手当做背景，所以强烈不推荐，后来我把它改成了单纯的背景差分法。</p>
-<p>背景分离过后就容易了，先找出轮廓，找出轮廓最小长方形，再找出缺陷点，然后直接对这些缺陷点进行位置判断就ok了。</p>
-<p>期间有一个问题耗了我很长时间，就是opencv中的vector在emgucv中的对应类型是vectorofXX，例如vector<point> 在emgucv中就是vertorofpoint，更有意思的是还有类型叫做vectorofvectorofpoint。opencv中的vec4i的对应类型是Mat，对，你只能用mat类型代替，然后再把mat拷贝到matrix中，就能获取mat中的数据了。<br><img src="http://img.blog.csdn.net/20170717000811724?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"></point></p>
+        <p><strong>一</strong>. list的元素可以是不同的类型，而ndarray只能包含同一种类型的元素。</p>
+<p><strong>二</strong>. 切片的返回值所表示的意义不同。</p>
+<pre><code>import numpy as np
+
+a=np.array([1,2,3,4,5,6])
+b=[1,2,3,4,5,6]
+
+c=a[:3]
+d= b[:3]
+c[0]=0
+d[0]=0
+id(a),id(b),id(c),id(d),a,b,c,d
+
+(82813000,
+ 82840912,
+ 82839456,
+ 82806144,
+ array([0, 2, 3, 4, 5, 6]),
+ [1, 2, 3, 4, 5, 6],
+ array([0, 2, 3]),
+ [0, 2, 3])
+</code></pre><p>由此可见列表切片的返回值是对切片范围的浅拷贝，而ndarray返回的是一个原ndarray的一个view，对这个view的任何修改实质上都是对原ndarray的修改。<br>如果不想得到view，可以通过copy（）得到深拷贝。</p>
+<pre><code>import numpy as np
+
+a=np.array([[1,2],[3,4]])
+b=a[:1].copy()
+b[0][0]=2
+a,b
+
+(array([[1, 2],
+        [3, 4]]), array([[2, 2]]))
+</code></pre><p>三.</p>
+<pre><code>import numpy as np​
+(1,2,3,4)*2,np.array([1,2,3,4])*2
+
+((1, 2, 3, 4, 1, 2, 3, 4), array([2, 4, 6, 8]))
+</code></pre><p>python的*代表着重复，而numpy代表着对每个元素相乘。</p>
 
       
     </div>
@@ -405,8 +436,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/关于做梦/" rel="next" title="关于梦">
-                <i class="fa fa-chevron-left"></i> 关于梦
+              <a href="/2017/08/21/单变量微积分/" rel="next" title="单变量微积分">
+                <i class="fa fa-chevron-left"></i> 单变量微积分
               </a>
             
           </div>
@@ -414,10 +445,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/26/CS231n 学习笔记/" rel="prev" title="卷积神经网络学习笔记">
-                卷积神经网络学习笔记 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -471,17 +498,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/tx.jpg"
@@ -534,22 +552,6 @@
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#序言"><span class="nav-number">1.</span> <span class="nav-text">序言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#正文"><span class="nav-number">2.</span> <span class="nav-text">正文</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -699,9 +701,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://lefenger.com/2017/07/26/手势识别项目总结/';
-          this.page.identifier = '2017/07/26/手势识别项目总结/';
-          this.page.title = '手势识别项目总结';
+          this.page.url = 'http://lefenger.com/2017/08/23/Pyhon与-Numpy的不同/';
+          this.page.identifier = '2017/08/23/Pyhon与-Numpy的不同/';
+          this.page.title = 'Pyhon与Numpy的不同';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://Lefenger.disqus.com/embed.js';

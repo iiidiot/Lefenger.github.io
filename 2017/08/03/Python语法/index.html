@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="摘抄自《Python核心编程》下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-20T15:02:09.934Z">
+<meta property="og:updated_time" content="2017-08-22T14:59:49.968Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python语法">
 <meta name="twitter:description" content="摘抄自《Python核心编程》下划线(_)在解释器中有特别的含义， 表示最后一个表达式的值。所以上面的代码执行之后，下划线变量会包含字符串： &amp;gt;&amp;gt;&amp;gt; _ Hello World! Python 的 print 语句，与字符串格式运算符( % )结合使用，可实现字符串替换功能，这一点和 C 语言中的 printf()函数非常相似：">
@@ -737,6 +737,69 @@ def foo1():
     return obj1, obj2, obj3 #返回的是元组
 </code></pre><hr>
 <p>(‘xyz’,)表示一个单元素元组，（’xyz’）表示的是字符串‘xyz’</p>
+<hr>
+<p>方法 Keys() 或 values() 返回<br>一个列表，该列表是可排序的。 你还可以用 items()方法得到包含键、值对的元组的列表来排序。<br>由于字典本身是哈希的，所以是无序的。</p>
+<hr>
+<pre><code>&gt;&gt;&gt; ddict = {}.fromkeys((&apos;x&apos;, &apos;y&apos;), -1)
+&gt;&gt;&gt; ddict
+{&apos;y&apos;: -1, &apos;x&apos;: -1}
+</code></pre><hr>
+<pre><code>&gt;&gt;&gt; &apos;server&apos; in dict2 # 或 dict2.has_key(&apos;server&apos;)
+False
+&gt;&gt;&gt; &apos;name&apos; in dict # 或 dict2.has_key(&apos;name&apos;)
+True
+&gt;&gt;&gt; dict2[&apos;name&apos;]
+&apos;earth&apos;
+</code></pre><hr>
+<p>字典的键必须是不可修改的类型。</p>
+<hr>
+<pre><code>&gt;&gt;&gt; dict(zip((&apos;x&apos;, &apos;y&apos;), (1, 2)))
+{&apos;y&apos;: 2, &apos;x&apos;: 1}
+&gt;&gt;&gt; dict([[&apos;x&apos;, 1], [&apos;y&apos;, 2]])
+{&apos;y&apos;: 2, &apos;x&apos;: 1}
+&gt;&gt;&gt; dict([(&apos;xy&apos;[i-1], i) for i in range(1,3)])
+{&apos;y&apos;: 2, &apos;x&apos;: 1}
+</code></pre><hr>
+<p>如果输入参数是(另)一个映射对象，比如，一个字典对象，对其调用 dict()会从存在的字典里<br>复制内容来生成新的字典。新生成的字典是原来字典对象的浅复制版本， 它与用字典的内建方法<br>copy() 生成的字典对象是一样的。但是从已存在的字典生成新的字典速度比用 copy()方法慢，我们<br>推荐使用 copy()。</p>
+<pre><code>&gt;&gt;&gt; dict(x=1, y=2)
+{&apos;y&apos;: 2, &apos;x&apos;: 1}
+</code></pre><hr>
+<pre><code>&gt;&gt;&gt; dict2= {&apos;host&apos;:&apos;earth&apos;, &apos;port&apos;:80}
+&gt;&gt;&gt; dict3= {&apos;host&apos;:&apos;venus&apos;, &apos;server&apos;:&apos;http&apos;}
+&gt;&gt;&gt; dict2.update(dict3)
+&gt;&gt;&gt; dict2
+{&apos;server&apos;: &apos;http&apos;, &apos;port&apos;: 80, &apos;host&apos;: &apos;venus&apos;}
+</code></pre><hr>
+<pre><code>&gt;&gt;&gt; myDict = {&apos;host&apos;: &apos;earth&apos;, &apos;port&apos;: 80}
+&gt;&gt;&gt; myDict.keys()
+[&apos;host&apos;, &apos;port&apos;]
+&gt;&gt;&gt; myDict.items()
+[(&apos;host&apos;, &apos;earth&apos;), (&apos;port&apos;, 80)]
+&gt;&gt;&gt; myDict.setdefault(&apos;port&apos;, 8080)
+&gt;&gt;&gt; myDict.setdefault(&apos;prot&apos;, &apos;tcp&apos;)
+&apos;tcp&apos;
+&gt;&gt;&gt; myDict.items()
+[(&apos;prot&apos;, &apos;tcp&apos;), (&apos;host&apos;, &apos;earth&apos;), (&apos;port&apos;, 80)]
+</code></pre><hr>
+<pre><code>&gt;&gt;&gt; s = set(&apos;cheeseshop&apos;)
+&gt;&gt;&gt; s
+set([&apos;c&apos;, &apos;e&apos;, &apos;h&apos;, &apos;o&apos;, &apos;p&apos;, &apos;s&apos;])
+&gt;&gt;&gt; t = frozenset(&apos;bookshop&apos;)
+&gt;&gt;&gt; t
+frozenset([&apos;b&apos;, &apos;h&apos;, &apos;k&apos;, &apos;o&apos;, &apos;p&apos;, &apos;s&apos;])
+&gt;&gt;&gt; type(s)
+&lt;type &apos;set&apos;&gt;
+&gt;&gt;&gt; type(t)
+&lt;type &apos;frozenset&apos;&gt;
+&gt;&gt;&gt; len(s)
+6
+&gt;&gt;&gt; len(s) == len(t) 
+True
+&gt;&gt;&gt; s == t
+False
+</code></pre><p>frozenset是不可变集合，set是可变集合。</p>
+<hr>
+<p>如果左右两个操作数的类型相同， 既都是可变集合或不可变集合, 则所产生的结果类型是相同<br>的，但如果左右两个操作数的类型不相同(左操作数是 set，右操作数是 frozenset，或相反情况)，Edit By Vheavens<br>Edit By Vheavens<br>则所产生的结果类型与左操作数的类型相同</p>
 
       
     </div>
@@ -864,7 +927,7 @@ def foo1():
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

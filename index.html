@@ -267,6 +267,335 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/23/Pyhon与-Numpy的不同/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/23/Pyhon与-Numpy的不同/" itemprop="url">Pyhon与Numpy的不同</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-23T17:02:50+08:00">
+                2017-08-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Numpy/" itemprop="url" rel="index">
+                    <span itemprop="name">Numpy</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/23/Pyhon与-Numpy的不同/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/23/Pyhon与-Numpy的不同/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>一</strong>. list的元素可以是不同的类型，而ndarray只能包含同一种类型的元素。</p>
+<p><strong>二</strong>. 切片的返回值所表示的意义不同。</p>
+<pre><code>import numpy as np
+
+a=np.array([1,2,3,4,5,6])
+b=[1,2,3,4,5,6]
+
+c=a[:3]
+d= b[:3]
+c[0]=0
+d[0]=0
+id(a),id(b),id(c),id(d),a,b,c,d
+
+(82813000,
+ 82840912,
+ 82839456,
+ 82806144,
+ array([0, 2, 3, 4, 5, 6]),
+ [1, 2, 3, 4, 5, 6],
+ array([0, 2, 3]),
+ [0, 2, 3])
+</code></pre><p>由此可见列表切片的返回值是对切片范围的浅拷贝，而ndarray返回的是一个原ndarray的一个view，对这个view的任何修改实质上都是对原ndarray的修改。<br>如果不想得到view，可以通过copy（）得到深拷贝。</p>
+<pre><code>import numpy as np
+
+a=np.array([[1,2],[3,4]])
+b=a[:1].copy()
+b[0][0]=2
+a,b
+
+(array([[1, 2],
+        [3, 4]]), array([[2, 2]]))
+</code></pre><p>三.</p>
+<pre><code>import numpy as np​
+(1,2,3,4)*2,np.array([1,2,3,4])*2
+
+((1, 2, 3, 4, 1, 2, 3, 4), array([2, 4, 6, 8]))
+</code></pre><p>python的*代表着重复，而numpy代表着对每个元素相乘。</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/21/单变量微积分/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/21/单变量微积分/" itemprop="url">单变量微积分</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-21T11:37:08+08:00">
+                2017-08-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/机器学习/" itemprop="url" rel="index">
+                    <span itemprop="name">机器学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/21/单变量微积分/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/21/单变量微积分/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>1.导数的解释：(1)切线的斜率为导数(2)瞬时变化率即为导数<br>2.在某点连续指的是在这一点的值与左右极限的值都相等。<br>3.sinx/x      </p>
+<ol>
+<li><img src="http://a2.qpic.cn/psb?/V107He8U4XfkDy/Na9Vm.dCquv4.kfog9utP0omFHf9BC6YDob5Dngyzgk!/b/dDwBAAAAAAAA&amp;bo=5QCwAAAAAAADB3c!&amp;rf=viewer_4" alt=""><br>5.可导必连续<br>证明：<img src="http://a3.qpic.cn/psb?/V107He8U4XfkDy/A1qE8YtYZzi2QXek2Ju4WPl26n7s.7EDs*mBf2ltX60!/b/dD0BAAAAAAAA&amp;bo=FANNAAAAAAADB3g!&amp;rf=viewer_4" alt=""><br>6.使用极限的原因之一是使0可以用x-x0代替（x无限趋于x0），这样一来，0就可以作为除数了。</li>
+</ol>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/20/Python中的浅拷贝与深拷贝/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -443,151 +772,6 @@ print(a,b)
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Batch Normalization层/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/14/Batch Normalization层/" itemprop="url">Batch Normalization层</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T13:42:05+08:00">
-                2017-08-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/神经网络/" itemprop="url" rel="index">
-                    <span itemprop="name">神经网络</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/14/Batch Normalization层/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/14/Batch Normalization层/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h1><p>我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Tricks/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -695,6 +879,151 @@ print(a,b)
 <h2 id="使用pseudo-lable"><a href="#使用pseudo-lable" class="headerlink" title="使用pseudo lable"></a>使用pseudo lable</h2><p>具体方法是：只将测试集或验证集的数据部分输入到网络之中进行预测，在把得到的lable和测试集或验证集的数据部分结合起来作为训练样本，并在训练时每个batch中只加入20%或30%pseudo训练样本。这个方法整个过程中测试集或验证集都作为未标记的数据，为什么能够有效呢，据说是学习了测试集的数据分布。</p>
 <h1 id="3-在样本集中我们可以得到哪些信息？"><a href="#3-在样本集中我们可以得到哪些信息？" class="headerlink" title="3.在样本集中我们可以得到哪些信息？"></a>3.在样本集中我们可以得到哪些信息？</h1><p>在进行一个任务之前，我们需要建立一个小的样本集来快速构建模型，那么我们可以从这个小的样本集中获得哪些信息呢？<br>1.我们可以得到合适的学习率<br>2.我们可以得到合适的数据增广方法。</p>
 <h1 id="技巧："><a href="#技巧：" class="headerlink" title="技巧："></a>技巧：</h1><p>1.将Batch Normalization层放在网络的第一层就可以不用自己对输入数据进行预处理（减均值，除标准差），它会帮我们弄好。<br>2.在训练时，我们可以先将学习率设的很小，再慢慢增大，再慢慢减小。<br>3.由于卷积层的计算需要大量的时间，因此如果我们不需要关注卷积层的话，可以将卷积层的输出保存起来，这被称为预计算。    </p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/14/Batch Normalization层/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lefenger">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/tx.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="AbstractSky">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/14/Batch Normalization层/" itemprop="url">Batch Normalization层</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-14T13:42:05+08:00">
+                2017-08-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/神经网络/" itemprop="url" rel="index">
+                    <span itemprop="name">神经网络</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/08/14/Batch Normalization层/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/08/14/Batch Normalization层/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h1><p>我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。</p>
 
           
         
@@ -1570,355 +1899,6 @@ print(c.shape)
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/10/Keras中的类与函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/10/Keras中的类与函数/" itemprop="url">Keras中的类与函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T13:59:49+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Deeplearning框架</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Deeplearning框架/Keras/" itemprop="url" rel="index">
-                    <span itemprop="name">Keras</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/10/Keras中的类与函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/10/Keras中的类与函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="注意点"><a href="#注意点" class="headerlink" title="注意点"></a>注意点</h1><p>1.data_mode的默认值是”channel last“，在构建网络时一定要注意。</p>
-<hr>
-<h1 id="models-py"><a href="#models-py" class="headerlink" title="models.py"></a>models.py</h1><h3 id="Sequential"><a href="#Sequential" class="headerlink" title="Sequential"></a>Sequential</h3><p>该类用于表示一个网络模型,并继承于Model类</p>
-<hr>
-<pre><code>save_weights(filepath)  
-</code></pre><p>该函数用于将模型的权重保存为一个h5文件。</p>
-<hr>
-<h1 id="image-py"><a href="#image-py" class="headerlink" title="image.py"></a>image.py</h1><h3 id="ImageDataGenerator"><a href="#ImageDataGenerator" class="headerlink" title="ImageDataGenerator"></a>ImageDataGenerator</h3><p>ImageDataGenerator类继承于object，可随着图片数目的动态增加实时对图片进行预处理并生成图片序列。</p>
-<hr>
-<pre><code>flow_from_directory(directory,target_size=(256,256),color_mode=&apos;rgb&apos;,classes=None,class_mode=&apos;categories&apos;,batch_size=32,shuffle=True,seed=None,save_to_dir=None,save_prefix=&apos;&apos;,save_format=&apos;png&apos;,follow_links=False)
-</code></pre><p>其中directory是路径，这个函数会将路径下的没一个文件夹视为一个分类，并对每个文件夹中的所有图片进行预处理，target_size便是预处理后的图片大小，class_mode默认为‘categories’，这样在将图片输入到网络中时会同时将对应的lable输入，而如果设置class_mode为None的话，则将只会输入图片。<br>要注意的是，这里的batch_size应该只是预处理时的batch_size，而与网络的batch_size无关。<br>shuffle是表示是否将图片打乱，<br>save_to_dir表示是否将处理后的图片保存。</p>
-<hr>
-<pre><code>flow（x,y=None,batch_size=32,shuffle=True,seed=None,save_to_dir=None,save_prefix=&apos;&apos;,save_format=&apos;png&apos;）
-</code></pre><p>此函数也是用于对图片进行预处理并读取样本集。x为样本图片，y为lable，其余都和flow_from_directory一样，与flow_from_directory的区别是，flow_from_directory是从本地路径中读取样本，而flow是从内存中读取。</p>
-<hr>
-<h1 id="training-py"><a href="#training-py" class="headerlink" title="training.py"></a>training.py</h1><h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>Model类，继承于Container类。  </p>
-<hr>
-<pre><code>predict_generator(generator,steps,max_queue_size=10,workers=1,use_multiprocessing=False,verbose=0)   
-</code></pre><p>该函数对输入的样本直接进行预测，即将generator输入到网络中并得出结果。<br>generator是经过预处理过后的样本集。<br>step为分为几个batch来完成预测。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://lefenger.com/2017/08/10/Python简单函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Lefenger">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/tx.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="AbstractSky">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/08/10/Python简单函数/" itemprop="url">Python简单函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-08-10T13:22:32+08:00">
-                2017-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/08/10/Python简单函数/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2017/08/10/Python简单函数/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="glob模块"><a href="#glob模块" class="headerlink" title="glob模块"></a>glob模块</h2><p>glob模块：是一个文件搜索模块，查找文件只用到三个匹配符：”<em>”, “?”, “[]”。”</em>”匹配0个或多个字符；”?”匹配单个字符；”[]”匹配指定范围内的字符，如：[0-9]匹配数字。</p>
-<p>glob（pathname）函数，返回所有匹配的文件路径列表。它只有一个参数pathname，定义了文件路径匹配规则，这里可以是绝对路径，也可以是相对路径。下面是使用glob.glob的例子：</p>
-<pre><code>import glob
-
-#获取指定目录下的所有图片
-print glob.glob(r&quot;E:/Picture/*/*.jpg&quot;)
-
-#获取上级目录的所有.py文件
-print glob.glob(r&apos;../*.py&apos;) #相对路径
-</code></pre><p>glob.iglob（pathname）函数,获取一个可编历对象，使用它可以逐个获取匹配的文件路径名。与glob.glob()的区别是：glob.glob同时获取所有的匹配路径，而glob.iglob一次只获取一个匹配路径。这有点类似于.NET中操作数据库用到的DataSet与DataReader。下面是一个简单的例子：</p>
-<pre><code>import glob
-
-#父目录中的.py文件
-f = glob.iglob(r&apos;../*.py&apos;)
-
-print f #&lt;generator object iglob at 0x00B9FF80&gt;
-
-for py in f:
-    print py
-</code></pre><hr>
-<h2 id="shutil模块"><a href="#shutil模块" class="headerlink" title="shutil模块"></a>shutil模块</h2><p>shutil.copyfile(src, dst),shutil模块中的函数，对文件进行复制。</p>
-<hr>
-<h2 id="os模块"><a href="#os模块" class="headerlink" title="os模块"></a>os模块</h2><p>os.rename(src, dst)，os模块中的函数，类似于命令mv，即可对文件进行重命名，也可以对文件进行移动。</p>
-<hr>
-<h2 id="bcolz模块"><a href="#bcolz模块" class="headerlink" title="bcolz模块"></a>bcolz模块</h2><p>保存数组   </p>
-<pre><code>def save_array(fname,arr):      
-    c=bcolz.carray(arr,rootdir=fname,mode=&apos;w&apos;)       
-    c.flush()
-</code></pre><p>读取数组    </p>
-<pre><code>def load_array(fname):      
-    return bcolz.open(fname)[:]
-</code></pre>
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1968,7 +1948,7 @@ for py in f:
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>

@@ -102,7 +102,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://img.blog.csdn.net/20170618103257690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
 <meta property="og:image" content="http://img.blog.csdn.net/20170618105724729?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast">
-<meta property="og:updated_time" content="2017-07-26T09:46:23.528Z">
+<meta property="og:updated_time" content="2017-08-24T03:14:29.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="《编程范式》学习笔记">
 <meta name="twitter:description" content="(一)编程范式（1）八位能表示最大的数是多少？为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1 （2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便">
@@ -368,7 +368,7 @@
       
         <p>(一)编程范式<br>（1）八位能表示最大的数是多少？<br>为255，最多能表示256个数（包括0），2^x=2^0+2^1+2^2+2^3+…………+2^(x-1)+1</p>
 <p>（2）二进制计算：负整数与正整数相加的结果0时，是如何进行二进制运算的？<br>以short类型（2字节）为例，00000000 00001111 与10000000 00001111相加，对后者取反加1得到11111111 11110001，相加便得到00000000 00000000。-1的二进制表示是个例外，以short为例，为11111111 11111111，因为1的表示为0000 0001，相加正好为0。<br><a id="more"></a><br>（3）不同数据类型之间的赋值<br>字节数小的赋值给字节数大的，例char赋值给short，00001111转化为short类型，结果为00000000 00001111。字节数大的赋值给字节数小的，例01010000 00001111转化为char类型，则舍弃多余的字节得到00001111，在这里有个误区，例A类型最大能表示的值为100，现在想要将值为123的B类型转化为A类型，不能想当然的认为转换后为100。另外由于-1的char表示为1111 1111，若要将其转化为short类型，需要进行符号扩展，从而变成11111111 11111111。</p>
-<p>（4）浮点数的二进制是如何表示的，以float为例？<br>数学公式为 （符号位）1.xxxx*2^(exp-127)         exp为八位无符号整型，范围为-255~255<br>[符号位][八位无符号整型，即exp][23位表示小数（2^-x），即.xxxx]</p>
+<p>（4）浮点数的二进制是如何表示的，以float为例？<br>数学公式为 （符号位）1.xxxx*2^(exp-127)         exp为八位无符号整型，exp-127范围为-127到128，这实际上是23位二进制的平移方向和距离，正数向右移，负数向左移。<br>[符号位][八位无符号整型，即exp][23位表示小数（2^-x），即.xxxx]<br>以4.5举例，将4.5转换为float的内存存储形式。先将4.5转换为二进制为100.1，由于要保证左边只留一个1，所以向右移两位，因此exp-127=2，exp为129，平移之后得到1.001，将其各部分按照公式转换可得：0（符号位）1000 0001（指数位）0010 0000 0000 0000 0000 000（底数位）</p>
 <p>（5）强制类型转换（简单讲讲）<br>float j=4.0；<br>int i=<em>（int </em>）&amp;j；<br>此时j的各位值都不会变，而i会照搬其各位的值，当然，获得的值不是4。<br>float j=4.0；<br>short i=<em>（short </em>）&amp;j；<br>此时short类型只有2个字节，因此只将float的前两个字节的数照搬过来。<br>（二）C语言<br>（1）struct</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">struct exm</div><div class="line">&#123;</div><div class="line">	int a;</div><div class="line">	int b;</div><div class="line">&#125;</div><div class="line">exm sa;</div><div class="line">sa.a=1;</div><div class="line">sa.b=2;</div><div class="line">print (exm *)&amp;（sa.b）-&gt;a</div></pre></td></tr></table></figure>
 <p>得出的结果为2，其中原理如图：<br><img src="http://img.blog.csdn.net/20170618103257690?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>(exm *)&amp;（sa.b）-&gt;b=3;<br><img src="http://img.blog.csdn.net/20170618105724729?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvQWJzdHJhY3RTa3k=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast" alt="这里写图片描述"><br>print((&amp;sa)[1].a)     输出为3，其中原因为把&amp;sa当成了数组首地址，基础单位为exm。</p>
@@ -423,8 +423,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/关于做梦/" rel="next" title="关于梦">
-                <i class="fa fa-chevron-left"></i> 关于梦
+              <a href="/2017/07/26/MFC与stdafx/" rel="next" title="MFC与stdafx">
+                <i class="fa fa-chevron-left"></i> MFC与stdafx
               </a>
             
           </div>
@@ -505,7 +505,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">55</span>
+                <span class="site-state-item-count">57</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
