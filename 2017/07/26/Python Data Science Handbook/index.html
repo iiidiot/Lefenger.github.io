@@ -100,7 +100,7 @@
 <meta property="og:site_name" content="AbstractSky">
 <meta property="og:description" content="第一章 Jupyter1. In [1]: help(len)    Help on built-in function len in module builtins:    len(...)     len(object) -&amp;gt; integer Return the number of items of a sequence or mapping.  In [2]: len? Type:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-24T12:57:49.043Z">
+<meta property="og:updated_time" content="2017-08-30T08:52:44.494Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Python Data Science Handbook">
 <meta name="twitter:description" content="第一章 Jupyter1. In [1]: help(len)    Help on built-in function len in module builtins:    len(...)     len(object) -&amp;gt; integer Return the number of items of a sequence or mapping.  In [2]: len? Type:">
@@ -379,7 +379,7 @@ len(object) -&gt; integer
 Return the number of items of a sequence or mapping.
 </code></pre><p>2.使用？？查看源码</p>
 <p>3.%run myscript.py<br>可以通过%run来执行外部代码，并且执行过后就可以其中的函数和类了。</p>
-<p>4.通过%timeit可以对函数的执行进行计时。即得到运行的函数所要使用的时间。 </p>
+<p>4.通过%timeit可以对函数的执行进行计时。即得到运行的函数所要使用的时间。</p>
 <pre><code>%timeit d=1
 13.7 ns ± 0.0334 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
 </code></pre><p>也可以对多步进行计时</p>
@@ -464,7 +464,7 @@ Out[21]: array([ 1., 1., 1.])
 <pre><code>In[50]: x = [1, 2, 3, 99, 99, 3, 2, 1]
 x1, x2, x3 = np.split(x, [3, 5])
 print(x1, x2, x3)
-[1 2 3] [99 99] [3 2 1] 
+[1 2 3] [99 99] [3 2 1]
 In[51]: grid = np.arange(16).reshape((4, 4))
 grid
 Out[51]: array([[ 0, 1, 2, 3],
@@ -506,6 +506,8 @@ array([[ 6,  7,  8,  9],
           [ 9, 10, 11, 12]])
 </code></pre><p>也可以使用outer（）来得到拥有两个轴的矩阵。</p>
 <p>9.np.sum(L) 计算庞大数据时，避免使用python内置的sum（）。<br>np.min(big_array), np.max(big_array)同理。并且对于多维数组，可以通过axis来设置计算方式。</p>
+<p>10.布尔矩阵，对ndarray操作得到布尔矩阵，并可通过将布尔矩阵作为index进行mask操作。</p>
+<p>11.Fancy indexing<br>有多少维度便输入多少个数组，这些数组组成各个元素的下标。<br>也可以不输入数组，直接输入index或切片。</p>
 
       
     </div>
@@ -542,8 +544,8 @@ array([[ 6,  7,  8,  9],
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/26/Unity 贝塞尔曲线/" rel="next" title="Unity 贝塞尔曲线">
-                <i class="fa fa-chevron-left"></i> Unity 贝塞尔曲线
+              <a href="/2017/07/26/Unity UGUI 学习（一）——关于Canvas/" rel="next" title="Unity UGUI 学习（一）——关于Canvas">
+                <i class="fa fa-chevron-left"></i> Unity UGUI 学习（一）——关于Canvas
               </a>
             
           </div>
@@ -552,8 +554,8 @@ array([[ 6,  7,  8,  9],
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/07/26/OpenGL（一）——环境配置/" rel="prev" title="OpenGL（一）——环境配置">
-                OpenGL（一）——环境配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/07/26/Opengl（四）——着色器/" rel="prev" title="Opengl（四）——着色器">
+                Opengl（四）——着色器 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
