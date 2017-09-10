@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="Batch Normalization层我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。">
+<meta name="description" content="Batch Normalization层 我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。  所有网络中都应该使用BN层，他能使网络块10倍,因为学习率可以调大了，且由于不会出现某个值十分大或十分小的情况，曾经许多不能的网络也都可以训练了，  BN能够很好的预防过拟合，因此可以减少Dropout的使用量。  BN层">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Batch Normalization层">
 <meta property="og:url" content="http://lefenger.com/2017/08/14/Batch Normalization层/index.html">
 <meta property="og:site_name" content="AbstractSky">
-<meta property="og:description" content="Batch Normalization层我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。">
+<meta property="og:description" content="Batch Normalization层 我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。  所有网络中都应该使用BN层，他能使网络块10倍,因为学习率可以调大了，且由于不会出现某个值十分大或十分小的情况，曾经许多不能的网络也都可以训练了，  BN能够很好的预防过拟合，因此可以减少Dropout的使用量。  BN层">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-08-14T07:07:59.472Z">
+<meta property="og:updated_time" content="2017-09-06T09:15:20.489Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Batch Normalization层">
-<meta name="twitter:description" content="Batch Normalization层我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。">
+<meta name="twitter:description" content="Batch Normalization层 我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。  所有网络中都应该使用BN层，他能使网络块10倍,因为学习率可以调大了，且由于不会出现某个值十分大或十分小的情况，曾经许多不能的网络也都可以训练了，  BN能够很好的预防过拟合，因此可以减少Dropout的使用量。  BN层">
 
 
 
@@ -363,7 +363,18 @@
       
 
       
-        <h1 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h1><p>我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。</p>
+        <h1 id="Batch-Normalization层"><a href="#Batch-Normalization层" class="headerlink" title="Batch Normalization层"></a>Batch Normalization层</h1><ol>
+<li><p>我们可以通过标准化输入来避免网络中局部数据十分大或十分小（不在同一个数值范围），同时我们也需要标准化激活函数的输出来保证网络的稳定。</p>
+</li>
+<li><p>所有网络中都应该使用BN层，他能使网络块10倍,因为学习率可以调大了，且由于不会出现某个值十分大或十分小的情况，曾经许多不能的网络也都可以训练了，</p>
+</li>
+<li><p>BN能够很好的预防过拟合，因此可以减少Dropout的使用量。</p>
+</li>
+<li><p>BN层事实上是对上一层的激活层的输出结果进行标准化，即减去均值并除以标准差。但SGD会在训练时Undo这个操作，因此BN采取了如下两种方法来解决：<br>（1）Add two more trainable parameters to each layer one to multiply all activations to set an arbitrary standard deviation, and one to add to all activations to set an arbitary mean.<br>（2）Incorporate both the normalization, and the learnt multiply/add parameters, into the gradient calculations during backprop.<br>举个例子，如果在一个全连接层后面加入BN，假设这个全连接层中有70个神经元，那么BN的参数就是280个，70（实际用于标准化的均值）+70（实际用于标准化的标准差）+70（用于Undo的标准差）+70（用于Undo的均值）</p>
+</li>
+<li><p>如果想要在已经训练好的网络中加入BN，必须先计算出训练这个网络时所使用的数据集在网络中需要加入BN的前一层的激活值的均值和标准差，并将计算出的值赋到BN的所有参数上（包括实际用于标准化的参数）。</p>
+</li>
+</ol>
 
       
     </div>
@@ -400,8 +411,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/08/13/对神经网络的思考与总结/" rel="next" title="对神经网络的思考与总结">
-                <i class="fa fa-chevron-left"></i> 对神经网络的思考与总结
+              <a href="/2017/08/14/Tricks/" rel="next" title="Tricks">
+                <i class="fa fa-chevron-left"></i> Tricks
               </a>
             
           </div>
@@ -410,8 +421,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/08/14/Tricks/" rel="prev" title="Tricks">
-                Tricks <i class="fa fa-chevron-right"></i>
+              <a href="/2017/08/20/Python中的浅拷贝与深拷贝/" rel="prev" title="Python中的浅拷贝与深拷贝">
+                Python中的浅拷贝与深拷贝 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -491,7 +502,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
